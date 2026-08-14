@@ -198,3 +198,160 @@ main {
     }
 
 }
+/* =========================
+   TELA DA MESA
+========================= */
+
+.resumo-mesa {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    margin-bottom: 18px;
+
+    box-shadow: 0 5px 14px rgba(0,0,0,.08);
+}
+
+
+.linha-resumo {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 12px 0;
+}
+
+
+.linha-resumo:first-child {
+    border-bottom: 1px solid #eee;
+}
+
+
+.linha-resumo span {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+#statusMesa {
+    color: #3ba55d;
+}
+
+
+#valorMesa {
+    color: #245d88;
+
+    font-size: 21px;
+}
+
+
+/* =========================
+   AÇÕES
+========================= */
+
+.acoes-mesa {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.acoes-mesa button,
+.btn-voltar {
+    width: 100%;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 17px 14px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.btn-pedido {
+    background: #245d88;
+
+    color: white;
+}
+
+
+.btn-consumo {
+    background: white;
+
+    color: #245d88;
+
+    border: 2px solid #245d88 !important;
+}
+
+
+.btn-fechar {
+    background: #e39a2d;
+
+    color: white;
+}
+
+
+.btn-voltar {
+    margin-top: 18px;
+
+    background: #e5e7e9;
+
+    color: #444;
+}
+
+
+/* =========================
+   CONSUMO
+========================= */
+
+.consumo-mesa {
+    display: none;
+
+    background: white;
+
+    margin-top: 18px;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 14px rgba(0,0,0,.08);
+}
+
+
+.consumo-mesa.mostrar {
+    display: block;
+}
+
+
+.consumo-mesa h2 {
+    margin: 0 0 15px;
+
+    font-size: 18px;
+}
+
+
+.mesa-vazia {
+    margin: 0;
+
+    padding: 18px 0;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    color: #888;
+}
