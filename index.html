@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Comandas - Hotel do Baú</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="topo">
+
+    <h1>Hotel do Baú</h1>
+    <p>Comandas</p>
+
+</header>
+
+
+<main>
+
+    <section class="titulo-mesas">
+
+        <h2>Mesas</h2>
+
+        <p>
+            Selecione uma mesa
+        </p>
+
+    </section>
+
+
+    <section class="legenda">
+
+        <span>🟢 Livre</span>
+        <span>🔵 Ocupada</span>
+        <span>🟠 Pagamento</span>
+
+    </section>
+
+
+    <section class="mesas" id="mesas">
+
+        <button class="mesa livre" onclick="abrirMesa(1)">
+            <strong>01</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(2)">
+            <strong>02</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(3)">
+            <strong>03</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(4)">
+            <strong>04</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(5)">
+            <strong>05</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(6)">
+            <strong>06</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(7)">
+            <strong>07</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(8)">
+            <strong>08</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(9)">
+            <strong>09</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(10)">
+            <strong>10</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(11)">
+            <strong>11</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(12)">
+            <strong>12</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(13)">
+            <strong>13</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(14)">
+            <strong>14</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(15)">
+            <strong>15</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(16)">
+            <strong>16</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(17)">
+            <strong>17</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(18)">
+            <strong>18</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(19)">
+            <strong>19</strong>
+            <span>Livre</span>
+        </button>
+
+        <button class="mesa livre" onclick="abrirMesa(20)">
+            <strong>20</strong>
+            <span>Livre</span>
+        </button>
+
+    </section>
+
+</main>
+
+
+<script>
+
+function abrirMesa(numero) {
+
+    localStorage.setItem("mesaSelecionada", numero);
+
+    window.location.href = "mesa.html";
+}
+
+</script>
+
+</body>
+
+</html>
