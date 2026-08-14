@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mesa - Hotel do Baú</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="topo">
+
+    <h1 id="tituloMesa">Mesa</h1>
+
+    <p>Comanda</p>
+
+</header>
+
+
+<main>
+
+    <section class="resumo-mesa">
+
+        <div class="linha-resumo">
+
+            <span>Status</span>
+
+            <strong id="statusMesa">
+                Livre
+            </strong>
+
+        </div>
+
+
+        <div class="linha-resumo">
+
+            <span>Consumo atual</span>
+
+            <strong id="valorMesa">
+                R$ 0,00
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <section class="acoes-mesa">
+
+        <button
+            class="btn-pedido"
+            onclick="novoPedido()">
+
+            ➕ Novo pedido
+
+        </button>
+
+
+        <button
+            class="btn-consumo"
+            onclick="verConsumo()">
+
+            🧾 Ver consumo
+
+        </button>
+
+
+        <button
+            class="btn-fechar"
+            onclick="fecharMesa()">
+
+            💰 Fechar mesa
+
+        </button>
+
+    </section>
+
+
+    <section
+        class="consumo-mesa"
+        id="consumoMesa">
+
+        <h2>
+            Consumo da mesa
+        </h2>
+
+
+        <div id="listaConsumo">
+
+            <p class="mesa-vazia">
+                Nenhum item lançado nesta mesa.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <button
+        class="btn-voltar"
+        onclick="voltarMesas()">
+
+        ← Voltar para mesas
+
+    </button>
+
+</main>
+
+
+<script>
+
+const numeroMesa =
+    localStorage.getItem("mesaSelecionada");
+
+
+if (!numeroMesa) {
+
+    window.location.href = "index.html";
+
+}
+
+
+document.getElementById("tituloMesa").textContent =
+    "Mesa " + String(numeroMesa).padStart(2, "0");
+
+
+
+// =========================
+// NOVO PEDIDO
+// =========================
+
+function novoPedido() {
+
+    window.location.href = "pedido.html";
+
+}
+
+
+
+// =========================
+// VER CONSUMO
+// =========================
+
+function verConsumo() {
+
+    const consumo =
+        document.getElementById("consumoMesa");
+
+    consumo.classList.toggle("mostrar");
+
+}
+
+
+
+// =========================
+// FECHAR MESA
+// =========================
+
+function fecharMesa() {
+
+    alert(
+        "O fechamento da mesa será configurado depois que criarmos os pedidos."
+    );
+
+}
+
+
+
+// =========================
+// VOLTAR
+// =========================
+
+function voltarMesas() {
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
