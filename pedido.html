@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Novo Pedido - Hotel do Baú</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="topo">
+
+    <h1 id="tituloMesa">
+        Novo Pedido
+    </h1>
+
+    <p>
+        Selecione os itens
+    </p>
+
+</header>
+
+
+<main>
+
+    <section class="busca-produtos">
+
+        <input
+            type="text"
+            id="buscar"
+            placeholder="🔍 Buscar produto"
+        >
+
+    </section>
+
+
+    <section
+        id="listaProdutos"
+        class="lista-produtos">
+
+        <!-- Produtos carregados pelo JavaScript -->
+
+    </section>
+
+
+    <section class="resumo-pedido">
+
+        <div>
+            <span>Itens</span>
+            <strong id="qtdItens">0</strong>
+        </div>
+
+        <div>
+            <span>Total</span>
+            <strong id="totalPedido">
+                R$ 0,00
+            </strong>
+        </div>
+
+    </section>
+
+
+    <section class="observacao-pedido">
+
+        <label for="observacao">
+            📝 Observação
+        </label>
+
+        <textarea
+            id="observacao"
+            placeholder="Ex.: sem cebola, ponto da carne..."
+        ></textarea>
+
+    </section>
+
+
+    <section class="acoes-pedido">
+
+        <button
+            class="btn-pedido"
+            onclick="enviarPedido()">
+
+            ✅ Enviar para produção
+
+        </button>
+
+
+        <button
+            class="btn-voltar"
+            onclick="voltarMesa()">
+
+            ← Voltar para mesa
+
+        </button>
+
+    </section>
+
+</main>
+
+
+<script src="dados/produtos.js"></script>
+<script src="js/pedido.js"></script>
+
+</body>
+
+</html>
