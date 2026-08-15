@@ -8,10 +8,18 @@ const totalPedido = document.getElementById("totalPedido");
 const numeroMesa = localStorage.getItem("mesaSelecionada");
 
 
+// ===========================
+// VERIFICA MESA
+// ===========================
+
 if (!numeroMesa) {
+
     window.location.href = "index.html";
+
 }
 
+
+// TÍTULO
 
 document.getElementById("tituloMesa").textContent =
     "Mesa " + String(numeroMesa).padStart(2, "0");
@@ -25,6 +33,7 @@ function obterImagem(produto) {
 
     const nome = produto.nome.toLowerCase();
 
+
     if (produto.categoria === "Cafeteria") {
 
         if (
@@ -33,29 +42,39 @@ function obterImagem(produto) {
             nome.includes("affogato") ||
             nome.includes("mochac")
         ) {
+
             return "img/cappuccino-espresso.webp";
+
         }
 
         return "img/cafe-espresso.webp";
+
     }
 
 
     if (produto.categoria === "Salgados") {
+
         return "img/salgados.webp";
+
     }
 
 
     if (produto.categoria === "Lanches") {
+
         return "img/lanche.webp";
+
     }
 
 
     if (produto.categoria === "Pratos feitos") {
+
         return "img/pf.webp";
+
     }
 
 
     return "";
+
 }
 
 
@@ -67,19 +86,28 @@ function carregarProdutos(filtro = "") {
 
     listaProdutos.innerHTML = "";
 
+
     const categorias = [
-        ...new Set(produtos.map(produto => produto.categoria))
+
+        ...new Set(
+            produtos.map(produto => produto.categoria)
+        )
+
     ];
 
+
     const iconesCategoria = {
+
         "Cafeteria": "☕",
         "Salgados": "🥐",
         "Lanches": "🥪",
         "Pratos feitos": "🍽️"
+
     };
 
 
     categorias.forEach(categoria => {
+
 
         const itens = produtos.filter(produto =>
 
@@ -93,186 +121,74 @@ function carregarProdutos(filtro = "") {
 
 
         if (itens.length === 0) {
+
             return;
+
         }
 
 
-        const grupo = document.createElement("section");
-        grupo.className = "grupo-categoria";
-
-
-        const titulo = document.createElement("button");
-        titulo.className = "categoria-produto";
-
-        titulo.innerHTML = `
-            <span>
-                ${iconesCategoria[categoria] || "🍴"}
-                ${categoria}
-            </span>
-
-            <span class="seta-categoria">▼</span>
-        `;
-
-
-        const conteudo = document.createElement("div");
-        conteudo.className = "conteudo-categoria";
-
-
-        itens.forEach(produto => {
-
-            const itemCarrinho =
-                carrinho.find(item => item.id === produto.id);
-
-            const quantidade =
-                itemCarrinho ? itemCarrinho.quantidade : 0;
-
-            const imagem =
-                obterImagem(produto);
-
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "produto-card";
-
-
-            card.innerHTML = `
-
-                <img
-                    src="${imagem}"
-                    alt="${produto.nome}"
-                    class="foto-produto"
-                >
-
-                <div class="produto-info">
-
-                    <h3>${produto.nome}</h3>
-
-                    <p>
-                        R$ ${produto.preco.toFixed(2)}
-                    </p>
-
-                </div>
-
-
-                <div class="controle-produto">
-
-                    <button onclick="alterarQuantidade(${produto.id}, -1)">
-                        −
-                    </button>
-
-                    <strong>
-                        ${quantidade}
-                    </strong>
-
-                    <button onclick="alterarQuantidade(${produto.id}, 1)">
-                        +
-                    </button>
-
-                </div>
-
-            `;
-
-
-            conteudo.appendChild(card);
-
-        });
-
-
-        titulo.addEventListener("click", () => {
-
-            const aberta =
-                conteudo.classList.toggle("aberta");
-
-            titulo.classList.toggle(
-                "ativo",
-                aberta
-            );
-
-        });
-
-
-        grupo.appendChild(titulo);
-        grupo.appendChild(conteudo);
-
-        listaProdutos.appendChild(grupo);
-
-    });
-
-}
-
-        function carregarProdutos(filtro = "") {
-
-    listaProdutos.innerHTML = "";
-
-    const categorias = [
-        ...new Set(produtos.map(produto => produto.categoria))
-    ];
-
-    const iconesCategoria = {
-        "Cafeteria": "☕",
-        "Salgados": "🥐",
-        "Lanches": "🥪",
-        "Pratos feitos": "🍽️"
-    };
-
-
-    categorias.forEach(categoria => {
-
-        const itens = produtos.filter(produto =>
-
-            produto.categoria === categoria &&
-
-            produto.nome
-                .toLowerCase()
-                .includes(filtro.toLowerCase())
-
-        );
-
-
-        if (itens.length === 0) {
-            return;
-        }
-
-
+        // ===========================
         // CARD DA CATEGORIA
+        // ===========================
 
-        const grupo = document.createElement("section");
+        const grupo =
+            document.createElement("section");
 
-        grupo.className = "grupo-categoria";
+
+        grupo.className =
+            "grupo-categoria";
 
 
-        // CABEÇALHO DA CATEGORIA
+        // CABEÇALHO
 
-        const titulo = document.createElement("button");
+        const titulo =
+            document.createElement("button");
 
-        titulo.className = "categoria-produto";
+
+        titulo.type = "button";
+
+        titulo.className =
+            "categoria-produto";
+
 
         titulo.innerHTML = `
+
             <span>
                 ${iconesCategoria[categoria] || "🍴"}
                 ${categoria}
             </span>
 
-            <span class="seta-categoria">⌄</span>
+            <span class="seta-categoria">
+                ▼
+            </span>
+
         `;
 
 
-        // CONTEÚDO DA CATEGORIA
+        // PRODUTOS
 
-        const conteudo = document.createElement("div");
+        const conteudo =
+            document.createElement("div");
 
-        conteudo.className = "conteudo-categoria";
+
+        conteudo.className =
+            "conteudo-categoria";
 
 
         itens.forEach(produto => {
 
+
             const itemCarrinho =
-                carrinho.find(item => item.id === produto.id);
+                carrinho.find(
+                    item => item.id === produto.id
+                );
+
 
             const quantidade =
-                itemCarrinho ? itemCarrinho.quantidade : 0;
+                itemCarrinho
+                    ? itemCarrinho.quantidade
+                    : 0;
+
 
             const imagem =
                 obterImagem(produto);
@@ -280,6 +196,7 @@ function carregarProdutos(filtro = "") {
 
             const card =
                 document.createElement("div");
+
 
             card.className =
                 "produto-card";
@@ -292,6 +209,7 @@ function carregarProdutos(filtro = "") {
                     alt="${produto.nome}"
                     class="foto-produto"
                 >
+
 
                 <div class="produto-info">
 
@@ -308,15 +226,21 @@ function carregarProdutos(filtro = "") {
 
                 <div class="controle-produto">
 
-                    <button onclick="alterarQuantidade(${produto.id}, -1)">
+                    <button
+                        type="button"
+                        onclick="alterarQuantidade(${produto.id}, -1)">
                         −
                     </button>
+
 
                     <strong>
                         ${quantidade}
                     </strong>
 
-                    <button onclick="alterarQuantidade(${produto.id}, 1)">
+
+                    <button
+                        type="button"
+                        onclick="alterarQuantidade(${produto.id}, 1)">
                         +
                     </button>
 
@@ -330,13 +254,28 @@ function carregarProdutos(filtro = "") {
         });
 
 
-        titulo.addEventListener("click", () => {
+        // ===========================
+        // ABRIR / FECHAR CATEGORIA
+        // ===========================
 
-            conteudo.classList.toggle("aberta");
+        titulo.addEventListener(
+            "click",
+            function () {
 
-            titulo.classList.toggle("ativo");
 
-        });
+                const aberta =
+                    conteudo.classList.toggle(
+                        "aberta"
+                    );
+
+
+                titulo.classList.toggle(
+                    "ativo",
+                    aberta
+                );
+
+            }
+        );
 
 
         grupo.appendChild(titulo);
@@ -344,74 +283,6 @@ function carregarProdutos(filtro = "") {
         grupo.appendChild(conteudo);
 
         listaProdutos.appendChild(grupo);
-
-    });
-
-}
-
-
-        itens.forEach(produto => {
-
-            const itemCarrinho =
-                carrinho.find(item => item.id === produto.id);
-
-            const quantidade =
-                itemCarrinho ? itemCarrinho.quantidade : 0;
-
-            const imagem =
-                obterImagem(produto);
-
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "produto-card";
-
-
-            card.innerHTML = `
-
-                <img
-                    src="${imagem}"
-                    alt="${produto.nome}"
-                    class="foto-produto"
-                >
-
-                <div class="produto-info">
-
-                    <h3>
-                        ${produto.nome}
-                    </h3>
-
-                    <p>
-                        R$ ${produto.preco.toFixed(2)}
-                    </p>
-
-                </div>
-
-
-                <div class="controle-produto">
-
-                    <button onclick="alterarQuantidade(${produto.id}, -1)">
-                        −
-                    </button>
-
-                    <strong>
-                        ${quantidade}
-                    </strong>
-
-                    <button onclick="alterarQuantidade(${produto.id}, 1)">
-                        +
-                    </button>
-
-                </div>
-
-            `;
-
-
-            listaProdutos.appendChild(card);
-
-        });
 
     });
 
@@ -425,19 +296,27 @@ function carregarProdutos(filtro = "") {
 function alterarQuantidade(id, valor) {
 
     const produto =
-        produtos.find(produto => produto.id === id);
+        produtos.find(
+            produto => produto.id === id
+        );
 
 
     let item =
-        carrinho.find(item => item.id === id);
+        carrinho.find(
+            item => item.id === id
+        );
 
 
     if (!item && valor > 0) {
 
         item = {
+
             ...produto,
+
             quantidade: 0
+
         };
+
 
         carrinho.push(item);
 
@@ -445,7 +324,9 @@ function alterarQuantidade(id, valor) {
 
 
     if (!item) {
+
         return;
+
     }
 
 
@@ -455,7 +336,9 @@ function alterarQuantidade(id, valor) {
     if (item.quantidade <= 0) {
 
         carrinho =
-            carrinho.filter(item => item.id !== id);
+            carrinho.filter(
+                item => item.id !== id
+            );
 
     }
 
@@ -468,7 +351,7 @@ function alterarQuantidade(id, valor) {
 
 
 // ===========================
-// RESUMO
+// ATUALIZAR RESUMO
 // ===========================
 
 function atualizarResumo() {
@@ -480,10 +363,13 @@ function atualizarResumo() {
 
     carrinho.forEach(item => {
 
-        quantidade += item.quantidade;
+        quantidade +=
+            item.quantidade;
+
 
         total +=
-            item.preco * item.quantidade;
+            item.preco *
+            item.quantidade;
 
     });
 
@@ -493,7 +379,8 @@ function atualizarResumo() {
 
 
     totalPedido.textContent =
-        "R$ " + total.toFixed(2);
+        "R$ " +
+        total.toFixed(2);
 
 }
 
@@ -506,28 +393,36 @@ function enviarPedido() {
 
     if (carrinho.length === 0) {
 
-        alert("Adicione algum item ao pedido.");
+        alert(
+            "Adicione algum item ao pedido."
+        );
 
         return;
+
     }
 
 
     const observacaoCampo =
-        document.getElementById("observacao");
+        document.getElementById(
+            "observacao"
+        );
 
 
     const observacao =
-        observacaoCampo.value.trim() || "Nenhuma";
+        observacaoCampo.value.trim()
+        || "Nenhuma";
 
 
-    const confirmar = confirm(
-        "Deseja enviar este pedido para produção?"
-    );
+    const confirmar =
+        confirm(
+            "Deseja enviar este pedido para produção?"
+        );
 
 
     if (!confirmar) {
 
         return;
+
     }
 
 
@@ -535,86 +430,143 @@ function enviarPedido() {
         "mesa_" + numeroMesa;
 
 
-    let mesa = JSON.parse(
-        localStorage.getItem(chaveMesa)
-    );
+    let mesa =
+        JSON.parse(
+            localStorage.getItem(
+                chaveMesa
+            )
+        );
 
 
     if (!mesa) {
 
         mesa = {
-            numero: Number(numeroMesa),
-            status: "ocupada",
+
+            numero:
+                Number(numeroMesa),
+
+            status:
+                "ocupada",
+
             pedidos: []
+
         };
 
     }
 
 
+    // ===========================
+    // NÚMERO DO PEDIDO
+    // ===========================
+
     const numeroPedido =
+
         Number(
-            localStorage.getItem("ultimoNumeroPedido") || 0
+            localStorage.getItem(
+                "ultimoNumeroPedido"
+            ) || 0
         ) + 1;
 
 
     localStorage.setItem(
+
         "ultimoNumeroPedido",
+
         numeroPedido
+
     );
 
 
+    // ===========================
+    // NOVO PEDIDO
+    // ===========================
+
     const novoPedido = {
 
-        numeroPedido: numeroPedido,
+        numeroPedido:
+            numeroPedido,
 
         dataHora:
             new Date().toISOString(),
 
-        observacao: observacao,
+        observacao:
+            observacao,
 
         itens:
             carrinho.map(item => ({
 
-                id: item.id,
+                id:
+                    item.id,
 
-                nome: item.nome,
+                nome:
+                    item.nome,
 
-                preco: item.preco,
+                preco:
+                    Number(item.preco),
 
-                quantidade: item.quantidade,
+                quantidade:
+                    Number(item.quantidade),
 
                 subtotal:
-                    item.preco * item.quantidade
+                    Number(item.preco) *
+                    Number(item.quantidade)
 
             }))
 
     };
 
 
-    mesa.status = "ocupada";
+    // ===========================
+    // ACUMULA NA MESA
+    // ===========================
 
-    mesa.pedidos.push(novoPedido);
+    mesa.status =
+        "ocupada";
 
 
-    localStorage.setItem(
-        chaveMesa,
-        JSON.stringify(mesa)
+    mesa.pedidos.push(
+        novoPedido
     );
 
 
     localStorage.setItem(
+
+        chaveMesa,
+
+        JSON.stringify(mesa)
+
+    );
+
+
+    // ===========================
+    // PEDIDO PARA PRODUÇÃO
+    // ===========================
+
+    localStorage.setItem(
+
         "ultimoPedidoProducao",
+
         JSON.stringify({
-            mesa: Number(numeroMesa),
+
+            mesa:
+                Number(numeroMesa),
+
             ...novoPedido
+
         })
+
     );
 
 
     alert(
+
         "Pedido #" +
-        String(numeroPedido).padStart(4, "0") +
+
+        String(numeroPedido)
+            .padStart(4, "0") +
+
         " enviado para produção."
+
     );
 
 
@@ -637,12 +589,18 @@ function voltarMesa() {
 
 
 // ===========================
-// BUSCA
+// PESQUISA
 // ===========================
 
 buscar.addEventListener(
     "input",
-    () => carregarProdutos(buscar.value)
+    function () {
+
+        carregarProdutos(
+            buscar.value
+        );
+
+    }
 );
 
 
@@ -651,4 +609,5 @@ buscar.addEventListener(
 // ===========================
 
 carregarProdutos();
+
 atualizarResumo();
