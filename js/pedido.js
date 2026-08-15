@@ -622,19 +622,21 @@ async function enviarPedido() {
 
     }
 
-    catch (erro) {
+  catch (erro) {
 
-        console.error(
-            "Erro ao enviar pedido:",
-            erro
-        );
+    console.error(
+        "Erro ao enviar pedido:",
+        erro
+    );
 
+    alert(
+        "ERRO FIREBASE:\n\n" +
+        erro.code +
+        "\n\n" +
+        erro.message
+    );
 
-        alert(
-            "Não foi possível enviar o pedido."
-        );
-
-    }
+}
 
 }
 
