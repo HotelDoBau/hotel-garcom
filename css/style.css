@@ -543,3 +543,157 @@ main {
     }
 
 }
+/* =========================
+   RESUMO DO PEDIDO
+========================= */
+
+.resumo-pedido {
+    margin-top: 20px;
+
+    background: #fff;
+
+    border-radius: 16px;
+
+    padding: 16px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    box-shadow: 0 4px 14px rgba(0,0,0,.08);
+}
+
+.resumo-pedido div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.resumo-pedido span {
+    font-size: 13px;
+
+    color: #777;
+}
+
+.resumo-pedido strong {
+    font-size: 20px;
+
+    color: #245d88;
+}
+
+
+/* =========================
+   OBSERVAÇÃO
+========================= */
+
+.observacao-pedido {
+    margin-top: 15px;
+
+    background: #fff;
+
+    border-radius: 16px;
+
+    padding: 16px;
+
+    box-shadow: 0 4px 14px rgba(0,0,0,.08);
+}
+
+.observacao-pedido label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.observacao-pedido textarea {
+    width: 100%;
+
+    min-height: 85px;
+
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    border: 1px solid #ddd;
+
+    border-radius: 12px;
+
+    padding: 12px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.observacao-pedido textarea:focus {
+    border-color: #245d88;
+}
+
+
+/* =========================
+   AÇÕES DO PEDIDO
+========================= */
+
+.acoes-pedido {
+    margin-top: 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.acoes-pedido button {
+    width: 100%;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 16px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* ENVIAR */
+
+.acoes-pedido .btn-pedido {
+    background: #245d88;
+
+    color: #fff;
+
+    box-shadow: 0 5px 14px rgba(36,93,136,.25);
+}
+
+
+/* VOLTAR */
+
+.acoes-pedido .btn-voltar {
+    background: #e5e7e9;
+
+    color: #444;
+
+    margin-top: 0;
+}
+
+
+/* TOQUE */
+
+.acoes-pedido button:active {
+    transform: scale(.98);
+}
