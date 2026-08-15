@@ -71,6 +71,13 @@ function carregarProdutos(filtro = "") {
         ...new Set(produtos.map(produto => produto.categoria))
     ];
 
+    const iconesCategoria = {
+        "Cafeteria": "☕",
+        "Salgados": "🥐",
+        "Lanches": "🥪",
+        "Pratos feitos": "🍽️"
+    };
+
 
     categorias.forEach(categoria => {
 
@@ -89,6 +96,111 @@ function carregarProdutos(filtro = "") {
             return;
         }
 
+
+        const grupo = document.createElement("section");
+        grupo.className = "grupo-categoria";
+
+
+        const titulo = document.createElement("button");
+        titulo.className = "categoria-produto";
+
+        titulo.innerHTML = `
+            <span>
+                ${iconesCategoria[categoria] || "🍴"}
+                ${categoria}
+            </span>
+
+            <span class="seta-categoria">▼</span>
+        `;
+
+
+        const conteudo = document.createElement("div");
+        conteudo.className = "conteudo-categoria";
+
+
+        itens.forEach(produto => {
+
+            const itemCarrinho =
+                carrinho.find(item => item.id === produto.id);
+
+            const quantidade =
+                itemCarrinho ? itemCarrinho.quantidade : 0;
+
+            const imagem =
+                obterImagem(produto);
+
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "produto-card";
+
+
+            card.innerHTML = `
+
+                <img
+                    src="${imagem}"
+                    alt="${produto.nome}"
+                    class="foto-produto"
+                >
+
+                <div class="produto-info">
+
+                    <h3>${produto.nome}</h3>
+
+                    <p>
+                        R$ ${produto.preco.toFixed(2)}
+                    </p>
+
+                </div>
+
+
+                <div class="controle-produto">
+
+                    <button onclick="alterarQuantidade(${produto.id}, -1)">
+                        −
+                    </button>
+
+                    <strong>
+                        ${quantidade}
+                    </strong>
+
+                    <button onclick="alterarQuantidade(${produto.id}, 1)">
+                        +
+                    </button>
+
+                </div>
+
+            `;
+
+
+            conteudo.appendChild(card);
+
+        });
+
+
+        titulo.addEventListener("click", () => {
+
+            const aberta =
+                conteudo.classList.toggle("aberta");
+
+            titulo.classList.toggle(
+                "ativo",
+                aberta
+            );
+
+        });
+
+
+        grupo.appendChild(titulo);
+        grupo.appendChild(conteudo);
+
+        listaProdutos.appendChild(grupo);
+
+    });
+
+}
 
         function carregarProdutos(filtro = "") {
 
