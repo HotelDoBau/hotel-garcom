@@ -438,13 +438,11 @@ function verConsumo() {
 // FECHAR MESA
 // =========================
 
-function fecharMesa() {
+async function fecharMesa() {
 
     if (pedidosMesa.length === 0) {
 
-        alert(
-            "Esta mesa não possui consumo."
-        );
+        alert("Esta mesa não possui consumo.");
 
         return;
 
@@ -453,6 +451,12 @@ function fecharMesa() {
 
     let totalMesa = 0;
 
+    const itensAcumulados = {};
+
+
+    // =========================
+    // ACUMULAR TODOS OS PEDIDOS
+    // =========================
 
     pedidosMesa.forEach(pedido => {
 
@@ -464,23 +468,57 @@ function fecharMesa() {
 
         itens.forEach(item => {
 
-            totalMesa +=
-                Number(item.preco || 0) *
+            const preco =
+                Number(item.preco || 0);
+
+            const quantidade =
                 Number(item.quantidade || 0);
+
+
+            totalMesa +=
+                preco * quantidade;
+
+
+            const chave =
+                String(item.id);
+
+
+            if (!itensAcumulados[chave]) {
+
+                itensAcumulados[chave] = {
+
+                    nome:
+                        item.nome,
+
+                    preco:
+                        preco,
+
+                    quantidade:
+                        0
+
+                };
+
+            }
+
+
+            itensAcumulados[chave].quantidade +=
+                quantidade;
 
         });
 
     });
 
 
-    const confirmar =
-        confirm(
-            "Fechar Mesa " +
-            String(numeroMesa)
-                .padStart(2, "0") +
-            "?\n\nTotal: R$ " +
-            totalMesa.toFixed(2)
-        );
+    const confirmar = confirm(
+
+        "Fechar Mesa " +
+        String(numeroMesa).padStart(2, "0") +
+        "?\n\n" +
+
+        "Total: R$ " +
+        totalMesa.toFixed(2)
+
+    );
 
 
     if (!confirmar) {
@@ -490,10 +528,340 @@ function fecharMesa() {
     }
 
 
-    alert(
-        "Fechamento preparado.\n\n" +
-        "Na próxima etapa vamos gerar a impressão da conta completa."
+    // =========================
+    // MONTA ITENS DA IMPRESSÃO
+    // =========================
+
+    let itensHTML = "";
+
+
+    Object.values(itensAcumulados)
+        .forEach(item => {
+
+            const subtotal =
+                item.preco *
+                item.quantidade;
+
+
+            itensHTML += `
+
+                <div class="linha-item">
+
+                    <span>
+
+                        ${item.quantidade}x
+                        ${item.nome}
+
+                    </span>
+
+
+                    <span>
+
+                        R$ ${subtotal.toFixed(2)}
+
+                    </span>
+
+                </div>
+
+            `;
+
+        });
+
+
+    // =========================
+    // ABRIR IMPRESSÃO
+    // =========================
+
+    const janela =
+        window.open(
+            "",
+            "_blank",
+            "width=420,height=700"
+        );
+
+
+    if (!janela) {
+
+        alert(
+            "O navegador bloqueou a janela de impressão."
+        );
+
+        return;
+
+    }
+
+
+    janela.document.write(`
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+Fechamento Mesa ${numeroMesa}
+</title>
+
+
+<style>
+
+@page {
+
+    size: 80mm auto;
+
+    margin: 3mm;
+
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    width: 72mm;
+
+    margin: 0 auto;
+
+    color: #000;
+
+    font-size: 14px;
+
+}
+
+
+h1 {
+
+    text-align: center;
+
+    margin: 0;
+
+    font-size: 20px;
+
+}
+
+
+h2 {
+
+    text-align: center;
+
+    margin: 5px 0;
+
+    font-size: 18px;
+
+}
+
+
+.mesa {
+
+    text-align: center;
+
+    font-size: 26px;
+
+    font-weight: bold;
+
+    margin: 12px 0;
+
+}
+
+
+.separador {
+
+    border-top:
+        1px dashed #000;
+
+    margin: 10px 0;
+
+}
+
+
+.linha-item {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    gap: 10px;
+
+    margin: 10px 0;
+
+}
+
+
+.total {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+
+}
+
+
+.central {
+
+    text-align: center;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<h1>
+HOTEL DO BAÚ
+</h1>
+
+
+<h2>
+FECHAMENTO
+</h2>
+
+
+<div class="separador"></div>
+
+
+<div class="mesa">
+
+MESA
+${String(numeroMesa).padStart(2, "0")}
+
+</div>
+
+
+<p class="central">
+
+${new Date().toLocaleString("pt-BR")}
+
+</p>
+
+
+<div class="separador"></div>
+
+
+${itensHTML}
+
+
+<div class="separador"></div>
+
+
+<div class="total">
+
+    <span>
+        TOTAL
+    </span>
+
+    <span>
+        R$ ${totalMesa.toFixed(2)}
+    </span>
+
+</div>
+
+
+<div class="separador"></div>
+
+
+<p class="central">
+
+Hotel do Baú
+
+<br>
+
+Obrigado!
+
+</p>
+
+
+</body>
+
+</html>
+
+    `);
+
+
+    janela.document.close();
+
+
+    // =========================
+    // ABRE IMPRESSÃO
+    // =========================
+
+    setTimeout(
+        function () {
+
+            janela.focus();
+
+            janela.print();
+
+        },
+        500
     );
+
+
+    // =========================
+    // ESPERA JANELA FECHAR
+    // =========================
+
+    const verificarJanela =
+        setInterval(
+
+            async function () {
+
+                if (janela.closed) {
+
+                    clearInterval(
+                        verificarJanela
+                    );
+
+
+                    const impressaoOk =
+                        confirm(
+
+                            "A conta da Mesa " +
+
+                            String(numeroMesa)
+                                .padStart(2, "0") +
+
+                            " foi impressa corretamente?\n\n" +
+
+                            "OK = Finalizar mesa\n" +
+
+                            "CANCELAR = Manter mesa aberta"
+
+                        );
+
+
+                    if (!impressaoOk) {
+
+                        return;
+
+                    }
+
+
+                    await finalizarMesa();
+
+                }
+
+            },
+
+            500
+
+        );
 
 }
 
@@ -521,3 +889,149 @@ iniciarMesa();
 </body>
 
 </html>
+async function finalizarMesa() {
+
+    const conectado =
+        await aguardarFirebase();
+
+
+    if (!conectado) {
+
+        alert(
+            "Não foi possível conectar ao Firebase."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const {
+
+            db,
+            collection,
+            getDocs,
+            deleteDoc,
+            doc,
+            setDoc,
+            serverTimestamp
+
+        } = window.firebaseHotel;
+
+
+        const idMesa =
+            "mesa_" +
+            String(numeroMesa)
+                .padStart(2, "0");
+
+
+        // =========================
+        // APAGA PEDIDOS DA MESA
+        // =========================
+
+        const referenciaPedidos =
+            collection(
+                db,
+                "mesas",
+                idMesa,
+                "pedidos"
+            );
+
+
+        const snapshot =
+            await getDocs(
+                referenciaPedidos
+            );
+
+
+        const exclusoes = [];
+
+
+        snapshot.forEach(
+            documento => {
+
+                exclusoes.push(
+
+                    deleteDoc(
+                        doc(
+                            db,
+                            "mesas",
+                            idMesa,
+                            "pedidos",
+                            documento.id
+                        )
+                    )
+
+                );
+
+            }
+        );
+
+
+        await Promise.all(
+            exclusoes
+        );
+
+
+        // =========================
+        // DEIXA MESA LIVRE
+        // =========================
+
+        await setDoc(
+
+            doc(
+                db,
+                "mesas",
+                idMesa
+            ),
+
+            {
+
+                numero:
+                    Number(numeroMesa),
+
+                status:
+                    "livre",
+
+                atualizadoEm:
+                    serverTimestamp()
+
+            },
+
+            {
+                merge: true
+            }
+
+        );
+
+
+        alert(
+            "✅ Mesa " +
+            String(numeroMesa)
+                .padStart(2, "0") +
+            " finalizada."
+        );
+
+
+        window.location.href =
+            "index.html";
+
+    }
+
+    catch (erro) {
+
+        console.error(
+            "Erro ao finalizar mesa:",
+            erro
+        );
+
+
+        alert(
+            "❌ Não foi possível finalizar a mesa."
+        );
+
+    }
+
+}
