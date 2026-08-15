@@ -398,3 +398,148 @@ main {
     color: #777;
 
 }
+/* =========================
+   TELA DE PEDIDOS - CELULAR
+========================= */
+
+.busca-produtos {
+    margin: 20px 0;
+}
+
+.busca-produtos input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+
+/* CATEGORIA */
+
+.categoria-produto {
+    font-size: 20px;
+    margin: 25px 0 12px;
+    color: #245d88;
+}
+
+
+/* CARD DO PRODUTO */
+
+.produto-card {
+    background: #fff;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    padding: 10px;
+
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    gap: 12px;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,.08);
+}
+
+
+/* FOTO */
+
+.foto-produto {
+    width: 80px;
+    height: 80px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    display: block;
+}
+
+
+/* INFORMAÇÕES */
+
+.produto-info {
+    min-width: 0;
+}
+
+.produto-info h3 {
+    margin: 0 0 6px;
+
+    font-size: 15px;
+    line-height: 1.25;
+}
+
+.produto-info p {
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #245d88;
+}
+
+
+/* BOTÕES + E - */
+
+.controle-produto {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.controle-produto button {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #245d88;
+    color: white;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.controle-produto strong {
+    min-width: 20px;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   AJUSTE PARA CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    main {
+        padding: 0 12px 180px;
+    }
+
+    .produto-card {
+        grid-template-columns: 70px 1fr;
+    }
+
+    .foto-produto {
+        width: 70px;
+        height: 70px;
+    }
+
+    .controle-produto {
+        grid-column: 1 / -1;
+
+        justify-content: flex-end;
+    }
+
+    .controle-produto button {
+        width: 42px;
+        height: 42px;
+    }
+
+}
