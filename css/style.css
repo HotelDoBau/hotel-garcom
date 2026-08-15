@@ -829,3 +829,102 @@ main {
     }
 
 }
+/* =========================
+   CATEGORIAS EM CARDS
+========================= */
+
+.grupo-categoria {
+
+    background: white;
+
+    border-radius: 18px;
+
+    margin-bottom: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 14px rgba(0,0,0,.08);
+
+}
+
+
+/* TÍTULO DA CATEGORIA */
+
+.categoria-produto {
+
+    width: 100%;
+
+    border: none;
+
+    background: white;
+
+    color: #245d88;
+
+    padding: 18px 16px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-family: inherit;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    margin: 0;
+
+}
+
+
+/* SETA */
+
+.seta-categoria {
+
+    font-size: 18px;
+
+    transition: transform .2s;
+
+}
+
+
+.categoria-produto.ativo .seta-categoria {
+
+    transform: rotate(180deg);
+
+}
+
+
+/* CONTEÚDO FECHADO */
+
+.conteudo-categoria {
+
+    display: none;
+
+    padding: 0 10px 10px;
+
+}
+
+
+/* CONTEÚDO ABERTO */
+
+.conteudo-categoria.aberta {
+
+    display: block;
+
+}
+
+
+/* EVITA ESPAÇO EXTRA */
+
+.conteudo-categoria .produto-card:last-child {
+
+    margin-bottom: 0;
+
+}
