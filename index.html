@@ -156,7 +156,103 @@ function abrirMesa(numero) {
     localStorage.setItem("mesaSelecionada", numero);
 
     window.location.href = "mesa.html";
+
 }
+
+
+// =========================
+// ATUALIZAR STATUS DAS MESAS
+// =========================
+
+function atualizarMesas() {
+
+    const botoes =
+        document.querySelectorAll(".mesa");
+
+
+    botoes.forEach((botao, indice) => {
+
+        const numeroMesa =
+            indice + 1;
+
+
+        const chaveMesa =
+            "mesa_" + numeroMesa;
+
+
+        const mesa = JSON.parse(
+            localStorage.getItem(chaveMesa)
+        );
+
+
+        const textoStatus =
+            botao.querySelector("span");
+
+
+        // SEM PEDIDOS = LIVRE
+
+        if (
+            !mesa ||
+            !mesa.pedidos ||
+            mesa.pedidos.length === 0
+        ) {
+
+            botao.classList.remove(
+                "ocupada",
+                "pagamento"
+            );
+
+            botao.classList.add("livre");
+
+            textoStatus.textContent =
+                "Livre";
+
+            return;
+        }
+
+
+        // MESA AGUARDANDO PAGAMENTO
+
+        if (mesa.status === "pagamento") {
+
+            botao.classList.remove(
+                "livre",
+                "ocupada"
+            );
+
+            botao.classList.add(
+                "pagamento"
+            );
+
+            textoStatus.textContent =
+                "Pagamento";
+
+            return;
+        }
+
+
+        // MESA OCUPADA
+
+        botao.classList.remove(
+            "livre",
+            "pagamento"
+        );
+
+        botao.classList.add("ocupada");
+
+        textoStatus.textContent =
+            "Ocupada";
+
+    });
+
+}
+
+
+// =========================
+// INICIAR
+// =========================
+
+atualizarMesas();
 
 </script>
 
