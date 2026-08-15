@@ -798,51 +798,39 @@ Obrigado!
 
 
     // =========================
-    // APÓS A IMPRESSÃO
-    // =========================
-
-    let posImpressaoExecutado = false;
-
-    janela.onafterprint = async function () {
-
-        if (posImpressaoExecutado) {
-            return;
-        }
-
-        posImpressaoExecutado = true;
-
-        const impressaoOk =
-            confirm(
-                "A conta da Mesa " +
-                String(numeroMesa).padStart(2, "0") +
-                " foi impressa corretamente?\n\n" +
-                "OK = Finalizar mesa\n" +
-                "CANCELAR = Manter mesa aberta"
-            );
-
-        if (!impressaoOk) {
-
-            janela.close();
-            return;
-
-        }
-
-        janela.close();
-
-        await finalizarMesa();
-
-    };
-
-
-    // =========================
-    // ABRE IMPRESSÃO
+    // ABRE IMPRESSÃO E FINALIZA
     // =========================
 
     setTimeout(
-        function () {
+        async function () {
 
             janela.focus();
+
+            // No Chrome/Edge, print() aguarda o diálogo de impressão
+            // ser fechado antes de continuar.
             janela.print();
+
+            janela.close();
+
+
+            const impressaoOk =
+                confirm(
+                    "A conta da Mesa " +
+                    String(numeroMesa).padStart(2, "0") +
+                    " foi impressa corretamente?\n\n" +
+                    "OK = Finalizar mesa\n" +
+                    "CANCELAR = Manter mesa aberta"
+                );
+
+
+            if (!impressaoOk) {
+
+                return;
+
+            }
+
+
+            await finalizarMesa();
 
         },
         500
@@ -993,7 +981,10 @@ async function finalizarMesa() {
 
 
         alert(
-            "❌ Não foi possível finalizar a mesa."
+            "❌ ERRO AO FINALIZAR A MESA\n\n" +
+            (erro.code || "sem código") +
+            "\n\n" +
+            (erro.message || erro)
         );
 
     }
