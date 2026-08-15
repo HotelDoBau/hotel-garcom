@@ -697,3 +697,49 @@ main {
 .acoes-pedido button:active {
     transform: scale(.98);
 }
+/* =========================
+   LETRAS MAIORES NO CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    /* Título das categorias */
+    .categoria-produto {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 28px 0 15px;
+    }
+
+    /* Nome do produto */
+    .produto-info h3 {
+        font-size: 18px;
+        line-height: 1.35;
+        margin-bottom: 8px;
+    }
+
+    /* Preço */
+    .produto-info p {
+        font-size: 17px;
+        font-weight: 700;
+    }
+
+    /* Quantidade entre - e + */
+    .controle-produto strong {
+        font-size: 20px;
+        min-width: 28px;
+    }
+
+    /* Botões - e + */
+    .controle-produto button {
+        width: 46px;
+        height: 46px;
+        font-size: 25px;
+    }
+
+    /* Campo de pesquisa */
+    .busca-produtos input {
+        font-size: 17px;
+        padding: 15px;
+    }
+
+}
