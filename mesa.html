@@ -798,6 +798,43 @@ Obrigado!
 
 
     // =========================
+    // APÓS A IMPRESSÃO
+    // =========================
+
+    let posImpressaoExecutado = false;
+
+    janela.onafterprint = async function () {
+
+        if (posImpressaoExecutado) {
+            return;
+        }
+
+        posImpressaoExecutado = true;
+
+        const impressaoOk =
+            confirm(
+                "A conta da Mesa " +
+                String(numeroMesa).padStart(2, "0") +
+                " foi impressa corretamente?\n\n" +
+                "OK = Finalizar mesa\n" +
+                "CANCELAR = Manter mesa aberta"
+            );
+
+        if (!impressaoOk) {
+
+            janela.close();
+            return;
+
+        }
+
+        janela.close();
+
+        await finalizarMesa();
+
+    };
+
+
+    // =========================
     // ABRE IMPRESSÃO
     // =========================
 
@@ -805,90 +842,19 @@ Obrigado!
         function () {
 
             janela.focus();
-
             janela.print();
 
         },
         500
     );
 
-
-    // =========================
-    // ESPERA JANELA FECHAR
-    // =========================
-
-    const verificarJanela =
-        setInterval(
-
-            async function () {
-
-                if (janela.closed) {
-
-                    clearInterval(
-                        verificarJanela
-                    );
-
-
-                    const impressaoOk =
-                        confirm(
-
-                            "A conta da Mesa " +
-
-                            String(numeroMesa)
-                                .padStart(2, "0") +
-
-                            " foi impressa corretamente?\n\n" +
-
-                            "OK = Finalizar mesa\n" +
-
-                            "CANCELAR = Manter mesa aberta"
-
-                        );
-
-
-                    if (!impressaoOk) {
-
-                        return;
-
-                    }
-
-
-                    await finalizarMesa();
-
-                }
-
-            },
-
-            500
-
-        );
-
 }
 
 
 // =========================
-// VOLTAR
+// FINALIZAR MESA
 // =========================
 
-function voltarMesas() {
-
-    window.location.href =
-        "index.html";
-
-}
-
-
-// =========================
-// INICIAR
-// =========================
-
-iniciarMesa();
-
-</script>
-
-</body>
-
-</html>
 async function finalizarMesa() {
 
     const conectado =
@@ -979,34 +945,30 @@ async function finalizarMesa() {
         // DEIXA MESA LIVRE
         // =========================
 
-   // =========================
-// DEIXA MESA LIVRE
-// =========================
+        await setDoc(
 
-await setDoc(
+            doc(
+                db,
+                "mesas",
+                idMesa
+            ),
 
-    doc(
-        db,
-        "mesas",
-        idMesa
-    ),
+            {
+                numero: Number(numeroMesa),
+                status: "livre",
+                atualizadoEm: serverTimestamp()
+            },
 
-    {
-        numero: Number(numeroMesa),
-        status: "livre",
-        atualizadoEm: serverTimestamp()
-    },
+            {
+                merge: true
+            }
 
-    {
-        merge: true
-    }
+        );
 
-);
-
-console.log(
-    "Mesa marcada como livre:",
-    idMesa
-);
+        console.log(
+            "Mesa marcada como livre:",
+            idMesa
+        );
 
 
         alert(
@@ -1037,3 +999,28 @@ console.log(
     }
 
 }
+
+
+// =========================
+// VOLTAR
+// =========================
+
+function voltarMesas() {
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+// =========================
+// INICIAR
+// =========================
+
+iniciarMesa();
+
+</script>
+
+</body>
+
+</html>
