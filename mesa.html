@@ -110,7 +110,7 @@
 
 </main>
 
-<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/firebase.js?v=3"></script>
     
 <script>
 
@@ -979,32 +979,34 @@ async function finalizarMesa() {
         // DEIXA MESA LIVRE
         // =========================
 
-        await setDoc(
+   // =========================
+// DEIXA MESA LIVRE
+// =========================
 
-            doc(
-                db,
-                "mesas",
-                idMesa
-            ),
+await setDoc(
 
-            {
+    doc(
+        db,
+        "mesas",
+        idMesa
+    ),
 
-                numero:
-                    Number(numeroMesa),
+    {
+        numero: Number(numeroMesa),
+        status: "livre",
+        atualizadoEm: serverTimestamp()
+    },
 
-                status:
-                    "livre",
+    {
+        merge: true
+    }
 
-                atualizadoEm:
-                    serverTimestamp()
+);
 
-            },
-
-            {
-                merge: true
-            }
-
-        );
+console.log(
+    "Mesa marcada como livre:",
+    idMesa
+);
 
 
         alert(
