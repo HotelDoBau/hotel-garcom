@@ -1,64 +1,85 @@
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+// =========================
+// FIREBASE - HOTEL GARCOM
+// =========================
+
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
     getFirestore,
     collection,
     addDoc,
-    deleteDoc,
     doc,
-    onSnapshot,
-    query,
-    orderBy,
-    serverTimestamp,
     setDoc,
-    updateDoc
-}
-from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+    getDoc,
+    getDocs,
+    updateDoc,
+    deleteDoc,
+    onSnapshot,
+    serverTimestamp
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+
+// =========================
+// CONFIGURAÇÃO FIREBASE
+// =========================
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyBFh1CIN7upch4eXlglUaC_F9rvhpD87gg",
+    apiKey: "AIzaSyDaj28MSSHMKfsofE27DfKcsdCD2MUngGA",
 
-    authDomain: "hotel-do-bau.firebaseapp.com",
+    authDomain:
+        "hotel-garcom.firebaseapp.com",
 
-    projectId: "hotel-do-bau",
+    projectId:
+        "hotel-garcom",
 
-    storageBucket: "hotel-do-bau.firebasestorage.app",
+    storageBucket:
+        "hotel-garcom.firebasestorage.app",
 
-    messagingSenderId: "139452222353",
+    messagingSenderId:
+        "357749341622",
 
-    appId: "1:139452222353:web:28c69b7a802ec4aa4c2830"
+    appId:
+        "1:357749341622:web:b5ff6267d5be911d681517"
 
 };
 
 
-const app =
-initializeApp(firebaseConfig);
+// =========================
+// INICIAR FIREBASE
+// =========================
 
+const app =
+    initializeApp(firebaseConfig);
 
 const db =
-getFirestore(app);
+    getFirestore(app);
 
+
+// =========================
+// DISPONIBILIZAR PARA O SITE
+// =========================
 
 window.firebaseHotel = {
 
     db,
+
     collection,
     addDoc,
-    deleteDoc,
     doc,
-    onSnapshot,
-    query,
-    orderBy,
-    serverTimestamp,
     setDoc,
-    updateDoc
+    getDoc,
+    getDocs,
+    updateDoc,
+    deleteDoc,
+    onSnapshot,
+    serverTimestamp
 
 };
 
 
-console.log("✅ Firebase Hotel carregado com sucesso");
-
-window.firebasePronto = true;
+console.log(
+    "🔥 Firebase Hotel Garcom conectado"
+);
