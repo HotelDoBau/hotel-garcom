@@ -110,7 +110,8 @@
 
 </main>
 
-
+<script type="module" src="js/firebase.js"></script>
+    
 <script>
 
 const numeroMesa =
@@ -128,20 +129,42 @@ document.getElementById("tituloMesa").textContent =
     "Mesa " + String(numeroMesa).padStart(2, "0");
 
 
+let pedidosMesa = [];
+
+
 // =========================
-// CARREGAR DADOS DA MESA
+// AGUARDAR FIREBASE
 // =========================
 
-function carregarMesa() {
+async function aguardarFirebase() {
 
-    const chaveMesa =
-        "mesa_" + numeroMesa;
+    let tentativas = 0;
 
 
-    const mesa = JSON.parse(
-        localStorage.getItem(chaveMesa)
-    );
+    while (
+        !window.firebaseHotel &&
+        tentativas < 50
+    ) {
 
+        await new Promise(
+            resolve => setTimeout(resolve, 100)
+        );
+
+        tentativas++;
+
+    }
+
+
+    return !!window.firebaseHotel;
+
+}
+
+
+// =========================
+// MOSTRAR DADOS DA MESA
+// =========================
+
+function mostrarMesa() {
 
     const statusMesa =
         document.getElementById("statusMesa");
@@ -153,15 +176,16 @@ function carregarMesa() {
         document.getElementById("listaConsumo");
 
 
-    // MESA AINDA SEM PEDIDOS
+    if (pedidosMesa.length === 0) {
 
-    if (!mesa || !mesa.pedidos || mesa.pedidos.length === 0) {
+        statusMesa.textContent =
+            "Livre";
 
-        statusMesa.textContent = "Livre";
+        statusMesa.style.color =
+            "#268542";
 
-        statusMesa.style.color = "#268542";
-
-        valorMesa.textContent = "R$ 0,00";
+        valorMesa.textContent =
+            "R$ 0,00";
 
         listaConsumo.innerHTML = `
             <p class="mesa-vazia">
@@ -174,47 +198,63 @@ function carregarMesa() {
     }
 
 
-    // MESA OCUPADA
+    statusMesa.textContent =
+        "Ocupada";
 
-    statusMesa.textContent = "Ocupada";
-
-    statusMesa.style.color = "#245d88";
+    statusMesa.style.color =
+        "#245d88";
 
 
     let totalMesa = 0;
 
-
-    // Junta todos os itens dos pedidos
-
     const itensAcumulados = {};
 
 
-    mesa.pedidos.forEach(pedido => {
+    pedidosMesa.forEach(pedido => {
 
-        pedido.itens.forEach(item => {
+        const itens =
+            Array.isArray(pedido.itens)
+                ? pedido.itens
+                : [];
+
+
+        itens.forEach(item => {
+
+            const preco =
+                Number(item.preco || 0);
+
+            const quantidade =
+                Number(item.quantidade || 0);
+
 
             totalMesa +=
-                Number(item.preco) *
-                Number(item.quantidade);
+                preco * quantidade;
 
 
-            if (!itensAcumulados[item.id]) {
+            const chave =
+                String(item.id);
 
-                itensAcumulados[item.id] = {
 
-                    nome: item.nome,
+            if (!itensAcumulados[chave]) {
 
-                    preco: Number(item.preco),
+                itensAcumulados[chave] = {
 
-                    quantidade: 0
+                    nome:
+                        item.nome,
+
+                    preco:
+                        preco,
+
+                    quantidade:
+                        0
 
                 };
 
             }
 
 
-            itensAcumulados[item.id].quantidade +=
-                Number(item.quantidade);
+            itensAcumulados[chave].quantidade +=
+                quantidade;
 
         });
 
@@ -222,7 +262,8 @@ function carregarMesa() {
 
 
     valorMesa.textContent =
-        "R$ " + totalMesa.toFixed(2);
+        "R$ " +
+        totalMesa.toFixed(2);
 
 
     listaConsumo.innerHTML = "";
@@ -232,7 +273,8 @@ function carregarMesa() {
         .forEach(item => {
 
             const subtotal =
-                item.preco * item.quantidade;
+                item.preco *
+                item.quantidade;
 
 
             const div =
@@ -274,6 +316,94 @@ function carregarMesa() {
 
 
 // =========================
+// ESCUTAR PEDIDOS DA MESA
+// =========================
+
+async function iniciarMesa() {
+
+    const conectado =
+        await aguardarFirebase();
+
+
+    if (!conectado) {
+
+        alert(
+            "Não foi possível conectar ao Firebase."
+        );
+
+        return;
+
+    }
+
+
+    const {
+
+        db,
+        collection,
+        onSnapshot
+
+    } = window.firebaseHotel;
+
+
+    const referenciaPedidos =
+        collection(
+            db,
+            "mesas",
+            "mesa_" +
+            String(numeroMesa)
+                .padStart(2, "0"),
+            "pedidos"
+        );
+
+
+    onSnapshot(
+
+        referenciaPedidos,
+
+        snapshot => {
+
+            pedidosMesa = [];
+
+
+            snapshot.forEach(documento => {
+
+                pedidosMesa.push({
+
+                    id:
+                        documento.id,
+
+                    ...documento.data()
+
+                });
+
+            });
+
+
+            mostrarMesa();
+
+        },
+
+
+        erro => {
+
+            console.error(
+                "Erro ao carregar mesa:",
+                erro
+            );
+
+
+            alert(
+                "Não foi possível carregar os pedidos desta mesa."
+            );
+
+        }
+
+    );
+
+}
+
+
+// =========================
 // NOVO PEDIDO
 // =========================
 
@@ -292,9 +422,14 @@ function novoPedido() {
 function verConsumo() {
 
     const consumo =
-        document.getElementById("consumoMesa");
+        document.getElementById(
+            "consumoMesa"
+        );
 
-    consumo.classList.toggle("mostrar");
+
+    consumo.classList.toggle(
+        "mostrar"
+    );
 
 }
 
@@ -305,18 +440,11 @@ function verConsumo() {
 
 function fecharMesa() {
 
-    const chaveMesa =
-        "mesa_" + numeroMesa;
+    if (pedidosMesa.length === 0) {
 
-
-    const mesa = JSON.parse(
-        localStorage.getItem(chaveMesa)
-    );
-
-
-    if (!mesa || !mesa.pedidos || mesa.pedidos.length === 0) {
-
-        alert("Esta mesa não possui consumo.");
+        alert(
+            "Esta mesa não possui consumo."
+        );
 
         return;
 
@@ -326,25 +454,33 @@ function fecharMesa() {
     let totalMesa = 0;
 
 
-    mesa.pedidos.forEach(pedido => {
+    pedidosMesa.forEach(pedido => {
 
-        pedido.itens.forEach(item => {
+        const itens =
+            Array.isArray(pedido.itens)
+                ? pedido.itens
+                : [];
+
+
+        itens.forEach(item => {
 
             totalMesa +=
-                Number(item.preco) *
-                Number(item.quantidade);
+                Number(item.preco || 0) *
+                Number(item.quantidade || 0);
 
         });
 
     });
 
 
-    const confirmar = confirm(
-        "Fechar Mesa " +
-        String(numeroMesa).padStart(2, "0") +
-        "?\n\nTotal: R$ " +
-        totalMesa.toFixed(2)
-    );
+    const confirmar =
+        confirm(
+            "Fechar Mesa " +
+            String(numeroMesa)
+                .padStart(2, "0") +
+            "?\n\nTotal: R$ " +
+            totalMesa.toFixed(2)
+        );
 
 
     if (!confirmar) {
@@ -355,7 +491,7 @@ function fecharMesa() {
 
 
     alert(
-        "Fechamento da mesa preparado.\n\n" +
+        "Fechamento preparado.\n\n" +
         "Na próxima etapa vamos gerar a impressão da conta completa."
     );
 
@@ -378,7 +514,7 @@ function voltarMesas() {
 // INICIAR
 // =========================
 
-carregarMesa();
+iniciarMesa();
 
 </script>
 
