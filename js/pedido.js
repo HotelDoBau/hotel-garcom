@@ -13,13 +13,13 @@ const numeroMesa = localStorage.getItem("mesaSelecionada");
 // ===========================
 
 if (!numeroMesa) {
-
     window.location.href = "index.html";
-
 }
 
 
+// ===========================
 // TÍTULO
+// ===========================
 
 document.getElementById("tituloMesa").textContent =
     "Mesa " + String(numeroMesa).padStart(2, "0");
@@ -33,7 +33,6 @@ function obterImagem(produto) {
 
     const nome = produto.nome.toLowerCase();
 
-
     if (produto.categoria === "Cafeteria") {
 
         if (
@@ -42,39 +41,25 @@ function obterImagem(produto) {
             nome.includes("affogato") ||
             nome.includes("mochac")
         ) {
-
             return "img/cappuccino-espresso.webp";
-
         }
 
         return "img/cafe-espresso.webp";
-
     }
-
 
     if (produto.categoria === "Salgados") {
-
         return "img/salgados.webp";
-
     }
-
 
     if (produto.categoria === "Lanches") {
-
         return "img/lanche.webp";
-
     }
-
 
     if (produto.categoria === "Pratos feitos") {
-
         return "img/pf.webp";
-
     }
 
-
     return "";
-
 }
 
 
@@ -86,13 +71,10 @@ function carregarProdutos(filtro = "") {
 
     listaProdutos.innerHTML = "";
 
-
     const categorias = [
-
         ...new Set(
             produtos.map(produto => produto.categoria)
         )
-
     ];
 
 
@@ -108,7 +90,6 @@ function carregarProdutos(filtro = "") {
 
     categorias.forEach(categoria => {
 
-
         const itens = produtos.filter(produto =>
 
             produto.categoria === categoria &&
@@ -121,35 +102,29 @@ function carregarProdutos(filtro = "") {
 
 
         if (itens.length === 0) {
-
             return;
-
         }
 
 
-        // ===========================
         // CARD DA CATEGORIA
-        // ===========================
 
         const grupo =
             document.createElement("section");
-
 
         grupo.className =
             "grupo-categoria";
 
 
-        // CABEÇALHO
+        // TÍTULO DA CATEGORIA
 
         const titulo =
             document.createElement("button");
 
-
-        titulo.type = "button";
+        titulo.type =
+            "button";
 
         titulo.className =
             "categoria-produto";
-
 
         titulo.innerHTML = `
 
@@ -165,18 +140,16 @@ function carregarProdutos(filtro = "") {
         `;
 
 
-        // PRODUTOS
+        // CONTEÚDO DA CATEGORIA
 
         const conteudo =
             document.createElement("div");
-
 
         conteudo.className =
             "conteudo-categoria";
 
 
         itens.forEach(produto => {
-
 
             const itemCarrinho =
                 carrinho.find(
@@ -196,7 +169,6 @@ function carregarProdutos(filtro = "") {
 
             const card =
                 document.createElement("div");
-
 
             card.className =
                 "produto-card";
@@ -218,7 +190,7 @@ function carregarProdutos(filtro = "") {
                     </h3>
 
                     <p>
-                        R$ ${produto.preco.toFixed(2)}
+                        R$ ${Number(produto.preco).toFixed(2)}
                     </p>
 
                 </div>
@@ -232,11 +204,9 @@ function carregarProdutos(filtro = "") {
                         −
                     </button>
 
-
                     <strong>
                         ${quantidade}
                     </strong>
-
 
                     <button
                         type="button"
@@ -254,14 +224,11 @@ function carregarProdutos(filtro = "") {
         });
 
 
-        // ===========================
         // ABRIR / FECHAR CATEGORIA
-        // ===========================
 
         titulo.addEventListener(
             "click",
             function () {
-
 
                 const aberta =
                     conteudo.classList.toggle(
@@ -279,7 +246,6 @@ function carregarProdutos(filtro = "") {
 
 
         grupo.appendChild(titulo);
-
         grupo.appendChild(conteudo);
 
         listaProdutos.appendChild(grupo);
@@ -301,6 +267,11 @@ function alterarQuantidade(id, valor) {
         );
 
 
+    if (!produto) {
+        return;
+    }
+
+
     let item =
         carrinho.find(
             item => item.id === id
@@ -310,13 +281,9 @@ function alterarQuantidade(id, valor) {
     if (!item && valor > 0) {
 
         item = {
-
             ...produto,
-
             quantidade: 0
-
         };
-
 
         carrinho.push(item);
 
@@ -324,9 +291,7 @@ function alterarQuantidade(id, valor) {
 
 
     if (!item) {
-
         return;
-
     }
 
 
@@ -345,7 +310,9 @@ function alterarQuantidade(id, valor) {
 
     atualizarResumo();
 
-    carregarProdutos(buscar.value);
+    carregarProdutos(
+        buscar.value
+    );
 
 }
 
@@ -357,19 +324,18 @@ function alterarQuantidade(id, valor) {
 function atualizarResumo() {
 
     let quantidade = 0;
-
     let total = 0;
 
 
     carrinho.forEach(item => {
 
         quantidade +=
-            item.quantidade;
+            Number(item.quantidade);
 
 
         total +=
-            item.preco *
-            item.quantidade;
+            Number(item.preco) *
+            Number(item.quantidade);
 
     });
 
@@ -386,43 +352,13 @@ function atualizarResumo() {
 
 
 // ===========================
-// ENVIAR PEDIDO
+// AGUARDAR FIREBASE
 // ===========================
 
-async function enviarPedido() {
-
-    if (carrinho.length === 0) {
-
-        alert("Adicione algum item ao pedido.");
-        return;
-
-    }
-
-
-    const observacaoCampo =
-        document.getElementById("observacao");
-
-    const observacao =
-        observacaoCampo.value.trim() || "Nenhuma";
-
-
-    const confirmar = confirm(
-        "Deseja enviar este pedido para produção?"
-    );
-
-
-    if (!confirmar) {
-
-        return;
-
-    }
-
-
-    // ===========================
-    // AGUARDA FIREBASE
-    // ===========================
+async function aguardarFirebase() {
 
     let tentativas = 0;
+
 
     while (
         !window.firebaseHotel &&
@@ -430,7 +366,8 @@ async function enviarPedido() {
     ) {
 
         await new Promise(
-            resolve => setTimeout(resolve, 100)
+            resolve =>
+                setTimeout(resolve, 100)
         );
 
         tentativas++;
@@ -438,7 +375,55 @@ async function enviarPedido() {
     }
 
 
-    if (!window.firebaseHotel) {
+    return !!window.firebaseHotel;
+
+}
+
+
+// ===========================
+// ENVIAR PEDIDO
+// ===========================
+
+async function enviarPedido() {
+
+    if (carrinho.length === 0) {
+
+        alert(
+            "Adicione algum item ao pedido."
+        );
+
+        return;
+
+    }
+
+
+    const observacaoCampo =
+        document.getElementById(
+            "observacao"
+        );
+
+
+    const observacao =
+        observacaoCampo.value.trim() ||
+        "Nenhuma";
+
+
+    const confirmar =
+        confirm(
+            "Deseja enviar este pedido para produção?"
+        );
+
+
+    if (!confirmar) {
+        return;
+    }
+
+
+    const conectado =
+        await aguardarFirebase();
+
+
+    if (!conectado) {
 
         alert(
             "Não foi possível conectar ao sistema. Tente novamente."
@@ -463,26 +448,25 @@ async function enviarPedido() {
         } = window.firebaseHotel;
 
 
-        // ===========================
         // NÚMERO DO PEDIDO
-        // ===========================
 
         const numeroPedido =
             Date.now();
 
 
-        // ===========================
         // ITENS
-        // ===========================
 
         const itensPedido =
             carrinho.map(item => ({
 
-                id: item.id,
+                id:
+                    item.id,
 
-                nome: item.nome,
+                nome:
+                    item.nome,
 
-                preco: Number(item.preco),
+                preco:
+                    Number(item.preco),
 
                 quantidade:
                     Number(item.quantidade),
@@ -496,14 +480,17 @@ async function enviarPedido() {
 
         const totalPedidoValor =
             itensPedido.reduce(
+
                 (soma, item) =>
                     soma + item.subtotal,
+
                 0
+
             );
 
 
         // ===========================
-        // PEDIDO PARA PRODUÇÃO
+        // ENVIA PARA PRODUÇÃO
         // ===========================
 
         await addDoc(
@@ -546,7 +533,7 @@ async function enviarPedido() {
 
 
         // ===========================
-        // SALVA / ATUALIZA A MESA
+        // ATUALIZA A MESA
         // ===========================
 
         const referenciaMesa =
@@ -584,7 +571,7 @@ async function enviarPedido() {
 
 
         // ===========================
-        // SALVA PEDIDO DENTRO DA MESA
+        // ACUMULA PEDIDO NA MESA
         // ===========================
 
         await addDoc(
@@ -620,10 +607,6 @@ async function enviarPedido() {
         );
 
 
-        // ===========================
-        // SUCESSO
-        // ===========================
-
         alert(
             "Pedido enviado para produção."
         );
@@ -656,129 +639,8 @@ async function enviarPedido() {
 }
 
 
-    // ===========================
-    // NÚMERO DO PEDIDO
-    // ===========================
-
-    const numeroPedido =
-
-        Number(
-            localStorage.getItem(
-                "ultimoNumeroPedido"
-            ) || 0
-        ) + 1;
-
-
-    localStorage.setItem(
-
-        "ultimoNumeroPedido",
-
-        numeroPedido
-
-    );
-
-
-    // ===========================
-    // NOVO PEDIDO
-    // ===========================
-
-    const novoPedido = {
-
-        numeroPedido:
-            numeroPedido,
-
-        dataHora:
-            new Date().toISOString(),
-
-        observacao:
-            observacao,
-
-        itens:
-            carrinho.map(item => ({
-
-                id:
-                    item.id,
-
-                nome:
-                    item.nome,
-
-                preco:
-                    Number(item.preco),
-
-                quantidade:
-                    Number(item.quantidade),
-
-                subtotal:
-                    Number(item.preco) *
-                    Number(item.quantidade)
-
-            }))
-
-    };
-
-
-    // ===========================
-    // ACUMULA NA MESA
-    // ===========================
-
-    mesa.status =
-        "ocupada";
-
-
-    mesa.pedidos.push(
-        novoPedido
-    );
-
-
-    localStorage.setItem(
-
-        chaveMesa,
-
-        JSON.stringify(mesa)
-
-    );
-
-
-    // ===========================
-    // PEDIDO PARA PRODUÇÃO
-    // ===========================
-
-    localStorage.setItem(
-
-        "ultimoPedidoProducao",
-
-        JSON.stringify({
-
-            mesa:
-                Number(numeroMesa),
-
-            ...novoPedido
-
-        })
-
-    );
-
-
-    alert(
-
-        "Pedido #" +
-
-        String(numeroPedido)
-            .padStart(4, "0") +
-
-        " enviado para produção."
-
-    );
-
-
-    window.location.href =
-        "mesa.html";
-
-}
-
-
 // ===========================
-// VOLTAR
+// VOLTAR PARA MESA
 // ===========================
 
 function voltarMesa() {
