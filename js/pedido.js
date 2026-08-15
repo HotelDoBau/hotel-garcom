@@ -389,34 +389,26 @@ function atualizarResumo() {
 // ENVIAR PEDIDO
 // ===========================
 
-function enviarPedido() {
+async function enviarPedido() {
 
     if (carrinho.length === 0) {
 
-        alert(
-            "Adicione algum item ao pedido."
-        );
-
+        alert("Adicione algum item ao pedido.");
         return;
 
     }
 
 
     const observacaoCampo =
-        document.getElementById(
-            "observacao"
-        );
-
+        document.getElementById("observacao");
 
     const observacao =
-        observacaoCampo.value.trim()
-        || "Nenhuma";
+        observacaoCampo.value.trim() || "Nenhuma";
 
 
-    const confirmar =
-        confirm(
-            "Deseja enviar este pedido para produção?"
-        );
+    const confirmar = confirm(
+        "Deseja enviar este pedido para produção?"
+    );
 
 
     if (!confirmar) {
@@ -426,33 +418,242 @@ function enviarPedido() {
     }
 
 
-    const chaveMesa =
-        "mesa_" + numeroMesa;
+    // ===========================
+    // AGUARDA FIREBASE
+    // ===========================
+
+    let tentativas = 0;
+
+    while (
+        !window.firebaseHotel &&
+        tentativas < 50
+    ) {
+
+        await new Promise(
+            resolve => setTimeout(resolve, 100)
+        );
+
+        tentativas++;
+
+    }
 
 
-    let mesa =
-        JSON.parse(
-            localStorage.getItem(
-                chaveMesa
-            )
+    if (!window.firebaseHotel) {
+
+        alert(
+            "Não foi possível conectar ao sistema. Tente novamente."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const {
+
+            db,
+            collection,
+            addDoc,
+            doc,
+            setDoc,
+            serverTimestamp
+
+        } = window.firebaseHotel;
+
+
+        // ===========================
+        // NÚMERO DO PEDIDO
+        // ===========================
+
+        const numeroPedido =
+            Date.now();
+
+
+        // ===========================
+        // ITENS
+        // ===========================
+
+        const itensPedido =
+            carrinho.map(item => ({
+
+                id: item.id,
+
+                nome: item.nome,
+
+                preco: Number(item.preco),
+
+                quantidade:
+                    Number(item.quantidade),
+
+                subtotal:
+                    Number(item.preco) *
+                    Number(item.quantidade)
+
+            }));
+
+
+        const totalPedidoValor =
+            itensPedido.reduce(
+                (soma, item) =>
+                    soma + item.subtotal,
+                0
+            );
+
+
+        // ===========================
+        // PEDIDO PARA PRODUÇÃO
+        // ===========================
+
+        await addDoc(
+
+            collection(
+                db,
+                "pedidos_producao"
+            ),
+
+            {
+
+                numeroPedido:
+                    numeroPedido,
+
+                mesa:
+                    Number(numeroMesa),
+
+                itens:
+                    itensPedido,
+
+                observacao:
+                    observacao,
+
+                total:
+                    totalPedidoValor,
+
+                status:
+                    "novo",
+
+                criadoEm:
+                    serverTimestamp(),
+
+                dataHora:
+                    new Date()
+                        .toLocaleString("pt-BR")
+
+            }
+
         );
 
 
-    if (!mesa) {
+        // ===========================
+        // SALVA / ATUALIZA A MESA
+        // ===========================
 
-        mesa = {
+        const referenciaMesa =
+            doc(
+                db,
+                "mesas",
+                "mesa_" +
+                String(numeroMesa)
+                    .padStart(2, "0")
+            );
 
-            numero:
-                Number(numeroMesa),
 
-            status:
-                "ocupada",
+        await setDoc(
 
-            pedidos: []
+            referenciaMesa,
 
-        };
+            {
+
+                numero:
+                    Number(numeroMesa),
+
+                status:
+                    "ocupada",
+
+                atualizadoEm:
+                    serverTimestamp()
+
+            },
+
+            {
+                merge: true
+            }
+
+        );
+
+
+        // ===========================
+        // SALVA PEDIDO DENTRO DA MESA
+        // ===========================
+
+        await addDoc(
+
+            collection(
+                referenciaMesa,
+                "pedidos"
+            ),
+
+            {
+
+                numeroPedido:
+                    numeroPedido,
+
+                itens:
+                    itensPedido,
+
+                observacao:
+                    observacao,
+
+                total:
+                    totalPedidoValor,
+
+                criadoEm:
+                    serverTimestamp(),
+
+                dataHora:
+                    new Date()
+                        .toLocaleString("pt-BR")
+
+            }
+
+        );
+
+
+        // ===========================
+        // SUCESSO
+        // ===========================
+
+        alert(
+            "Pedido enviado para produção."
+        );
+
+
+        carrinho = [];
+
+        atualizarResumo();
+
+
+        window.location.href =
+            "mesa.html";
 
     }
+
+    catch (erro) {
+
+        console.error(
+            "Erro ao enviar pedido:",
+            erro
+        );
+
+
+        alert(
+            "Não foi possível enviar o pedido."
+        );
+
+    }
+
+}
 
 
     // ===========================
