@@ -148,102 +148,256 @@
 
 </main>
 
-
+<script type="module" src="js/firebase.js"></script>
+    
 <script>
 
 function abrirMesa(numero) {
 
-    localStorage.setItem("mesaSelecionada", numero);
+    localStorage.setItem(
+        "mesaSelecionada",
+        numero
+    );
 
-    window.location.href = "mesa.html";
+    window.location.href =
+        "mesa.html";
 
 }
 
 
 // =========================
-// ATUALIZAR STATUS DAS MESAS
+// AGUARDAR FIREBASE
 // =========================
 
-function atualizarMesas() {
+async function aguardarFirebase() {
 
-    const botoes =
-        document.querySelectorAll(".mesa");
-
-
-    botoes.forEach((botao, indice) => {
-
-        const numeroMesa =
-            indice + 1;
+    let tentativas = 0;
 
 
-        const chaveMesa =
-            "mesa_" + numeroMesa;
+    while (
+        !window.firebaseHotel &&
+        tentativas < 50
+    ) {
+
+        await new Promise(
+            resolve =>
+                setTimeout(resolve, 100)
+        );
+
+        tentativas++;
+
+    }
 
 
-        const mesa = JSON.parse(
-            localStorage.getItem(chaveMesa)
+    return !!window.firebaseHotel;
+
+}
+
+
+// =========================
+// DEFINIR VISUAL DA MESA
+// =========================
+
+function definirStatusMesa(
+    numeroMesa,
+    status
+) {
+
+    const botao =
+        document.querySelector(
+            `.mesa:nth-child(${numeroMesa})`
         );
 
 
-        const textoStatus =
-            botao.querySelector("span");
+    if (!botao) {
+
+        return;
+
+    }
 
 
-        // SEM PEDIDOS = LIVRE
-
-        if (
-            !mesa ||
-            !mesa.pedidos ||
-            mesa.pedidos.length === 0
-        ) {
-
-            botao.classList.remove(
-                "ocupada",
-                "pagamento"
-            );
-
-            botao.classList.add("livre");
-
-            textoStatus.textContent =
-                "Livre";
-
-            return;
-        }
+    const textoStatus =
+        botao.querySelector("span");
 
 
-        // MESA AGUARDANDO PAGAMENTO
-
-        if (mesa.status === "pagamento") {
-
-            botao.classList.remove(
-                "livre",
-                "ocupada"
-            );
-
-            botao.classList.add(
-                "pagamento"
-            );
-
-            textoStatus.textContent =
-                "Pagamento";
-
-            return;
-        }
+    botao.classList.remove(
+        "livre",
+        "ocupada",
+        "pagamento"
+    );
 
 
-        // MESA OCUPADA
+    // PAGAMENTO
 
-        botao.classList.remove(
-            "livre",
+    if (status === "pagamento") {
+
+        botao.classList.add(
             "pagamento"
         );
 
-        botao.classList.add("ocupada");
+        textoStatus.textContent =
+            "Pagamento";
+
+        return;
+
+    }
+
+
+    // OCUPADA
+
+    if (status === "ocupada") {
+
+        botao.classList.add(
+            "ocupada"
+        );
 
         textoStatus.textContent =
             "Ocupada";
 
-    });
+        return;
+
+    }
+
+
+    // LIVRE
+
+    botao.classList.add(
+        "livre"
+    );
+
+    textoStatus.textContent =
+        "Livre";
+
+}
+
+
+// =========================
+// INICIAR MESAS
+// =========================
+
+async function iniciarMesas() {
+
+    const conectado =
+        await aguardarFirebase();
+
+
+    if (!conectado) {
+
+        console.error(
+            "Firebase não conectado."
+        );
+
+        return;
+
+    }
+
+
+    const {
+
+        db,
+        collection,
+        onSnapshot
+
+    } = window.firebaseHotel;
+
+
+    // Primeiro deixa todas livres
+
+    for (
+        let numero = 1;
+        numero <= 20;
+        numero++
+    ) {
+
+        definirStatusMesa(
+            numero,
+            "livre"
+        );
+
+    }
+
+
+    const referenciaMesas =
+        collection(
+            db,
+            "mesas"
+        );
+
+
+    onSnapshot(
+
+        referenciaMesas,
+
+        snapshot => {
+
+
+            // Sempre reinicia todas como livre
+
+            for (
+                let numero = 1;
+                numero <= 20;
+                numero++
+            ) {
+
+                definirStatusMesa(
+                    numero,
+                    "livre"
+                );
+
+            }
+
+
+            // Aplica o que veio do Firebase
+
+            snapshot.forEach(
+                documento => {
+
+
+                    const mesa =
+                        documento.data();
+
+
+                    const numeroMesa =
+                        Number(
+                            mesa.numero
+                        );
+
+
+                    if (
+                        numeroMesa < 1 ||
+                        numeroMesa > 20
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    definirStatusMesa(
+
+                        numeroMesa,
+
+                        mesa.status ||
+                        "livre"
+
+                    );
+
+                }
+            );
+
+        },
+
+
+        erro => {
+
+            console.error(
+                "Erro ao carregar mesas:",
+                erro
+            );
+
+        }
+
+    );
 
 }
 
@@ -252,7 +406,7 @@ function atualizarMesas() {
 // INICIAR
 // =========================
 
-atualizarMesas();
+iniciarMesas();
 
 </script>
 
