@@ -330,7 +330,7 @@ const produtos = [
     nome: "Canja",
     categoria: "Pratos feitos",
     preco: 19.90
-}
+},
 
     // 🥤 BEBIDAS
 
