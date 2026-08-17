@@ -90,14 +90,18 @@ function carregarProdutos(filtro = "") {
     ];
 
 
-   const iconesCategoria = {
+const iconesCategoria = {
 
     "Cafeteria": "☕",
     "Salgados": "🥐",
     "Lanches": "🥪",
     "Pratos feitos": "🍽️",
     "Bebidas": "🥤",
-    "Cervejas e Vinhos": "🍺"
+    "Cervejas e Vinhos": "🍺",
+    "Adicionais": "➕",
+    "Doces": "🍰",
+    "Petiscos": "🍟",
+    "Drinks": "🍹"
 
 };
 
