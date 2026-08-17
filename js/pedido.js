@@ -69,7 +69,21 @@ function obterImagem(produto) {
     if (produto.categoria === "Pratos feitos") {
         return "img/pf.webp";
     }
+if (produto.categoria === "Adicionais") {
+    return "img/adicionais.webp";
+}
 
+if (produto.categoria === "Doces") {
+    return "img/doces.webp";
+}
+
+if (produto.categoria === "Petiscos") {
+    return "img/petiscos.webp";
+}
+
+if (produto.categoria === "Drinks") {
+    return "img/drinks.webp";
+}
 
     return "";
 }
