@@ -297,7 +297,40 @@ const produtos = [
         categoria: "Pratos feitos",
         preco: 19.90
     },
+{
+    id: 103,
+    nome: "Omelete simples",
+    categoria: "Pratos feitos",
+    preco: 10.00
+},
 
+{
+    id: 104,
+    nome: "Omelete super presunto",
+    categoria: "Pratos feitos",
+    preco: 22.00
+},
+
+{
+    id: 105,
+    nome: "Omelete super salame",
+    categoria: "Pratos feitos",
+    preco: 22.00
+},
+
+{
+    id: 106,
+    nome: "Caldo de carne",
+    categoria: "Pratos feitos",
+    preco: 21.90
+},
+
+{
+    id: 107,
+    nome: "Canja",
+    categoria: "Pratos feitos",
+    preco: 19.90
+}
 
     // 🥤 BEBIDAS
 
