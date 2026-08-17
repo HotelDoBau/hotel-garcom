@@ -550,6 +550,212 @@ const produtos = [
         categoria: "Cervejas e Vinhos",
         preco: 10.00,
         imagem: "img/amstel-lata.webp"
-    }
+    },
+    
+    // ➕ ADICIONAIS
 
+    {
+        id: 75,
+        nome: "Porção de arroz",
+        categoria: "Adicionais",
+        preco: 8.00
+    },
+
+    {
+        id: 76,
+        nome: "Porção de feijão",
+        categoria: "Adicionais",
+        preco: 8.00
+    },
+
+    {
+        id: 77,
+        nome: "Porção de ragú ou lagarto",
+        categoria: "Adicionais",
+        preco: 10.00
+    },
+
+    {
+        id: 78,
+        nome: "Adicional de cupim",
+        categoria: "Adicionais",
+        preco: 16.00
+    },
+
+    {
+        id: 79,
+        nome: "Adicional de ovo frito",
+        categoria: "Adicionais",
+        preco: 1.70
+    },
+
+    {
+        id: 80,
+        nome: "Adicional de tomate",
+        categoria: "Adicionais",
+        preco: 0.80
+    },
+
+    {
+        id: 81,
+        nome: "Adicional de cebola",
+        categoria: "Adicionais",
+        preco: 0.90
+    },
+
+    {
+        id: 82,
+        nome: "Adicional de mussarela",
+        categoria: "Adicionais",
+        preco: 1.50
+    },
+
+
+    // 🍰 DOCES
+
+    {
+        id: 83,
+        nome: "Salada de frutas",
+        categoria: "Doces",
+        preco: 10.00
+    },
+
+    {
+        id: 84,
+        nome: "Adicional de granola",
+        categoria: "Doces",
+        preco: 3.45
+    },
+
+    {
+        id: 85,
+        nome: "Adicional de iogurte",
+        categoria: "Doces",
+        preco: 1.70
+    },
+
+    {
+        id: 86,
+        nome: "Adicional de leite condensado",
+        categoria: "Doces",
+        preco: 2.00
+    },
+
+    {
+        id: 87,
+        nome: "Adicional de mel",
+        categoria: "Doces",
+        preco: 2.20
+    },
+
+    {
+        id: 88,
+        nome: "Adicional de geleia",
+        categoria: "Doces",
+        preco: 1.50
+    },
+
+    {
+        id: 89,
+        nome: "Bolo do dia",
+        categoria: "Doces",
+        preco: 5.00
+    },
+
+    {
+        id: 90,
+        nome: "Pudim de leite",
+        categoria: "Doces",
+        preco: 7.00
+    },
+
+    {
+        id: 91,
+        nome: "Banoffe",
+        categoria: "Doces",
+        preco: 9.00
+    },
+
+    {
+        id: 92,
+        nome: "Bolo gelado de coco",
+        categoria: "Doces",
+        preco: 10.00
+    },
+
+    {
+        id: 93,
+        nome: "Bolo gelado com sorvete",
+        categoria: "Doces",
+        preco: 14.00
+    },
+
+    {
+        id: 94,
+        nome: "Bolo gelado completo",
+        categoria: "Doces",
+        preco: 17.00
+    },
+
+
+    // 🍟 PETISCOS
+
+    {
+        id: 95,
+        nome: "Batata rústica",
+        categoria: "Petiscos",
+        preco: 33.00
+    },
+
+    {
+        id: 96,
+        nome: "Calabresa fatiada",
+        categoria: "Petiscos",
+        preco: 35.00
+    },
+
+    {
+        id: 97,
+        nome: "Pote de salgadinho",
+        categoria: "Petiscos",
+        preco: 4.00
+    },
+
+
+    // 🍹 DRINKS
+
+    {
+        id: 98,
+        nome: "Laranjinha",
+        categoria: "Drinks",
+        preco: 33.00
+    },
+
+    {
+        id: 99,
+        nome: "Mayra Amou",
+        categoria: "Drinks",
+        preco: 35.00
+    },
+
+    {
+        id: 100,
+        nome: "Gente Fina",
+        categoria: "Drinks",
+        preco: 31.00
+    },
+
+    {
+        id: 101,
+        nome: "Coice de mula",
+        categoria: "Drinks",
+        preco: 34.00
+    },
+
+    {
+        id: 102,
+        nome: "Seu Geraldo",
+        categoria: "Drinks",
+        preco: 32.00
+    }
 ];
