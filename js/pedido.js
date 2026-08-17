@@ -31,7 +31,15 @@ document.getElementById("tituloMesa").textContent =
 
 function obterImagem(produto) {
 
+    // Se o produto já tem imagem própria no produtos.js,
+    // usa essa imagem primeiro.
+    if (produto.imagem) {
+        return produto.imagem;
+    }
+
+
     const nome = produto.nome.toLowerCase();
+
 
     if (produto.categoria === "Cafeteria") {
 
@@ -47,17 +55,21 @@ function obterImagem(produto) {
         return "img/cafe-espresso.webp";
     }
 
+
     if (produto.categoria === "Salgados") {
         return "img/salgados.webp";
     }
+
 
     if (produto.categoria === "Lanches") {
         return "img/lanche.webp";
     }
 
+
     if (produto.categoria === "Pratos feitos") {
         return "img/pf.webp";
     }
+
 
     return "";
 }
@@ -78,14 +90,16 @@ function carregarProdutos(filtro = "") {
     ];
 
 
-    const iconesCategoria = {
+   const iconesCategoria = {
 
-        "Cafeteria": "☕",
-        "Salgados": "🥐",
-        "Lanches": "🥪",
-        "Pratos feitos": "🍽️"
+    "Cafeteria": "☕",
+    "Salgados": "🥐",
+    "Lanches": "🥪",
+    "Pratos feitos": "🍽️",
+    "Bebidas": "🥤",
+    "Cervejas e Vinhos": "🍺"
 
-    };
+};
 
 
     categorias.forEach(categoria => {
