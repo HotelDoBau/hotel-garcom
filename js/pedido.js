@@ -411,7 +411,239 @@ async function aguardarFirebase() {
 
 }
 
+// ===========================
+// REVISÃO DO PEDIDO
+// ===========================
 
+function abrirRevisao() {
+
+    if (carrinho.length === 0) {
+
+        alert(
+            "Adicione algum item ao pedido."
+        );
+
+        return;
+
+    }
+
+
+    const modal =
+        document.getElementById(
+            "modalRevisao"
+        );
+
+
+    const lista =
+        document.getElementById(
+            "listaRevisao"
+        );
+
+
+    lista.innerHTML = "";
+
+
+    carrinho.forEach(item => {
+
+        const subtotal =
+            Number(item.preco) *
+            Number(item.quantidade);
+
+
+        const div =
+            document.createElement("div");
+
+
+        div.className =
+            "item-revisao";
+
+
+        div.innerHTML = `
+
+            <div class="info-revisao">
+
+                <strong>
+                    ${item.nome}
+                </strong>
+
+                <small>
+                    R$ ${Number(item.preco).toFixed(2)}
+                </small>
+
+            </div>
+
+
+            <div class="controle-revisao">
+
+                <button
+                    type="button"
+                    onclick="alterarQuantidadeRevisao(${item.id}, -1)">
+
+                    −
+
+                </button>
+
+
+                <strong>
+                    ${item.quantidade}
+                </strong>
+
+
+                <button
+                    type="button"
+                    onclick="alterarQuantidadeRevisao(${item.id}, 1)">
+
+                    +
+
+                </button>
+
+            </div>
+
+
+            <strong>
+                R$ ${subtotal.toFixed(2)}
+            </strong>
+
+        `;
+
+
+        lista.appendChild(div);
+
+    });
+
+
+    atualizarTotalRevisao();
+
+
+    modal.classList.add(
+        "mostrar"
+    );
+
+}
+
+
+// ===========================
+// ALTERAR QUANTIDADE NA REVISÃO
+// ===========================
+
+function alterarQuantidadeRevisao(
+    id,
+    valor
+) {
+
+    const produto =
+        produtos.find(
+            produto =>
+                produto.id === id
+        );
+
+
+    if (!produto) {
+
+        return;
+
+    }
+
+
+    let item =
+        carrinho.find(
+            item =>
+                item.id === id
+        );
+
+
+    if (!item && valor > 0) {
+
+        item = {
+            ...produto,
+            quantidade: 0
+        };
+
+
+        carrinho.push(item);
+
+    }
+
+
+    if (!item) {
+
+        return;
+
+    }
+
+
+    item.quantidade += valor;
+
+
+    if (item.quantidade <= 0) {
+
+        carrinho =
+            carrinho.filter(
+                item =>
+                    item.id !== id
+            );
+
+    }
+
+
+    atualizarResumo();
+
+
+    if (carrinho.length === 0) {
+
+        fecharRevisao();
+
+        return;
+
+    }
+
+
+    abrirRevisao();
+
+}
+
+
+// ===========================
+// TOTAL DA REVISÃO
+// ===========================
+
+function atualizarTotalRevisao() {
+
+    const total =
+        carrinho.reduce(
+            (soma, item) =>
+
+                soma +
+
+                Number(item.preco) *
+                Number(item.quantidade),
+
+            0
+        );
+
+
+    document.getElementById(
+        "totalRevisao"
+    ).textContent =
+        "R$ " +
+        total.toFixed(2);
+
+}
+
+
+// ===========================
+// FECHAR REVISÃO
+// ===========================
+
+function fecharRevisao() {
+
+    document.getElementById(
+        "modalRevisao"
+    ).classList.remove(
+        "mostrar"
+    );
+
+}
 // ===========================
 // ENVIAR PEDIDO
 // ===========================
@@ -625,11 +857,6 @@ const conectado =
 
             }
 
-        );
-
-
-        alert(
-            "Pedido enviado para produção."
         );
 
 
