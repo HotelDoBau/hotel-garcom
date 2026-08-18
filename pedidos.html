@@ -78,13 +78,13 @@
     </section>
 
 
-    <section class="acoes-pedido">
+       <section class="acoes-pedido">
 
         <button
             class="btn-pedido"
-            onclick="enviarPedido()">
+            onclick="abrirRevisao()">
 
-            ✅ Enviar para produção
+            🧾 Revisar pedido
 
         </button>
 
@@ -99,14 +99,52 @@
 
     </section>
 
+
+    <section
+        id="modalRevisao"
+        class="modal-revisao">
+
+        <div class="caixa-revisao">
+
+            <h2>
+                🧾 Conferir pedido
+            </h2>
+
+            <div id="listaRevisao"></div>
+
+            <div class="total-revisao">
+
+                <span>Total</span>
+
+                <strong id="totalRevisao">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+            <div class="acoes-revisao">
+
+                <button
+                    class="btn-voltar"
+                    onclick="fecharRevisao()">
+
+                    ← Continuar editando
+
+                </button>
+
+
+                <button
+                    class="btn-pedido"
+                    onclick="enviarPedido()">
+
+                    ✅ OK - Enviar pedido
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </main>
-
-
-<script src="dados/produtos.js"></script>
-
-<script type="module" src="js/firebase.js"></script>
-
-<script src="js/pedido.js"></script>
-
-</body>
-</html>
