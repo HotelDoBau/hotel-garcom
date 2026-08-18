@@ -283,7 +283,12 @@ const produtos = [
         categoria: "Pratos feitos",
         preco: 21.90
     },
-
+{
+    id: 88,
+    nome: "Prato de cupim",
+    categoria: "Pratos feitos",
+    preco: 29.90
+},
     {
         id: 42,
         nome: "Arroz com feijão e ragú ou lagarto",
