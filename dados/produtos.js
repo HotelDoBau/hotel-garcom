@@ -605,7 +605,7 @@ const produtos = [
     categoria: "Cervejas e Vinhos",
     preco: 15.00,
     imagem: "img/cerveja-longneck.webp"
-}
+},
     // ➕ ADICIONAIS
 
     {
