@@ -436,23 +436,12 @@ async function enviarPedido() {
 
 
     const observacao =
-        observacaoCampo.value.trim() ||
-        "Nenhuma";
+    observacaoCampo.value.trim() ||
+    "Nenhuma";
 
 
-    const confirmar =
-        confirm(
-            "Deseja enviar este pedido para produção?"
-        );
-
-
-    if (!confirmar) {
-        return;
-    }
-
-
-    const conectado =
-        await aguardarFirebase();
+const conectado =
+    await aguardarFirebase();
 
 
     if (!conectado) {
