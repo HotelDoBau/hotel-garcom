@@ -586,6 +586,21 @@ const produtos = [
         imagem: "img/amstel-lata.webp"
     },
     
+    {
+    id: 86,
+    nome: "Cerveja lata",
+    categoria: "Cervejas e Vinhos",
+    preco: 10.00,
+    imagem: "img/cerveja-lata.webp"
+},
+
+{
+    id: 87,
+    nome: "Cerveja Longneck",
+    categoria: "Cervejas e Vinhos",
+    preco: 15.00,
+    imagem: "img/cerveja-longneck.webp"
+}
     // ➕ ADICIONAIS
 
     {
