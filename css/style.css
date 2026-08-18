@@ -928,3 +928,252 @@ main {
     margin-bottom: 0;
 
 }
+/* =========================
+   REVISÃO DO PEDIDO
+========================= */
+
+.modal-revisao {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    z-index: 9999;
+
+    padding: 15px;
+
+    overflow-y: auto;
+}
+
+
+/* ABRIR MODAL */
+
+.modal-revisao.mostrar {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* CAIXA PRINCIPAL */
+
+.caixa-revisao {
+    width: 100%;
+    max-width: 500px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,.25);
+}
+
+
+.caixa-revisao h2 {
+    margin: 0 0 20px;
+
+    text-align: center;
+
+    color: #245d88;
+
+    font-size: 23px;
+}
+
+
+/* ITEM */
+
+.item-revisao {
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 12px;
+
+    align-items: center;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+/* INFORMAÇÕES */
+
+.info-revisao {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.info-revisao strong {
+    font-size: 16px;
+}
+
+
+.info-revisao small {
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* QUANTIDADE */
+
+.controle-revisao {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+
+.controle-revisao button {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #245d88;
+
+    color: white;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.controle-revisao strong {
+    min-width: 25px;
+
+    text-align: center;
+
+    font-size: 19px;
+}
+
+
+/* SUBTOTAL DO ITEM */
+
+.item-revisao > strong {
+    grid-column: 1 / -1;
+
+    text-align: right;
+
+    color: #245d88;
+
+    font-size: 15px;
+}
+
+
+/* TOTAL */
+
+.total-revisao {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 18px;
+
+    padding: 17px 0;
+
+    border-top: 2px solid #eee;
+
+    font-size: 20px;
+}
+
+
+.total-revisao strong {
+    color: #245d88;
+
+    font-size: 23px;
+}
+
+
+/* BOTÕES */
+
+.acoes-revisao {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+
+.acoes-revisao button {
+    width: 100%;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 16px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.acoes-revisao .btn-pedido {
+    background: #245d88;
+
+    color: white;
+}
+
+
+.acoes-revisao .btn-voltar {
+    background: #e5e7e9;
+
+    color: #444;
+
+    margin: 0;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .modal-revisao {
+        padding: 10px;
+    }
+
+    .caixa-revisao {
+        padding: 18px 15px;
+
+        border-radius: 18px;
+    }
+
+    .info-revisao strong {
+        font-size: 17px;
+    }
+
+    .controle-revisao button {
+        width: 46px;
+        height: 46px;
+    }
+
+}
