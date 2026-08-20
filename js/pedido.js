@@ -847,8 +847,6 @@ const conectado =
                 "pedidos"
             ),
 
-            {
-
                {
     numeroPedido:
         numeroPedido,
