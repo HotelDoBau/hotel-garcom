@@ -496,7 +496,14 @@ async function fecharMesa() {
 
     });
 
-
+const quartoMesa =
+    pedidosMesa
+        .map(pedido => pedido.quarto)
+        .find(quarto =>
+            quarto &&
+            String(quarto).trim() !== ""
+        )
+    || "";
     const confirmar = confirm(
         "Fechar Mesa " +
         String(numeroMesa).padStart(2, "0") +
@@ -569,6 +576,7 @@ async function fecharMesa() {
             collection(db, "fechamentos"),
             {
                 mesa: Number(numeroMesa),
+                quarto: quartoMesa,
                 idMesa: idMesa,
                 itens: Object.values(itensAcumulados),
                 total: Number(totalMesa.toFixed(2)),
