@@ -1177,3 +1177,41 @@ main {
     }
 
 }
+/* =========================
+   NÚMERO DO QUARTO
+========================= */
+
+.quarto-pedido {
+    margin-top: 15px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.08);
+}
+
+.quarto-pedido label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.quarto-pedido label small {
+    color: #777;
+    font-weight: normal;
+}
+
+.quarto-pedido input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 14px;
+    font-family: inherit;
+    font-size: 17px;
+    outline: none;
+}
+
+.quarto-pedido input:focus {
+    border-color: #245d88;
+}
