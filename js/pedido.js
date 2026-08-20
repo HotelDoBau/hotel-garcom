@@ -680,11 +680,6 @@ const quarto =
     quartoCampo
         ? quartoCampo.value.trim()
         : "";
-
-    alert(
-    "TESTE DO QUARTO\n\n" +
-    "Valor digitado: [" + quarto + "]"
-);
     
 const conectado =
     await aguardarFirebase();
