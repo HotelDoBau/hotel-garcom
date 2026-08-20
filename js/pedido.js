@@ -764,7 +764,7 @@ const conectado =
 
             {
 
-                {
+            
     numeroPedido:
         numeroPedido,
 
