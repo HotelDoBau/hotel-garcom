@@ -671,6 +671,15 @@ async function enviarPedido() {
     observacaoCampo.value.trim() ||
     "Nenhuma";
 
+    const quartoCampo =
+    document.getElementById(
+        "numeroQuarto"
+    );
+
+const quarto =
+    quartoCampo
+        ? quartoCampo.value.trim()
+        : "";
 
 const conectado =
     await aguardarFirebase();
@@ -755,17 +764,21 @@ const conectado =
 
             {
 
-                numeroPedido:
-                    numeroPedido,
+                {
+    numeroPedido:
+        numeroPedido,
 
-                mesa:
-                    Number(numeroMesa),
+    mesa:
+        Number(numeroMesa),
 
-                itens:
-                    itensPedido,
+    quarto:
+        quarto,
 
-                observacao:
-                    observacao,
+    itens:
+        itensPedido,
+
+    observacao:
+        observacao,
 
                 total:
                     totalPedidoValor,
@@ -836,14 +849,18 @@ const conectado =
 
             {
 
-                numeroPedido:
-                    numeroPedido,
+               {
+    numeroPedido:
+        numeroPedido,
 
-                itens:
-                    itensPedido,
+    quarto:
+        quarto,
 
-                observacao:
-                    observacao,
+    itens:
+        itensPedido,
+
+    observacao:
+        observacao,
 
                 total:
                     totalPedidoValor,
