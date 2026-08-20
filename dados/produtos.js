@@ -123,7 +123,12 @@ const produtos = [
         categoria: "Salgados",
         preco: 7.50
     },
-
+{
+    id: 118,
+    nome: "Salgado de Pernil com muçarela",
+    categoria: "Salgados",
+    preco: 7.50
+},
     {
         id: 20,
         nome: "Salgado assado esfiha de carne",
@@ -347,6 +352,13 @@ const produtos = [
         preco: 3.00,
         imagem: "img/agua-minaura-sem-gas.webp"
     },
+
+    {
+    id: 119,
+    nome: "Guaravitton",
+    categoria: "Bebidas",
+    preco: 5.00
+},
 
     {
         id: 45,
@@ -592,7 +604,7 @@ const produtos = [
     },
     
     {
-    id: 86,
+    id: 812,
     nome: "Cerveja lata",
     categoria: "Cervejas e Vinhos",
     preco: 10.00,
@@ -600,7 +612,7 @@ const produtos = [
 },
 
 {
-    id: 87,
+    id: 818,
     nome: "Cerveja Longneck",
     categoria: "Cervejas e Vinhos",
     preco: 15.00,
@@ -703,7 +715,7 @@ const produtos = [
     },
 
     {
-        id: 88,
+        id: 8887,
         nome: "Adicional de geleia",
         categoria: "Doces",
         preco: 1.50
