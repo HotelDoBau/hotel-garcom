@@ -768,15 +768,17 @@ const conectado =
     numeroPedido:
         numeroPedido,
 
-    mesa:
-        Number(numeroMesa),
+   mesa:
+    Number(numeroMesa),
 
-    quarto:
-        quarto,
+quarto:
+    (
+        document.getElementById("numeroQuarto")?.value || ""
+    ).trim(),
 
-    itens:
-        itensPedido,
-
+itens:
+    itensPedido,
+                
     observacao:
         observacao,
 
@@ -851,8 +853,10 @@ const conectado =
     numeroPedido:
         numeroPedido,
 
-    quarto:
-        quarto,
+   quarto:
+    (
+        document.getElementById("numeroQuarto")?.value || ""
+    ).trim(),
 
     itens:
         itensPedido,
