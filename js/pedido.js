@@ -840,7 +840,7 @@ itens:
 
             referenciaMesa,
 
-            {
+            
 
                 {
     numero:
@@ -878,7 +878,7 @@ itens:
     numeroPedido:
         numeroPedido,
 
-   qutipo:
+   tipo:
     tipoSelecionado,
 
 mesa:
