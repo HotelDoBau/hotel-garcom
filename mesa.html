@@ -117,6 +117,18 @@
 const numeroMesa =
     localStorage.getItem("mesaSelecionada");
 
+    const tipoSelecionado =
+    localStorage.getItem("tipoSelecionado") || "mesa";
+
+const ehQuarto =
+    tipoSelecionado === "quarto";
+
+const nomeLocal =
+    ehQuarto ? "Quarto" : "Mesa";
+
+const prefixoLocal =
+    ehQuarto ? "quarto_" : "mesa_";
+
 
 if (!numeroMesa) {
 
@@ -126,7 +138,8 @@ if (!numeroMesa) {
 
 
 document.getElementById("tituloMesa").textContent =
-    "Mesa " + String(numeroMesa).padStart(2, "0");
+    nomeLocal + " " +
+    String(numeroMesa).padStart(2, "0");
 
 
 let pedidosMesa = [];
@@ -345,15 +358,15 @@ async function iniciarMesa() {
     } = window.firebaseHotel;
 
 
-    const referenciaPedidos =
-        collection(
-            db,
-            "mesas",
-            "mesa_" +
-            String(numeroMesa)
-                .padStart(2, "0"),
-            "pedidos"
-        );
+   const referenciaPedidos =
+    collection(
+        db,
+        "mesas",
+        prefixoLocal +
+        String(numeroMesa)
+            .padStart(2, "0"),
+        "pedidos"
+    );
 
 
     onSnapshot(
@@ -504,15 +517,16 @@ const quartoMesa =
             String(quarto).trim() !== ""
         )
     || "";
-    const confirmar = confirm(
-        "Fechar Mesa " +
-        String(numeroMesa).padStart(2, "0") +
-        "?\n\n" +
-        "Total: R$ " +
-        totalMesa.toFixed(2) +
-        "\n\nA conta será enviada para impressão no computador."
-    );
-
+   const confirmar = confirm(
+    "Fechar " +
+    nomeLocal +
+    " " +
+    String(numeroMesa).padStart(2, "0") +
+    "?\n\n" +
+    "Total: R$ " +
+    totalMesa.toFixed(2) +
+    "\n\nA conta será enviada para impressão no computador."
+);
 
     if (!confirmar) {
 
@@ -552,10 +566,9 @@ const quartoMesa =
         );
 
 
-        const idMesa =
-            "mesa_" +
-            String(numeroMesa).padStart(2, "0");
-
+       const idMesa =
+    prefixoLocal +
+    String(numeroMesa).padStart(2, "0");
 
         // Marca a mesa como aguardando o fechamento ser impresso.
         await setDoc(
@@ -572,27 +585,31 @@ const quartoMesa =
 
 
         // Envia a conta completa para a Central no computador.
-        await addDoc(
-            collection(db, "fechamentos"),
-            {
-                mesa: Number(numeroMesa),
-                quarto: quartoMesa,
-                idMesa: idMesa,
-                itens: Object.values(itensAcumulados),
-                total: Number(totalMesa.toFixed(2)),
-                dataHora: new Date().toLocaleString("pt-BR"),
-                status: "novo",
-                criadoEm: serverTimestamp()
-            }
-        );
+      await addDoc(
+    collection(db, "fechamentos"),
+    {
+        mesa: ehQuarto ? null : Number(numeroMesa),
+        quarto: ehQuarto ? Number(numeroMesa) : quartoMesa,
+        tipo: tipoSelecionado,
+        numero: Number(numeroMesa),
+        idMesa: idMesa,
+        itens: Object.values(itensAcumulados),
+        total: Number(totalMesa.toFixed(2)),
+        dataHora: new Date().toLocaleString("pt-BR"),
+        status: "novo",
+        criadoEm: serverTimestamp()
+    }
+);
 
 
         alert(
-            "✅ Fechamento da Mesa " +
-            String(numeroMesa).padStart(2, "0") +
-            " enviado para o computador.\n\n" +
-            "A mesa ficará em PAGAMENTO até a conta ser impressa."
-        );
+    "✅ Fechamento do " +
+    nomeLocal +
+    " " +
+    String(numeroMesa).padStart(2, "0") +
+    " enviado para o computador.\n\n" +
+    "O atendimento ficará em PAGAMENTO até a conta ser impressa."
+);
 
 
         window.location.href =
