@@ -352,24 +352,58 @@ async function aguardarFirebase() {
 
 
 // =========================
-// DEFINIR VISUAL DA MESA
+// QUARTOS DISPONÍVEIS
 // =========================
 
-function definirStatusMesa(
-    numeroMesa,
+const quartosDisponiveis = [
+    1, 2, 3, 4,
+    5, 6, 7, 8,
+    9, 10, 11, 12,
+    13, 14, 15, 16,
+    33, 34, 35, 36,
+    37, 38, 39, 40
+];
+
+
+// =========================
+// DEFINIR VISUAL
+// =========================
+
+function definirStatusLocal(
+    tipo,
+    numero,
     status
 ) {
 
-    const botao =
-        document.querySelector(
-            `.mesa:nth-child(${numeroMesa})`
-        );
+    let botao;
+
+
+    // MESA
+
+    if (tipo === "mesa") {
+
+        botao =
+            document.querySelector(
+                `#mesas .mesa:nth-child(${numero})`
+            );
+
+    }
+
+
+    // QUARTO
+
+    else if (tipo === "quarto") {
+
+        botao =
+            document.querySelector(
+                `#quartos .mesa[data-numero="${numero}"]`
+            );
+
+    }
 
 
     if (!botao) {
-
         return;
-
     }
 
 
@@ -409,7 +443,9 @@ function definirStatusMesa(
         );
 
         textoStatus.textContent =
-            "Ocupada";
+            tipo === "quarto"
+                ? "Ocupado"
+                : "Ocupada";
 
         return;
 
@@ -429,7 +465,48 @@ function definirStatusMesa(
 
 
 // =========================
-// INICIAR MESAS
+// DEIXAR TODOS LIVRES
+// =========================
+
+function resetarStatus() {
+
+
+    // MESAS 01 A 20
+
+    for (
+        let numero = 1;
+        numero <= 20;
+        numero++
+    ) {
+
+        definirStatusLocal(
+            "mesa",
+            numero,
+            "livre"
+        );
+
+    }
+
+
+    // QUARTOS
+
+    quartosDisponiveis.forEach(
+        numero => {
+
+            definirStatusLocal(
+                "quarto",
+                numero,
+                "livre"
+            );
+
+        }
+    );
+
+}
+
+
+// =========================
+// INICIAR MESAS E QUARTOS
 // =========================
 
 async function iniciarMesas() {
@@ -458,20 +535,9 @@ async function iniciarMesas() {
     } = window.firebaseHotel;
 
 
-    // Primeiro deixa todas livres
+    // Inicialmente todos livres
 
-    for (
-        let numero = 1;
-        numero <= 20;
-        numero++
-    ) {
-
-        definirStatusMesa(
-            numero,
-            "livre"
-        );
-
-    }
+    resetarStatus();
 
 
     const referenciaMesas =
@@ -488,56 +554,120 @@ async function iniciarMesas() {
         snapshot => {
 
 
-            // Sempre reinicia todas como livre
+            // Reinicia o visual
 
-            for (
-                let numero = 1;
-                numero <= 20;
-                numero++
-            ) {
-
-                definirStatusMesa(
-                    numero,
-                    "livre"
-                );
-
-            }
+            resetarStatus();
 
 
-            // Aplica o que veio do Firebase
+            // Aplica dados do Firebase
 
             snapshot.forEach(
                 documento => {
 
 
-                    const mesa =
+                    const local =
                         documento.data();
 
 
-                    const numeroMesa =
+                    const idDocumento =
+                        documento.id;
+
+
+                    const numero =
                         Number(
-                            mesa.numero
+                            local.numero
                         );
 
 
-                    if (
-                        numeroMesa < 1 ||
-                        numeroMesa > 20
-                    ) {
+                    let tipo =
+                        local.tipo;
+
+
+                    // =====================
+                    // COMPATIBILIDADE
+                    // COM MESAS ANTIGAS
+                    // =====================
+
+                    if (!tipo) {
+
+                        if (
+                            idDocumento.startsWith(
+                                "quarto_"
+                            )
+                        ) {
+
+                            tipo = "quarto";
+
+                        } else {
+
+                            tipo = "mesa";
+
+                        }
+
+                    }
+
+
+                    // =====================
+                    // MESA
+                    // =====================
+
+                    if (tipo === "mesa") {
+
+                        if (
+                            numero < 1 ||
+                            numero > 20
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        definirStatusLocal(
+
+                            "mesa",
+
+                            numero,
+
+                            local.status ||
+                            "livre"
+
+                        );
 
                         return;
 
                     }
 
 
-                    definirStatusMesa(
+                    // =====================
+                    // QUARTO
+                    // =====================
 
-                        numeroMesa,
+                    if (tipo === "quarto") {
 
-                        mesa.status ||
-                        "livre"
+                        if (
+                            !quartosDisponiveis.includes(
+                                numero
+                            )
+                        ) {
 
-                    );
+                            return;
+
+                        }
+
+
+                        definirStatusLocal(
+
+                            "quarto",
+
+                            numero,
+
+                            local.status ||
+                            "livre"
+
+                        );
+
+                    }
 
                 }
             );
@@ -548,7 +678,7 @@ async function iniciarMesas() {
         erro => {
 
             console.error(
-                "Erro ao carregar mesas:",
+                "Erro ao carregar mesas e quartos:",
                 erro
             );
 
@@ -557,8 +687,6 @@ async function iniciarMesas() {
     );
 
 }
-
-
 // =========================
 // INICIAR
 // =========================
