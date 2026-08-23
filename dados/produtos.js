@@ -123,6 +123,14 @@ const produtos = [
         categoria: "Salgados",
         preco: 7.50
     },
+    
+    {
+    id: 120,
+    nome: "Esfirra de carne com bacon",
+    categoria: "Salgados",
+    preco: 7.50
+},
+    
 {
     id: 118,
     nome: "Salgado de Pernil com muçarela",
@@ -617,6 +625,61 @@ const produtos = [
     categoria: "Cervejas e Vinhos",
     preco: 15.00,
     imagem: "img/cerveja-longneck.webp"
+},
+
+    {
+    id: 121,
+    nome: "Cachaça (dose 50ml)",
+    categoria: "Cervejas e Vinhos",
+    preco: 17.00
+},
+{
+    id: 122,
+    nome: "Cachaça Premium (dose 50ml)",
+    categoria: "Cervejas e Vinhos",
+    preco: 22.00
+},
+{
+    id: 123,
+    nome: "Licores (dose 50ml)",
+    categoria: "Cervejas e Vinhos",
+    preco: 32.00
+},
+{
+    id: 124,
+    nome: "Whisky (dose 50ml)",
+    categoria: "Cervejas e Vinhos",
+    preco: 35.00
+},
+{
+    id: 125,
+    nome: "Gin (dose 50ml)",
+    categoria: "Cervejas e Vinhos",
+    preco: 23.00
+},
+{
+    id: 126,
+    nome: "Tequila (dose 50ml)",
+    categoria: "Cervejas e Vinhos",
+    preco: 18.00
+},
+{
+    id: 127,
+    nome: "Vermute (dose 50ml)",
+    categoria: "Cervejas e Vinhos",
+    preco: 19.00
+},
+{
+    id: 128,
+    nome: "Vodca (dose 50ml)",
+    categoria: "Cervejas e Vinhos",
+    preco: 23.00
+},
+{
+    id: 129,
+    nome: "Vinho (dose 50ml)",
+    categoria: "Cervejas e Vinhos",
+    preco: 19.00
 },
     // ➕ ADICIONAIS
 
