@@ -143,8 +143,144 @@
             <strong>20</strong>
             <span>Livre</span>
         </button>
+        
+        </section>
+    
+<section class="titulo-mesas">
 
-    </section>
+    <h2>Quartos</h2>
+
+    <p>
+        Selecione um quarto
+    </p>
+
+</section>
+
+
+<section class="mesas" id="quartos">
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="1" onclick="abrirQuarto(1)">
+        <strong>01</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="2" onclick="abrirQuarto(2)">
+        <strong>02</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="3" onclick="abrirQuarto(3)">
+        <strong>03</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="4" onclick="abrirQuarto(4)">
+        <strong>04</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="5" onclick="abrirQuarto(5)">
+        <strong>05</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="6" onclick="abrirQuarto(6)">
+        <strong>06</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="7" onclick="abrirQuarto(7)">
+        <strong>07</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="8" onclick="abrirQuarto(8)">
+        <strong>08</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="9" onclick="abrirQuarto(9)">
+        <strong>09</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="10" onclick="abrirQuarto(10)">
+        <strong>10</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="11" onclick="abrirQuarto(11)">
+        <strong>11</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="12" onclick="abrirQuarto(12)">
+        <strong>12</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="13" onclick="abrirQuarto(13)">
+        <strong>13</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="14" onclick="abrirQuarto(14)">
+        <strong>14</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="15" onclick="abrirQuarto(15)">
+        <strong>15</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="16" onclick="abrirQuarto(16)">
+        <strong>16</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="33" onclick="abrirQuarto(33)">
+        <strong>33</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="34" onclick="abrirQuarto(34)">
+        <strong>34</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="35" onclick="abrirQuarto(35)">
+        <strong>35</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="36" onclick="abrirQuarto(36)">
+        <strong>36</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="37" onclick="abrirQuarto(37)">
+        <strong>37</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="38" onclick="abrirQuarto(38)">
+        <strong>38</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="39" onclick="abrirQuarto(39)">
+        <strong>39</strong>
+        <span>Livre</span>
+    </button>
+
+    <button class="mesa livre" data-tipo="quarto" data-numero="40" onclick="abrirQuarto(40)">
+        <strong>40</strong>
+        <span>Livre</span>
+    </button>
+
+</section>
+
 
 </main>
 
@@ -157,6 +293,27 @@ function abrirMesa(numero) {
     localStorage.setItem(
         "mesaSelecionada",
         numero
+    );
+
+    localStorage.setItem(
+        "tipoSelecionado",
+        "mesa"
+    );
+
+    window.location.href =
+        "mesa.html";
+}
+    
+    function abrirQuarto(numero) {
+
+    localStorage.setItem(
+        "mesaSelecionada",
+        numero
+    );
+
+    localStorage.setItem(
+        "tipoSelecionado",
+        "quarto"
     );
 
     window.location.href =
