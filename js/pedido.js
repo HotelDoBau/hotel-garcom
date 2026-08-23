@@ -6,6 +6,17 @@ const qtdItens = document.getElementById("qtdItens");
 const totalPedido = document.getElementById("totalPedido");
 
 const numeroMesa = localStorage.getItem("mesaSelecionada");
+const tipoSelecionado =
+    localStorage.getItem("tipoSelecionado") || "mesa";
+
+const ehQuarto =
+    tipoSelecionado === "quarto";
+
+const nomeLocal =
+    ehQuarto ? "Quarto" : "Mesa";
+
+const prefixoLocal =
+    ehQuarto ? "quarto_" : "mesa_";
 
 
 // ===========================
@@ -22,7 +33,8 @@ if (!numeroMesa) {
 // ===========================
 
 document.getElementById("tituloMesa").textContent =
-    "Mesa " + String(numeroMesa).padStart(2, "0");
+    nomeLocal + " " +
+    String(numeroMesa).padStart(2, "0");
 
 
 // ===========================
@@ -768,13 +780,23 @@ const conectado =
     numeroPedido:
         numeroPedido,
 
-   mesa:
-    Number(numeroMesa),
+  mesa:
+    ehQuarto
+        ? null
+        : Number(numeroMesa),
 
 quarto:
-    (
-        document.getElementById("numeroQuarto")?.value || ""
-    ).trim(),
+    ehQuarto
+        ? Number(numeroMesa)
+        : (
+            document.getElementById("numeroQuarto")?.value || ""
+        ).trim(),
+
+tipo:
+    tipoSelecionado,
+
+numero:
+    Number(numeroMesa),
 
 itens:
     itensPedido,
@@ -804,14 +826,14 @@ itens:
         // ATUALIZA A MESA
         // ===========================
 
-        const referenciaMesa =
-            doc(
-                db,
-                "mesas",
-                "mesa_" +
-                String(numeroMesa)
-                    .padStart(2, "0")
-            );
+      const referenciaMesa =
+    doc(
+        db,
+        "mesas",
+        prefixoLocal +
+        String(numeroMesa)
+            .padStart(2, "0")
+    );
 
 
         await setDoc(
@@ -820,12 +842,15 @@ itens:
 
             {
 
-                numero:
-                    Number(numeroMesa),
+                {
+    numero:
+        Number(numeroMesa),
 
-                status:
-                    "ocupada",
+    tipo:
+        tipoSelecionado,
 
+    status:
+        "ocupada",
                 atualizadoEm:
                     serverTimestamp()
 
@@ -853,13 +878,23 @@ itens:
     numeroPedido:
         numeroPedido,
 
-   quarto:
-    (
-        document.getElementById("numeroQuarto")?.value || ""
-    ).trim(),
+   qutipo:
+    tipoSelecionado,
 
-    itens:
-        itensPedido,
+mesa:
+    ehQuarto
+        ? null
+        : Number(numeroMesa),
+
+quarto:
+    ehQuarto
+        ? Number(numeroMesa)
+        : (
+            document.getElementById("numeroQuarto")?.value || ""
+        ).trim(),
+
+itens:
+    itensPedido,
 
     observacao:
         observacao,
