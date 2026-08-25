@@ -303,11 +303,18 @@ const produtos = [
     preco: 29.90
 },
     {
-        id: 42,
-        nome: "Arroz com feijão e ragú ou lagarto",
-        categoria: "Pratos feitos",
-        preco: 22.90
-    },
+    id: 1142,
+    nome: "Arroz com feijão e ragú",
+    categoria: "Pratos feitos",
+    preco: 22.90
+},
+
+{
+    id: 1143,
+    nome: "Arroz com feijão e lagarto",
+    categoria: "Pratos feitos",
+    preco: 22.90
+},
 
     {
         id: 43,
