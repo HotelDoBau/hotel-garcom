@@ -703,6 +703,41 @@ const produtos = [
     categoria: "Cervejas e Vinhos",
     preco: 19.00
 },
+
+    {
+    id: 8890,
+    nome: "Vinho Intimista Tinto",
+    categoria: "Cervejas e Vinhos",
+    preco: 69.90
+},
+
+{
+    id: 8891,
+    nome: "Vinho Intimista Branco",
+    categoria: "Cervejas e Vinhos",
+    preco: 69.90
+},
+
+{
+    id: 8892,
+    nome: "Vinho Intimista Rosé",
+    categoria: "Cervejas e Vinhos",
+    preco: 69.90
+},
+
+{
+    id: 8893,
+    nome: "Vinho Isla Negra Cabernet Sauvignon",
+    categoria: "Cervejas e Vinhos",
+    preco: 69.90
+},
+
+{
+    id: 8894,
+    nome: "Vinho Isla Negra Carmenère",
+    categoria: "Cervejas e Vinhos",
+    preco: 69.90
+},
     // ➕ ADICIONAIS
 
     {
