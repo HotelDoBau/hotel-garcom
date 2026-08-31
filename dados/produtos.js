@@ -745,6 +745,13 @@ const produtos = [
     // ➕ ADICIONAIS
 
     {
+    id: 8895,
+    nome: "Marmita para Viagem",
+    categoria: "Adicionais",
+    preco: 1.50
+},
+    
+    {
         id: 75,
         nome: "Porção de arroz",
         categoria: "Adicionais",
