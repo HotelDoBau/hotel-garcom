@@ -361,51 +361,52 @@ const produtos = [
     // 🥤 BEBIDAS
 
     {
-        id: 44,
-        nome: "Água Minaura sem gás",
-        categoria: "Bebidas",
-        preco: 3.00,
-        imagem: "img/agua-minaura-sem-gas.webp"
-    },
+    id: 44,
+    nome: "Água Minaura sem gás",
+    categoria: "Bebidas",
+    preco: 3.00,
+    imagem: "img/minaurasemgas.webp"
+},
+
+{
+    id: 45,
+    nome: "Água Minaura com gás",
+    categoria: "Bebidas",
+    preco: 4.50,
+    imagem: "img/minauracomgas.webp"
+},
+
+{
+    id: 46,
+    nome: "Água Crystal sem gás",
+    categoria: "Bebidas",
+    preco: 4.00,
+    imagem: "img/crystal.webp"
+},
+
+{
+    id: 47,
+    nome: "Água Minalice sem gás",
+    categoria: "Bebidas",
+    preco: 3.00,
+    imagem: "img/minalicesemgas.webp"
+},
+
+{
+    id: 48,
+    nome: "Água Minalice com gás",
+    categoria: "Bebidas",
+    preco: 4.50,
+    imagem: "img/minalicecomgas.webp"
+},
 
     {
     id: 119,
     nome: "Guaravitton",
     categoria: "Bebidas",
-    preco: 5.00
+    preco: 5.00,
+    imagem: "img/guaraviton.webp"
 },
-
-    {
-        id: 45,
-        nome: "Água Minaura com gás",
-        categoria: "Bebidas",
-        preco: 4.50,
-        imagem: "img/agua-minaura-com-gas.webp"
-    },
-
-    {
-        id: 46,
-        nome: "Água Crystal sem gás",
-        categoria: "Bebidas",
-        preco: 4.00,
-        imagem: "img/agua-crystal-sem-gas.webp"
-    },
-
-    {
-        id: 47,
-        nome: "Água Minalice sem gás",
-        categoria: "Bebidas",
-        preco: 3.00,
-        imagem: "img/agua-minalice-sem-gas.webp"
-    },
-
-    {
-        id: 48,
-        nome: "Água Minalice com gás",
-        categoria: "Bebidas",
-        preco: 4.50,
-        imagem: "img/agua-minalice-com-gas.webp"
-    },
 
     {
     id: 8878,
@@ -422,28 +423,28 @@ const produtos = [
 },
     
 
-    {
-        id: 49,
-        nome: "Suco Nativo Frutas Cítricas",
-        categoria: "Bebidas",
-        preco: 4.00,
-        imagem: "img/suco-nativo-frutas-citricas.webp"
-    },
+   {
+    id: 49,
+    nome: "Suco Nativo Frutas Cítricas",
+    categoria: "Bebidas",
+    preco: 4.00,
+    imagem: "img/nativocitricas.webp"
+},
 
-    {
-        id: 50,
-        nome: "Suco Nativo Uva",
-        categoria: "Bebidas",
-        preco: 4.00,
-        imagem: "img/suco-nativo-uva.webp"
-    },
+   {
+    id: 49,
+    nome: "Suco Nativo Frutas Cítricas",
+    categoria: "Bebidas",
+    preco: 4.00,
+    imagem: "img/nativocitricas.webp"
+},
 
     {
         id: 51,
         nome: "Suco Nativo Laranja com Acerola",
         categoria: "Bebidas",
         preco: 4.00,
-        imagem: "img/suco-nativo-laranja-acerola.webp"
+        imagem: "img/nativolaranjaeacerola.webp"
     },
 
     {
@@ -708,35 +709,38 @@ const produtos = [
     id: 8890,
     nome: "Vinho Intimista Tinto",
     categoria: "Cervejas e Vinhos",
-    preco: 69.90
+    preco: 69.90,
+    imagem: "img/intimistabrancotinto.webp"
 },
-
 {
     id: 8891,
     nome: "Vinho Intimista Branco",
     categoria: "Cervejas e Vinhos",
-    preco: 69.90
+    preco: 69.90,
+    imagem: "img/intimistabrancotinto.webp"
 },
 
 {
     id: 8892,
     nome: "Vinho Intimista Rosé",
     categoria: "Cervejas e Vinhos",
-    preco: 69.90
+    preco: 69.90,
+    imagem: "img/intimistarose.webp"
 },
-
 {
     id: 8893,
     nome: "Vinho Isla Negra Cabernet Sauvignon",
     categoria: "Cervejas e Vinhos",
-    preco: 69.90
+    preco: 69.90,
+    imagem: "img/islanegra.webp"
 },
 
 {
     id: 8894,
     nome: "Vinho Isla Negra Carmenère",
     categoria: "Cervejas e Vinhos",
-    preco: 69.90
+    preco: 69.90,
+    imagem: "img/islanegra.webp"
 },
     // ➕ ADICIONAIS
 
