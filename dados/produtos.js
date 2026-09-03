@@ -121,7 +121,7 @@ const produtos = [
         id: 19,
         nome: "Salgado assado tortinha de costela",
         categoria: "Salgados",
-        preco: 7.50
+        preco: 8.00
     },
     
     {
