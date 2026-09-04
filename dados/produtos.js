@@ -412,14 +412,14 @@ const produtos = [
     id: 8878,
     nome: "Suco de Polpa 1L",
     categoria: "Bebidas",
-    preco: 14.00
+    preco: 21.00
 },
 
 {
     id: 8879,
     nome: "Suco de Polpa 500ml",
     categoria: "Bebidas",
-    preco: 10.00
+    preco: 12.00
 },
     
 
