@@ -114,6 +114,20 @@ const produtos = [
         preco: 12.00
     },
 
+        {
+        id: 18959,
+        nome: "Café da Manhã - Seg a Sex",
+        categoria: "Cafeteria",
+        preco: 35.00
+    },
+
+        {
+        id: 19608,
+        nome: "Café da Manhã - Sáb, Dom e feriado",
+        categoria: "Cafeteria",
+        preco: 44.00
+    },
+
 
     // 🥐 SALGADOS
 
