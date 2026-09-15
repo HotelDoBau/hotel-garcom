@@ -780,10 +780,17 @@ const produtos = [
     },
 
     {
-        id: 77,
-        nome: "Porção de ragú ou lagarto",
+        id: 71897,
+        nome: "Porçã de lagarto",
         categoria: "Adicionais",
-        preco: 10.00
+        preco: 13.00
+    },
+
+    {
+        id: 77,
+        nome: "Porção de ragú",
+        categoria: "Adicionais",
+        preco: 13.00
     },
 
     {
