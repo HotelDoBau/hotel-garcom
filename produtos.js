@@ -10,126 +10,126 @@ const produtos = [
     },
 
        {
-        id: 11596,
+        id: 2,
         nome: "Café barista DolceGusto 50ml",
         categoria: "Cafeteria",
         preco: 9.00
     },
 
     {
-        id: 2,
+        id: 3,
         nome: "Café coado",
         categoria: "Cafeteria",
         preco: 8.00
     },
 
     {
-        id: 3,
+        id: 4,
         nome: "Café espresso DolceGusto Lungo",
         categoria: "Cafeteria",
         preco: 9.00
     },
 
     {
-        id: 4,
+        id: 5,
         nome: "Café espresso DolceGusto Matinal",
         categoria: "Cafeteria",
         preco: 9.00
     },
 
     {
-        id: 5,
+        id: 6,
         nome: "Café espresso DolceGusto Doppio",
         categoria: "Cafeteria",
         preco: 9.00
     },
 
     {
-        id: 6,
+        id: 7,
         nome: "Espresso Latte Nesquik",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
-        id: 7,
+        id: 8,
         nome: "Espresso Latte KitKat",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
-        id: 8,
+        id: 9,
         nome: "Espresso Au Lait",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
-        id: 9,
+        id: 10,
         nome: "Espresso Latte Tea Chai",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
-        id: 10,
+        id: 11,
         nome: "Espresso Latte Língua de Gato",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
-        id: 11,
+        id: 12,
         nome: "Cappuccino Tradicional",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
-        id: 12,
+        id: 13,
         nome: "Cappuccino Caramelo Salgado",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
-        id: 15,
+        id: 14,
         nome: "Mochacccino de Canela",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
-        id: 16,
+        id: 15,
         nome: "Cappuccino Borda de Creme de Avelã",
         categoria: "Cafeteria",
         preco: 14.00
     },
 
     {
-        id: 17,
+        id: 16,
         nome: "Frappé",
         categoria: "Cafeteria",
         preco: 14.00
     },
 
     {
-        id: 18,
+        id: 17,
         nome: "Affogato",
         categoria: "Cafeteria",
         preco: 12.00
     },
 
         {
-        id: 18959,
+        id: 18,
         nome: "Café da Manhã - Seg a Sex",
         categoria: "Cafeteria",
         preco: 35.00
     },
 
         {
-        id: 19608,
+        id: 19,
         nome: "Café da Manhã - Sáb, Dom e feriado",
         categoria: "Cafeteria",
         preco: 44.00
@@ -139,28 +139,28 @@ const produtos = [
     // 🥐 SALGADOS
 
     {
-        id: 19,
+        id: 20,
         nome: "Salgado assado tortinha de costela",
         categoria: "Salgados",
         preco: 8.00
     },
 
       {
-        id: 19156196,
+        id: 21,
         nome: "Salgado assado pão de batata de frango",
         categoria: "Salgados",
         preco: 7.50
     },
 
       {
-        id: 1994189,
+        id: 22,
         nome: "Salgado assado pão de batata presunto e queijo",
         categoria: "Salgados",
         preco: 7.50
     },
 
     {
-        id: 191859196,
+        id: 23,
         nome: "Salgado assado kibe recheado com queijo",
         categoria: "Salgados",
         preco: 7.50
@@ -168,76 +168,76 @@ const produtos = [
     
     
     {
-    id: 120,
+    id: 24,
     nome: "Esfirra de carne com bacon",
     categoria: "Salgados",
     preco: 7.50
 },
     
 {
-    id: 118,
+    id: 25,
     nome: "Salgado de Pernil com muçarela",
     categoria: "Salgados",
     preco: 7.50
 },
     {
-        id: 20,
+        id: 26,
         nome: "Salgado assado esfiha de carne",
         categoria: "Salgados",
         preco: 7.50
     },
 
     {
-        id: 21,
+        id: 27,
         nome: "Salgado assado esfiha de frango",
         categoria: "Salgados",
         preco: 7.50
     },
 
     {
-        id: 22,
+        id: 28,
         nome: "Salgado assado ghirella de pizza",
         categoria: "Salgados",
         preco: 7.50
     },
 
     {
-        id: 23,
+        id: 29,
         nome: "Salgado assado presunto e queijo",
         categoria: "Salgados",
         preco: 7.50
     },
 
     {
-        id: 24,
+        id: 30,
         nome: "Salgado assado X-Burguer com bacon",
         categoria: "Salgados",
         preco: 10.00
     },
 
     {
-        id: 25,
+        id: 31,
         nome: "Croissant pizza",
         categoria: "Salgados",
         preco: 7.50
     },
 
     {
-        id: 26,
+        id: 32,
         nome: "Croissant frango com requeijão",
         categoria: "Salgados",
         preco: 7.50
     },
 
     {
-        id: 27,
+        id: 33,
         nome: "Croissant de chocolate",
         categoria: "Salgados",
         preco: 7.50
     },
 
     {
-        id: 28,
+        id: 34,
         nome: "Croissant de doce de leite",
         categoria: "Salgados",
         preco: 7.50
@@ -247,49 +247,49 @@ const produtos = [
     // 🥪 LANCHES
 
     {
-        id: 29,
+        id: 35,
         nome: "Lanche de carne louca",
         categoria: "Lanches",
         preco: 23.00
     },
 
     {
-        id: 30,
+        id: 36,
         nome: "Lanche de ragu",
         categoria: "Lanches",
         preco: 25.00
     },
 
     {
-        id: 31,
+        id: 37,
         nome: "Lanche de frango empanado",
         categoria: "Lanches",
         preco: 22.00
     },
 
     {
-        id: 32,
+        id: 38,
         nome: "Lanche natural",
         categoria: "Lanches",
         preco: 14.00
     },
 
     {
-        id: 33,
+        id: 39,
         nome: "Misto quente de queijo",
         categoria: "Lanches",
         preco: 15.00
     },
 
        {
-        id: 335436546,
+        id: 40,
         nome: "Misto quente presunto e queijo",
         categoria: "Lanches",
         preco: 15.00
     },
 
        {
-        id: 3456798683,
+        id: 41,
         nome: "Misto quente salame e queijo",
         categoria: "Lanches",
         preco: 15.00
@@ -299,123 +299,123 @@ const produtos = [
     // 🍽️ PRATOS FEITOS
 
     {
-        id: 34,
+        id: 42,
         nome: "Nhoque com molho vermelho",
         categoria: "Pratos feitos",
         preco: 19.90
     },
 
     {
-        id: 35,
+        id: 43,
         nome: "Nhoque com molho bechamel",
         categoria: "Pratos feitos",
         preco: 19.90
     },
 
     {
-        id: 36,
+        id: 44,
         nome: "Salada Grande",
         categoria: "Pratos feitos",
         preco: 10.00
     },
 
     {
-        id: 37,
+        id: 45,
         nome: "Arroz biro-biro",
         categoria: "Pratos feitos",
         preco: 21.90
     },
 
     {
-        id: 38,
+        id: 46,
         nome: "Arroz carreteiro light",
         categoria: "Pratos feitos",
         preco: 29.90
     },
 
     {
-        id: 39,
+        id: 47,
         nome: "Estrogonofe de frango",
         categoria: "Pratos feitos",
         preco: 27.90
     },
 
     {
-        id: 40,
+        id: 48,
         nome: "Estrogonofe de carne",
         categoria: "Pratos feitos",
         preco: 29.90
     },
 
     {
-        id: 41,
+        id: 49,
         nome: "Arroz com feijão e frango empanado",
         categoria: "Pratos feitos",
         preco: 21.90
     },
 {
-    id: 88,
+    id: 50,
     nome: "Prato de cupim",
     categoria: "Pratos feitos",
     preco: 29.90
 },
     {
-    id: 1142,
+    id: 51,
     nome: "Arroz com feijão e ragú",
     categoria: "Pratos feitos",
     preco: 22.90
 },
 
 {
-    id: 1143,
+    id: 52,
     nome: "Arroz com feijão e lagarto",
     categoria: "Pratos feitos",
     preco: 22.90
 },
 
     {
-        id: 43,
+        id: 53,
         nome: "Arroz com feijão e ovo",
         categoria: "Pratos feitos",
         preco: 19.90
     },
 {
-    id: 103,
+    id: 54,
     nome: "Omelete simples",
     categoria: "Pratos feitos",
     preco: 10.00
 },
 
 {
-    id: 104,
+    id: 55,
     nome: "Omelete super presunto e queijo",
     categoria: "Pratos feitos",
     preco: 22.00
 },
 
 {
-    id: 105,
+    id: 56,
     nome: "Omelete super salame e queijo",
     categoria: "Pratos feitos",
     preco: 22.00
 },
 
     {
-    id: 105245245,
+    id: 57,
     nome: "Omelete super com queijo",
     categoria: "Pratos feitos",
     preco: 22.00
 },
 
 {
-    id: 106,
+    id: 58,
     nome: "Caldo de carne",
     categoria: "Pratos feitos",
     preco: 21.90
 },
 
 {
-    id: 107,
+    id: 59,
     nome: "Canja",
     categoria: "Pratos feitos",
     preco: 19.90
@@ -425,7 +425,7 @@ const produtos = [
     // 🥤 BEBIDAS
 
     {
-    id: 44,
+    id: 60,
     nome: "Água Minaura sem gás",
     categoria: "Bebidas",
     preco: 3.00,
@@ -433,7 +433,7 @@ const produtos = [
 },
 
 {
-    id: 45,
+    id: 61,
     nome: "Água Minaura com gás",
     categoria: "Bebidas",
     preco: 4.50,
@@ -441,7 +441,7 @@ const produtos = [
 },
 
 {
-    id: 46,
+    id: 62,
     nome: "Água Crystal sem gás",
     categoria: "Bebidas",
     preco: 4.00,
@@ -449,7 +449,7 @@ const produtos = [
 },
 
 {
-    id: 47,
+    id: 63,
     nome: "Água Minalice sem gás",
     categoria: "Bebidas",
     preco: 3.00,
@@ -457,7 +457,7 @@ const produtos = [
 },
 
 {
-    id: 48,
+    id: 64,
     nome: "Água Minalice com gás",
     categoria: "Bebidas",
     preco: 4.50,
@@ -465,7 +465,7 @@ const produtos = [
 },
 
     {
-    id: 119,
+    id: 65,
     nome: "Guaravitton",
     categoria: "Bebidas",
     preco: 5.00,
@@ -473,84 +473,84 @@ const produtos = [
 },
 
     {
-    id: 8878,
+    id: 66,
     nome: "Suco de Polpa 1L - Frutas vermelhas",
     categoria: "Bebidas",
     preco: 21.00
 },
 
        {
-    id: 853254878,
+    id: 67,
     nome: "Suco de Polpa 1L - Acerola",
     categoria: "Bebidas",
     preco: 21.00
 },
 
         {
-    id: 85235433254878,
+    id: 68,
     nome: "Suco de Polpa 1L - Abacaxi",
     categoria: "Bebidas",
     preco: 21.00
 },
 
         {
-    id: 853257684878,
+    id: 69,
     nome: "Suco de Polpa 1L - Amora",
     categoria: "Bebidas",
     preco: 21.00
 },
 
         {
-    id: 8532556474878,
+    id: 70,
     nome: "Suco de Polpa 1L - Maracujá",
     categoria: "Bebidas",
     preco: 21.00
 },
 
         {
-    id: 853657254878,
+    id: 71,
     nome: "Suco de Polpa 1L - Graviola",
     categoria: "Bebidas",
     preco: 21.00
 },
     
 {
-    id: 8879,
+    id: 72,
     nome: "Suco de Polpa 500ml - Frutas Vermelhas",
     categoria: "Bebidas",
     preco: 12.00
 },
 
     {
-    id: 8818599,
+    id: 73,
     nome: "Suco de Polpa 500ml - Acerola",
     categoria: "Bebidas",
     preco: 12.00
 },
 
        {
-    id: 8813468599,
+    id: 74,
     nome: "Suco de Polpa 500ml - Abacaxi",
     categoria: "Bebidas",
     preco: 12.00
 },
 
      {
-    id: 881346854399,
+    id: 75,
     nome: "Suco de Polpa 500ml - Amora",
     categoria: "Bebidas",
     preco: 12.00
 },
 
     {
-    id: 881346854399,
+    id: 76,
     nome: "Suco de Polpa 500ml - Maracujá",
     categoria: "Bebidas",
     preco: 12.00
 },
 
     {
-    id: 881346854399,
+    id: 77,
     nome: "Suco de Polpa 500ml - Graviola",
     categoria: "Bebidas",
     preco: 12.00
@@ -558,7 +558,7 @@ const produtos = [
     
 
    {
-    id: 49,
+    id: 78,
     nome: "Suco Nativo Frutas Cítricas",
     categoria: "Bebidas",
     preco: 4.00,
@@ -566,7 +566,7 @@ const produtos = [
 },
 
    {
-    id: 49,
+    id: 79,
     nome: "Suco Nativo Frutas Cítricas",
     categoria: "Bebidas",
     preco: 4.00,
@@ -574,7 +574,7 @@ const produtos = [
 },
 
     {
-        id: 51,
+        id: 80,
         nome: "Suco Nativo Laranja com Acerola",
         categoria: "Bebidas",
         preco: 4.00,
@@ -582,7 +582,7 @@ const produtos = [
     },
 
     {
-        id: 52,
+        id: 81,
         nome: "Guaraná Antarctica lata 350ml",
         categoria: "Bebidas",
         preco: 7.00,
@@ -590,7 +590,7 @@ const produtos = [
     },
 
     {
-        id: 53,
+        id: 82,
         nome: "Guaraná Antarctica Zero lata 350ml",
         categoria: "Bebidas",
         preco: 7.00,
@@ -598,7 +598,7 @@ const produtos = [
     },
 
     {
-        id: 54,
+        id: 83,
         nome: "Guaraná Antarctica caçulinha 220ml",
         categoria: "Bebidas",
         preco: 5.00,
@@ -606,7 +606,7 @@ const produtos = [
     },
 
     {
-        id: 55,
+        id: 84,
         nome: "Guaraná Antarctica Zero caçulinha 220ml",
         categoria: "Bebidas",
         preco: 5.00,
@@ -614,7 +614,7 @@ const produtos = [
     },
 
     {
-        id: 56,
+        id: 85,
         nome: "Coca-Cola lata 350ml",
         categoria: "Bebidas",
         preco: 7.00,
@@ -622,7 +622,7 @@ const produtos = [
     },
 
     {
-        id: 57,
+        id: 86,
         nome: "Coca-Cola Zero lata 350ml",
         categoria: "Bebidas",
         preco: 7.00,
@@ -630,7 +630,7 @@ const produtos = [
     },
 
     {
-        id: 58,
+        id: 87,
         nome: "Coca-Cola caçulinha 220ml",
         categoria: "Bebidas",
         preco: 5.00,
@@ -638,7 +638,7 @@ const produtos = [
     },
 
     {
-        id: 59,
+        id: 88,
         nome: "Coca-Cola Zero caçulinha 220ml",
         categoria: "Bebidas",
         preco: 5.00,
@@ -646,7 +646,7 @@ const produtos = [
     },
 
     {
-        id: 60,
+        id: 89,
         nome: "Energético Monster Mango Loco 473ml",
         categoria: "Bebidas",
         preco: 13.00,
@@ -654,7 +654,7 @@ const produtos = [
     },
 
     {
-        id: 61,
+        id: 90,
         nome: "Energético Monster Tradicional 473ml",
         categoria: "Bebidas",
         preco: 13.00,
@@ -662,7 +662,7 @@ const produtos = [
     },
 
     {
-        id: 62,
+        id: 91,
         nome: "Fanta Laranja lata 350ml",
         categoria: "Bebidas",
         preco: 7.00,
@@ -670,7 +670,7 @@ const produtos = [
     },
 
     {
-        id: 63,
+        id: 92,
         nome: "Fanta Uva lata 350ml",
         categoria: "Bebidas",
         preco: 7.00,
@@ -678,7 +678,7 @@ const produtos = [
     },
 
     {
-        id: 64,
+        id: 93,
         nome: "Schweppes Citrus lata 350ml",
         categoria: "Bebidas",
         preco: 7.00,
@@ -686,7 +686,7 @@ const produtos = [
     },
 
     {
-        id: 65,
+        id: 94,
         nome: "Schweppes Tônica lata 350ml",
         categoria: "Bebidas",
         preco: 7.00,
@@ -694,7 +694,7 @@ const produtos = [
     },
 
     {
-        id: 66,
+        id: 95,
         nome: "Schweppes Tônica Zero lata 350ml",
         categoria: "Bebidas",
         preco: 7.00,
@@ -702,7 +702,7 @@ const produtos = [
     },
 
     {
-        id: 67,
+        id: 96,
         nome: "Soda Limonada lata 350ml",
         categoria: "Bebidas",
         preco: 7.00,
@@ -710,7 +710,7 @@ const produtos = [
     },
 
     {
-        id: 68,
+        id: 97,
         nome: "Sprite lata 350ml",
         categoria: "Bebidas",
         preco: 7.00,
@@ -721,7 +721,7 @@ const produtos = [
     // 🍺 CERVEJAS E VINHOS
 
     {
-        id: 69,
+        id: 98,
         nome: "Heineken 600ml",
         categoria: "Cervejas e Vinhos",
         preco: 18.00,
@@ -729,7 +729,7 @@ const produtos = [
     },
 
     {
-        id: 70,
+        id: 99,
         nome: "Amstel 600ml",
         categoria: "Cervejas e Vinhos",
         preco: 16.00,
@@ -737,7 +737,7 @@ const produtos = [
     },
 
     {
-        id: 71,
+        id: 100,
         nome: "Original 600ml",
         categoria: "Cervejas e Vinhos",
         preco: 16.00,
@@ -745,7 +745,7 @@ const produtos = [
     },
 
     {
-        id: 72,
+        id: 101,
         nome: "Vinho Lunae garrafa",
         categoria: "Cervejas e Vinhos",
         preco: 55.00,
@@ -753,7 +753,7 @@ const produtos = [
     },
 
     {
-        id: 73,
+        id: 102,
         nome: "Heineken lata",
         categoria: "Cervejas e Vinhos",
         preco: 10.00,
@@ -761,7 +761,7 @@ const produtos = [
     },
 
     {
-        id: 74,
+        id: 103,
         nome: "Amstel lata",
         categoria: "Cervejas e Vinhos",
         preco: 10.00,
@@ -769,7 +769,7 @@ const produtos = [
     },
     
     {
-    id: 812,
+    id: 104,
     nome: "Cerveja lata",
     categoria: "Cervejas e Vinhos",
     preco: 10.00,
@@ -777,7 +777,7 @@ const produtos = [
 },
 
 {
-    id: 818,
+    id: 105,
     nome: "Cerveja Longneck",
     categoria: "Cervejas e Vinhos",
     preco: 15.00,
@@ -785,69 +785,69 @@ const produtos = [
 },
 
     {
-    id: 121,
+    id: 106,
     nome: "Cachaça (dose 50ml)",
     categoria: "Cervejas e Vinhos",
     preco: 17.00
 },
 {
-    id: 122,
+    id: 107,
     nome: "Cachaça Premium (dose 50ml)",
     categoria: "Cervejas e Vinhos",
     preco: 22.00
 },
 {
-    id: 123,
+    id: 108,
     nome: "Licores (dose 50ml)",
     categoria: "Cervejas e Vinhos",
     preco: 32.00
 },
 {
-    id: 124,
+    id: 109,
     nome: "Whisky (dose 50ml)",
     categoria: "Cervejas e Vinhos",
     preco: 35.00
 },
 {
-    id: 125,
+    id: 110,
     nome: "Gin (dose 50ml)",
     categoria: "Cervejas e Vinhos",
     preco: 23.00
 },
 {
-    id: 126,
+    id: 111,
     nome: "Tequila (dose 50ml)",
     categoria: "Cervejas e Vinhos",
     preco: 18.00
 },
 {
-    id: 127,
+    id: 112,
     nome: "Vermute (dose 50ml)",
     categoria: "Cervejas e Vinhos",
     preco: 19.00
 },
 {
-    id: 128,
+    id: 113,
     nome: "Vodca (dose 50ml)",
     categoria: "Cervejas e Vinhos",
     preco: 23.00
 },
 {
-    id: 129,
+    id: 114,
     nome: "Vinho (dose 50ml)",
     categoria: "Cervejas e Vinhos",
     preco: 19.00
 },
 
     {
-    id: 8890,
+    id: 115,
     nome: "Vinho Intimista Tinto",
     categoria: "Cervejas e Vinhos",
     preco: 69.90,
     imagem: "img/intimistabrancotinto.webp"
 },
 {
-    id: 8891,
+    id: 116,
     nome: "Vinho Intimista Branco",
     categoria: "Cervejas e Vinhos",
     preco: 69.90,
@@ -855,14 +855,14 @@ const produtos = [
 },
 
 {
-    id: 8892,
+    id: 117,
     nome: "Vinho Intimista Rosé",
     categoria: "Cervejas e Vinhos",
     preco: 69.90,
     imagem: "img/intimistarose.webp"
 },
 {
-    id: 8893,
+    id: 118,
     nome: "Vinho Isla Negra Cabernet Sauvignon",
     categoria: "Cervejas e Vinhos",
     preco: 69.90,
@@ -870,7 +870,7 @@ const produtos = [
 },
 
 {
-    id: 8894,
+    id: 119,
     nome: "Vinho Isla Negra Carmenère",
     categoria: "Cervejas e Vinhos",
     preco: 69.90,
@@ -879,70 +879,70 @@ const produtos = [
     // ➕ ADICIONAIS
 
     {
-    id: 8895,
+    id: 120,
     nome: "Marmita para Viagem",
     categoria: "Adicionais",
     preco: 1.50
 },
     
     {
-        id: 75,
+        id: 121,
         nome: "Porção de arroz",
         categoria: "Adicionais",
         preco: 8.00
     },
 
     {
-        id: 76,
+        id: 122,
         nome: "Porção de feijão",
         categoria: "Adicionais",
         preco: 8.00
     },
 
     {
-        id: 71897,
+        id: 123,
         nome: "Porçã de lagarto",
         categoria: "Adicionais",
         preco: 13.00
     },
 
     {
-        id: 77,
+        id: 124,
         nome: "Porção de ragú",
         categoria: "Adicionais",
         preco: 13.00
     },
 
     {
-        id: 78,
+        id: 125,
         nome: "Adicional de cupim",
         categoria: "Adicionais",
         preco: 16.00
     },
 
     {
-        id: 79,
+        id: 126,
         nome: "Adicional de ovo frito",
         categoria: "Adicionais",
         preco: 1.70
     },
 
     {
-        id: 80,
+        id: 127,
         nome: "Adicional de tomate",
         categoria: "Adicionais",
         preco: 0.80
     },
 
     {
-        id: 81,
+        id: 128,
         nome: "Adicional de cebola",
         categoria: "Adicionais",
         preco: 0.90
     },
 
     {
-        id: 82,
+        id: 129,
         nome: "Adicional de mussarela",
         categoria: "Adicionais",
         preco: 1.50
@@ -952,84 +952,84 @@ const produtos = [
     // 🍰 DOCES
 
     {
-        id: 83,
+        id: 130,
         nome: "Salada de frutas",
         categoria: "Doces",
         preco: 10.00
     },
 
     {
-        id: 84,
+        id: 131,
         nome: "Adicional de granola",
         categoria: "Doces",
         preco: 3.45
     },
 
     {
-        id: 85,
+        id: 132,
         nome: "Adicional de iogurte",
         categoria: "Doces",
         preco: 1.70
     },
 
     {
-        id: 86,
+        id: 133,
         nome: "Adicional de leite condensado",
         categoria: "Doces",
         preco: 2.00
     },
 
     {
-        id: 87,
+        id: 134
         nome: "Adicional de mel",
         categoria: "Doces",
         preco: 2.20
     },
 
     {
-        id: 8887,
+        id: 135,
         nome: "Adicional de geleia",
         categoria: "Doces",
         preco: 1.50
     },
 
     {
-        id: 89,
+        id: 136,
         nome: "Bolo do dia",
         categoria: "Doces",
         preco: 5.00
     },
 
     {
-        id: 90,
+        id: 137,
         nome: "Pudim de leite",
         categoria: "Doces",
         preco: 7.00
     },
 
     {
-        id: 91,
+        id: 138,
         nome: "Banoffe",
         categoria: "Doces",
         preco: 9.00
     },
 
     {
-        id: 92,
+        id: 139,
         nome: "Bolo gelado de coco",
         categoria: "Doces",
         preco: 10.00
     },
 
     {
-        id: 93,
+        id: 140,
         nome: "Bolo gelado com sorvete",
         categoria: "Doces",
         preco: 14.00
     },
 
     {
-        id: 94,
+        id: 141,
         nome: "Bolo gelado completo",
         categoria: "Doces",
         preco: 17.00
@@ -1039,21 +1039,21 @@ const produtos = [
     // 🍟 PETISCOS
 
     {
-        id: 95,
+        id: 142,
         nome: "Batata rústica",
         categoria: "Petiscos",
         preco: 33.00
     },
 
     {
-        id: 96,
+        id: 143,
         nome: "Calabresa fatiada",
         categoria: "Petiscos",
         preco: 35.00
     },
 
     {
-        id: 97,
+        id: 144,
         nome: "Pote de salgadinho",
         categoria: "Petiscos",
         preco: 4.00
@@ -1063,35 +1063,35 @@ const produtos = [
     // 🍹 DRINKS
 
     {
-        id: 98,
+        id: 145,
         nome: "Laranjinha",
         categoria: "Drinks",
         preco: 33.00
     },
 
     {
-        id: 99,
+        id: 146,
         nome: "Mayra Amou",
         categoria: "Drinks",
         preco: 35.00
     },
 
     {
-        id: 100,
+        id: 147,
         nome: "Gente Fina",
         categoria: "Drinks",
         preco: 31.00
     },
 
     {
-        id: 101,
+        id: 148,
         nome: "Coice de mula",
         categoria: "Drinks",
         preco: 34.00
     },
 
     {
-        id: 102,
+        id: 149,
         nome: "Seu Geraldo",
         categoria: "Drinks",
         preco: 32.00
