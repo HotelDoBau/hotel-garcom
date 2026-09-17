@@ -9,6 +9,13 @@ const produtos = [
         preco: 9.00
     },
 
+       {
+        id: 11596,
+        nome: "Café barista DolceGusto 50ml",
+        categoria: "Cafeteria",
+        preco: 9.00
+    },
+
     {
         id: 2,
         nome: "Café coado",
@@ -137,6 +144,28 @@ const produtos = [
         categoria: "Salgados",
         preco: 8.00
     },
+
+      {
+        id: 19156196,
+        nome: "Salgado assado pão de batata de frango",
+        categoria: "Salgados",
+        preco: 7.50
+    },
+
+      {
+        id: 1994189,
+        nome: "Salgado assado pão de batata presunto e queijo",
+        categoria: "Salgados",
+        preco: 7.50
+    },
+
+    {
+        id: 191859196,
+        nome: "Salgado assado kibe recheado com queijo",
+        categoria: "Salgados",
+        preco: 7.50
+    },
+    
     
     {
     id: 120,
@@ -247,7 +276,21 @@ const produtos = [
 
     {
         id: 33,
-        nome: "Misto quente",
+        nome: "Misto quente de queijo",
+        categoria: "Lanches",
+        preco: 15.00
+    },
+
+       {
+        id: 335436546,
+        nome: "Misto quente presunto e queijo",
+        categoria: "Lanches",
+        preco: 15.00
+    },
+
+       {
+        id: 3456798683,
+        nome: "Misto quente salame e queijo",
         categoria: "Lanches",
         preco: 15.00
     },
@@ -345,14 +388,21 @@ const produtos = [
 
 {
     id: 104,
-    nome: "Omelete super presunto",
+    nome: "Omelete super presunto e queijo",
     categoria: "Pratos feitos",
     preco: 22.00
 },
 
 {
     id: 105,
-    nome: "Omelete super salame",
+    nome: "Omelete super salame e queijo",
+    categoria: "Pratos feitos",
+    preco: 22.00
+},
+
+    {
+    id: 105245245,
+    nome: "Omelete super com queijo",
     categoria: "Pratos feitos",
     preco: 22.00
 },
@@ -424,14 +474,84 @@ const produtos = [
 
     {
     id: 8878,
-    nome: "Suco de Polpa 1L",
+    nome: "Suco de Polpa 1L - Frutas vermelhas",
     categoria: "Bebidas",
     preco: 21.00
 },
 
+       {
+    id: 853254878,
+    nome: "Suco de Polpa 1L - Acerola",
+    categoria: "Bebidas",
+    preco: 21.00
+},
+
+        {
+    id: 85235433254878,
+    nome: "Suco de Polpa 1L - Abacaxi",
+    categoria: "Bebidas",
+    preco: 21.00
+},
+
+        {
+    id: 853257684878,
+    nome: "Suco de Polpa 1L - Amora",
+    categoria: "Bebidas",
+    preco: 21.00
+},
+
+        {
+    id: 8532556474878,
+    nome: "Suco de Polpa 1L - Maracujá",
+    categoria: "Bebidas",
+    preco: 21.00
+},
+
+        {
+    id: 853657254878,
+    nome: "Suco de Polpa 1L - Graviola",
+    categoria: "Bebidas",
+    preco: 21.00
+},
+    
 {
     id: 8879,
-    nome: "Suco de Polpa 500ml",
+    nome: "Suco de Polpa 500ml - Frutas Vermelhas",
+    categoria: "Bebidas",
+    preco: 12.00
+},
+
+    {
+    id: 8818599,
+    nome: "Suco de Polpa 500ml - Acerola",
+    categoria: "Bebidas",
+    preco: 12.00
+},
+
+       {
+    id: 8813468599,
+    nome: "Suco de Polpa 500ml - Abacaxi",
+    categoria: "Bebidas",
+    preco: 12.00
+},
+
+     {
+    id: 881346854399,
+    nome: "Suco de Polpa 500ml - Amora",
+    categoria: "Bebidas",
+    preco: 12.00
+},
+
+    {
+    id: 881346854399,
+    nome: "Suco de Polpa 500ml - Maracujá",
+    categoria: "Bebidas",
+    preco: 12.00
+},
+
+    {
+    id: 881346854399,
+    nome: "Suco de Polpa 500ml - Graviola",
     categoria: "Bebidas",
     preco: 12.00
 },
