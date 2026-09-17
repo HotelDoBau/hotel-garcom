@@ -980,7 +980,7 @@ const produtos = [
     },
 
     {
-        id: 134
+        id: 134,
         nome: "Adicional de mel",
         categoria: "Doces",
         preco: 2.20
