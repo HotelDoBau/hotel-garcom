@@ -1095,12 +1095,12 @@ const produtos = [
         nome: "Seu Geraldo",
         categoria: "Drinks",
         preco: 32.00
-    }
+    },
 
      {
         id: 150,
         nome: "Café Kopenhagen DolceGusto 50ml",
         categoria: "Cafeteria",
         preco: 9.00
-    },
+    }
 ];
