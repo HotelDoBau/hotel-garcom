@@ -25,56 +25,56 @@ const produtos = [
 
     {
         id: 4,
-        nome: "Café espresso DolceGusto Lungo",
+        nome: "Café expresso DolceGusto Lungo",
         categoria: "Cafeteria",
         preco: 9.00
     },
 
     {
         id: 5,
-        nome: "Café espresso DolceGusto Matinal",
+        nome: "Café expresso DolceGusto Matinal",
         categoria: "Cafeteria",
         preco: 9.00
     },
 
     {
         id: 6,
-        nome: "Café espresso DolceGusto Doppio",
+        nome: "Café expresso DolceGusto Doppio",
         categoria: "Cafeteria",
         preco: 9.00
     },
 
     {
         id: 7,
-        nome: "Espresso Latte Nesquik",
+        nome: "Expresso Latte Nesquik",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
         id: 8,
-        nome: "Espresso Latte KitKat",
+        nome: "Expresso Latte KitKat",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
         id: 9,
-        nome: "Espresso Au Lait",
+        nome: "Expresso Au Lait",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
         id: 10,
-        nome: "Espresso Latte Tea Chai",
+        nome: "Expresso Latte Tea Chai",
         categoria: "Cafeteria",
         preco: 11.00
     },
 
     {
         id: 11,
-        nome: "Espresso Latte Língua de Gato",
+        nome: "Expresso Latte Língua de Gato",
         categoria: "Cafeteria",
         preco: 11.00
     },
@@ -1096,4 +1096,11 @@ const produtos = [
         categoria: "Drinks",
         preco: 32.00
     }
+
+     {
+        id: 150,
+        nome: "Café Kopenhagen DolceGusto 50ml",
+        categoria: "Cafeteria",
+        preco: 9.00
+    },
 ];
