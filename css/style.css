@@ -88,12 +88,11 @@ main {
    GRADE DE MESAS
 ========================= */
 
-.mesas {
+#listaProdutos {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 15px;
 }
-
 
 /* =========================
    BOTÃO MESA
