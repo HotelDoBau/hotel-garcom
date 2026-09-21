@@ -91,7 +91,7 @@ main {
 
 #listaProdutos {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
 
@@ -1062,13 +1062,11 @@ main {
 
 
 /* LISTA DE PRODUTOS */
-
 #listaProdutos {
     display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
+    grid-template-columns: 1fr;
     gap: 15px;
+}
 }
 
 #listaProdutos > div {
