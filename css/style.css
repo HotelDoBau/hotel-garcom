@@ -90,8 +90,19 @@ main {
 
 #gradeMesas {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 15px;
+    width: 100%;
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+    #gradeMesas {
+        grid-template-columns: 1fr;
+    }
 }
 
 
