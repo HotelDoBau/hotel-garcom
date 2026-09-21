@@ -1675,3 +1675,325 @@ main {
         font-size: 17px;
     }
 }
+/* =====================================================
+   NOVO PEDIDO / COMANDA
+===================================================== */
+
+.conteudo-pedido {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 25px 20px 120px;
+}
+
+.barra-pesquisa {
+    margin-bottom: 20px;
+}
+
+.barra-pesquisa input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    font-size: 16px;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.barra-pesquisa input:focus {
+    border-color: #C58A00;
+}
+
+
+/* =========================
+   LISTA DE PRODUTOS
+========================= */
+
+#listaProdutos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+#listaProdutos > div {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+
+/* =========================
+   BARRA RESUMO DO PEDIDO
+========================= */
+
+.resumo-pedido {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 -4px 15px rgba(0,0,0,.15);
+    padding: 15px 20px;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.resumo-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.resumo-info strong {
+    color: #C58A00;
+    margin-right: 10px;
+}
+
+.botao-revisar {
+    border: none;
+    border-radius: 12px;
+    padding: 13px 22px;
+    background: #C58A00;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.botao-revisar:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.55);
+
+    z-index: 3000;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal.mostrar {
+    display: flex;
+}
+
+.modal-conteudo {
+    position: relative;
+
+    width: 100%;
+    max-width: 550px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,.25);
+}
+
+.modal-conteudo h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    color: #C58A00;
+
+    font-family: 'Playfair Display', serif;
+}
+
+
+/* =========================
+   FECHAR MODAL
+========================= */
+
+.fechar-modal {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 30px;
+    line-height: 1;
+
+    color: #555;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   ITENS DA REVISÃO
+========================= */
+
+#listaRevisao {
+    margin-bottom: 20px;
+}
+
+#listaRevisao > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+/* =========================
+   TOTAL
+========================= */
+
+.total-revisao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 0;
+
+    border-top: 2px solid #eee;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.total-revisao strong {
+    color: #C58A00;
+    font-size: 21px;
+}
+
+
+/* =========================
+   OBSERVAÇÃO
+========================= */
+
+.campo-observacao,
+.campo-quarto {
+    margin-top: 18px;
+}
+
+.campo-observacao label,
+.campo-quarto label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: 700;
+    color: #555;
+}
+
+.campo-observacao textarea,
+.campo-quarto input {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    outline: none;
+}
+
+.campo-observacao textarea:focus,
+.campo-quarto input:focus {
+    border-color: #C58A00;
+}
+
+
+/* =========================
+   ENVIAR PEDIDO
+========================= */
+
+.botao-enviar {
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #C58A00;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.botao-enviar:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 700px) {
+
+    .conteudo-pedido {
+        padding: 20px 15px 120px;
+    }
+
+    #listaProdutos {
+        grid-template-columns: 1fr;
+    }
+
+    .resumo-pedido {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 15px;
+    }
+
+    .resumo-info {
+        width: 100%;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .botao-revisar {
+        width: 100%;
+    }
+
+    .modal-conteudo {
+        padding: 22px 18px;
+    }
+
+}
