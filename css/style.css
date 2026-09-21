@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -89,11 +88,12 @@ main {
    GRADE DE MESAS
 ========================= */
 
-#listaProdutos {
+#gradeMesas {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
+
 
 /* =========================
    BOTÃO MESA
@@ -1061,12 +1061,14 @@ main {
 }
 
 
-/* LISTA DE PRODUTOS */
+/* =========================
+   LISTA DE PRODUTOS
+========================= */
+
 #listaProdutos {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
-}
 }
 
 #listaProdutos > div {
