@@ -1039,7 +1039,7 @@ main {
 
     margin: 0 auto;
 
-    padding: 25px 20px 120px;
+    padding: 25px 20px 250px;
 }
 
 
@@ -1409,7 +1409,7 @@ main {
 @media (max-width: 600px) {
 
     main {
-        padding: 0 12px 180px;
+        padding: 0 12px 250px;
     }
 
     .produto-card {
