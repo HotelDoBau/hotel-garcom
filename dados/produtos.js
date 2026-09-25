@@ -1,6 +1,20 @@
 const produtos = [
 
     // ☕ CAFETERIA
+ {
+        id: 151,
+        nome: "Pão com manteiga - 1/2UND",
+        categoria: "Cafeteria",
+        preco: 3.00
+    },
+
+     {
+        id: 152,
+        nome: "Pão com manteiga- 1UND",
+        categoria: "Cafeteria",
+        preco: 6.00
+    },
+
 
     {
         id: 1,
