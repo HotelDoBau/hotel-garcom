@@ -710,9 +710,9 @@ async function iniciarMesas() {
 
 
         const idMesa =
-            tipo === "quarto"
-                ? `quarto_${numero}`
-                : `mesa_${numero}`;
+    tipo === "quarto"
+        ? `quarto_${String(numero).padStart(2, "0")}`
+        : `mesa_${String(numero).padStart(2, "0")}`;
 
 
         const referenciaPedidos =
