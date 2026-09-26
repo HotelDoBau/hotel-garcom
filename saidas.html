@@ -323,6 +323,32 @@
 
 .btn-excluir:hover {
     opacity: 0.85;
+
+}
+
+        /* =========================================
+   TABELA OCUPA TODA A LARGURA DA TELA
+========================================= */
+
+.saidas-page main {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.tabela-saidas-container {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+}
+
+.tabela-saidas {
+    width: 100%;
+    min-width: 100%;
 }
         @media (max-width: 600px) {
 
@@ -345,8 +371,9 @@
 
             }
 
-        }
+            
 
+        }
     </style>
 
 </head>
@@ -1584,7 +1611,10 @@ seletorMes.addEventListener(
     "change",
     mostrarSaidas
 );
-
+buscarProduto.addEventListener(
+    "input",
+    mostrarSaidas
+);
 
 /* =========================================
    INICIAR
