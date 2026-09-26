@@ -547,6 +547,10 @@ async function iniciarMesas() {
         );
 
 
+    // =========================================
+    // OUVIR STATUS DAS MESAS E QUARTOS
+    // =========================================
+
     onSnapshot(
 
         referenciaMesas,
@@ -686,7 +690,117 @@ async function iniciarMesas() {
 
     );
 
+
+    // =========================================
+    // VERIFICAR CONSUMO REAL DAS MESAS
+    // =========================================
+
+    function observarConsumo(
+        tipo,
+        numero
+    ) {
+
+
+        const idMesa =
+            tipo === "quarto"
+                ? `quarto_${numero}`
+                : `mesa_${numero}`;
+
+
+        const referenciaPedidos =
+            collection(
+
+                db,
+
+                "mesas",
+
+                idMesa,
+
+                "pedidos"
+
+            );
+
+
+        onSnapshot(
+
+            referenciaPedidos,
+
+            snapshot => {
+
+
+                // =================================
+                // SEM PEDIDOS = MESA LIVRE
+                // =================================
+
+                if (
+                    snapshot.empty
+                ) {
+
+                    definirStatusLocal(
+
+                        tipo,
+
+                        numero,
+
+                        "livre"
+
+                    );
+
+                }
+
+            },
+
+
+            erro => {
+
+                console.error(
+                    `Erro ao verificar consumo de ${tipo} ${numero}:`,
+                    erro
+                );
+
+            }
+
+        );
+
+    }
+
+
+    // =========================================
+    // OBSERVAR MESAS 01 A 20
+    // =========================================
+
+    for (
+        let numero = 1;
+        numero <= 20;
+        numero++
+    ) {
+
+        observarConsumo(
+            "mesa",
+            numero
+        );
+
+    }
+
+
+    // =========================================
+    // OBSERVAR QUARTOS
+    // =========================================
+
+    quartosDisponiveis.forEach(
+        numero => {
+
+            observarConsumo(
+                "quarto",
+                numero
+            );
+
+        }
+    );
+
 }
+
+
 // =========================
 // INICIAR
 // =========================
