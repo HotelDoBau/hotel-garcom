@@ -551,81 +551,84 @@ async function iniciarMesas() {
     // OUVIR STATUS DAS MESAS E QUARTOS
     // =========================================
 
-    onSnapshot(
+   onSnapshot(
 
-        referenciaMesas,
+    referenciaMesas,
 
-        snapshot => {
+    snapshot => {
 
+        // Primeiro deixa todas livres
 
-            // Reinicia o visual
-
-            resetarStatus();
-
-
-            // Aplica dados do Firebase
-
-            snapshot.forEach(
-                documento => {
+        resetarStatus();
 
 
-                    const local =
-                        documento.data();
+        // Aplica somente o estado PAGAMENTO.
+        // Livre/Ocupada será controlado pelo consumo real.
+
+        snapshot.forEach(
+            documento => {
+
+                const local =
+                    documento.data();
 
 
-                    const idDocumento =
-                        documento.id;
+                const idDocumento =
+                    documento.id;
 
 
-                    const numero =
-                        Number(
-                            local.numero
-                        );
+                const numero =
+                    Number(
+                        local.numero
+                    );
 
 
-                    let tipo =
-                        local.tipo;
+                let tipo =
+                    local.tipo;
 
 
-                    // =====================
-                    // COMPATIBILIDADE
-                    // COM MESAS ANTIGAS
-                    // =====================
+                // =====================
+                // COMPATIBILIDADE
+                // =====================
 
-                    if (!tipo) {
+                if (!tipo) {
 
-                        if (
-                            idDocumento.startsWith(
-                                "quarto_"
-                            )
-                        ) {
+                    if (
+                        idDocumento.startsWith(
+                            "quarto_"
+                        )
+                    ) {
 
-                            tipo = "quarto";
+                        tipo = "quarto";
 
-                        } else {
+                    } else {
 
-                            tipo = "mesa";
+                        tipo = "mesa";
 
-                        }
+                    }
+
+                }
+
+
+                // =====================
+                // MESA
+                // =====================
+
+                if (tipo === "mesa") {
+
+                    if (
+                        numero < 1 ||
+                        numero > 20
+                    ) {
+
+                        return;
 
                     }
 
 
-                    // =====================
-                    // MESA
-                    // =====================
-
-                    if (tipo === "mesa") {
-
-                        if (
-                            numero < 1 ||
-                            numero > 20
-                        ) {
-
-                            return;
-
-                        }
-
+                    if (
+                        local.status ===
+                        "pagamento"
+                    ) {
 
                         definirStatusLocal(
 
@@ -633,32 +636,38 @@ async function iniciarMesas() {
 
                             numero,
 
-                            local.status ||
-                            "livre"
+                            "pagamento"
 
                         );
+
+                    }
+
+                    return;
+
+                }
+
+
+                // =====================
+                // QUARTO
+                // =====================
+
+                if (tipo === "quarto") {
+
+                    if (
+                        !quartosDisponiveis.includes(
+                            numero
+                        )
+                    ) {
 
                         return;
 
                     }
 
 
-                    // =====================
-                    // QUARTO
-                    // =====================
-
-                    if (tipo === "quarto") {
-
-                        if (
-                            !quartosDisponiveis.includes(
-                                numero
-                            )
-                        ) {
-
-                            return;
-
-                        }
-
+                    if (
+                        local.status ===
+                        "pagamento"
+                    ) {
 
                         definirStatusLocal(
 
@@ -666,31 +675,30 @@ async function iniciarMesas() {
 
                             numero,
 
-                            local.status ||
-                            "livre"
+                            "pagamento"
 
                         );
 
                     }
 
                 }
-            );
 
-        },
+            }
+        );
 
-
-        erro => {
-
-            console.error(
-                "Erro ao carregar mesas e quartos:",
-                erro
-            );
-
-        }
-
-    );
+    },
 
 
+    erro => {
+
+        console.error(
+            "Erro ao carregar mesas e quartos:",
+            erro
+        );
+
+    }
+
+);
     // =========================================
     // VERIFICAR CONSUMO REAL DAS MESAS
     // =========================================
@@ -732,21 +740,23 @@ async function iniciarMesas() {
                 // SEM PEDIDOS = MESA LIVRE
                 // =================================
 
-                if (
-                    snapshot.empty
-                ) {
+            if (snapshot.empty) {
 
-                    definirStatusLocal(
+    definirStatusLocal(
+        tipo,
+        numero,
+        "livre"
+    );
 
-                        tipo,
+} else {
 
-                        numero,
+    definirStatusLocal(
+        tipo,
+        numero,
+        "ocupada"
+    );
 
-                        "livre"
-
-                    );
-
-                }
+}
 
             },
 
