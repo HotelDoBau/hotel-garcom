@@ -1623,18 +1623,180 @@ async function confirmarFechamento() {
         );
 
 
-        /* ==============================
-           ENVIA FECHAMENTO
+             /* ==============================
+           MONTAR ITENS DO FECHAMENTO
         ============================== */
+
+        const acumulados = {};
+
+
+        pedidosMesa.forEach(
+            pedido => {
+
+                const itens =
+                    Array.isArray(
+                        pedido.itens
+                    )
+                        ? pedido.itens
+                        : [];
+
+
+                itens.forEach(
+                    item => {
+
+                        const chave =
+                            String(
+                                item.id
+                            );
+
+
+                        if (
+                            !acumulados[chave]
+                        ) {
+
+                            acumulados[chave] = {
+
+                                id:
+                                    item.id,
+
+                                nome:
+                                    item.nome,
+
+                                preco:
+                                    Number(
+                                        item.preco || 0
+                                    ),
+
+                                quantidade:
+                                    0
+
+                            };
+
+                        }
+
+
+                        acumulados[chave].quantidade +=
+                            Number(
+                                item.quantidade || 0
+                            );
+
+                    }
+
+                );
+
+            }
+        );
+
+
+        const itensFechamento =
+            Object.values(
+                acumulados
+            );
+
+
+        /* ==============================
+           CRIAR FECHAMENTO
+        ============================== */
+
+        const fechamentoRef =
+            await addDoc(
+
+                collection(
+                    db,
+                    "fechamentos"
+                ),
+
+                {
+
+                    mesa:
+                        ehQuarto
+                            ? null
+                            : Number(numeroMesa),
+
+                    quarto:
+                        ehQuarto
+                            ? Number(numeroMesa)
+                            : quartoMesa,
+
+                    tipo:
+                        tipoSelecionado,
+
+                    numero:
+                        Number(numeroMesa),
+
+                    idMesa:
+                        idMesa,
+
+                    itens:
+                        itensFechamento,
+
+                    subtotal:
+                        Number(
+                            totalFechamentoAtual
+                                .toFixed(2)
+                        ),
+
+                    desconto:
+                        Number(
+                            desconto.toFixed(2)
+                        ),
+
+                    total:
+                        totalFinal,
+
+                    dataHora:
+                        new Date()
+                            .toLocaleString(
+                                "pt-BR"
+                            ),
+
+                    status:
+                        "novo",
+
+                    criadoEm:
+                        serverTimestamp()
+
+                }
+
+            );
+
+
+        /* ==============================
+           REGISTRAR SAÍDAS
+        ============================== */
+
+        const agora =
+            new Date();
+
+
+        const ano =
+            agora.getFullYear();
+
+
+        const mes =
+            String(
+                agora.getMonth() + 1
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        const referenciaMes =
+            `${ano}-${mes}`;
+
 
         await addDoc(
 
             collection(
                 db,
-                "fechamentos"
+                "saidas"
             ),
 
             {
+
+                fechamentoId:
+                    fechamentoRef.id,
 
                 mesa:
                     ehQuarto
@@ -1656,108 +1818,52 @@ async function confirmarFechamento() {
                     idMesa,
 
                 itens:
-                    (() => {
+                    itensFechamento.map(
+                        item => ({
 
+                            id:
+                                item.id,
 
-                        const acumulados = {};
+                            nome:
+                                item.nome,
 
+                            valorUnitario:
+                                Number(
+                                    item.preco || 0
+                                ),
 
-                        pedidosMesa.forEach(
-                            pedido => {
+                            quantidade:
+                                Number(
+                                    item.quantidade || 0
+                                ),
 
+                            total:
+                                Number(
 
-                                const itens =
-                                    Array.isArray(
-                                        pedido.itens
-                                    )
-                                        ? pedido.itens
-                                        : [];
+                                    (
+                                        Number(
+                                            item.preco || 0
+                                        ) *
 
+                                        Number(
+                                            item.quantidade || 0
+                                        )
 
-                                itens.forEach(
-                                    item => {
+                                    ).toFixed(2)
 
+                                )
 
-                                        const chave =
-                                            String(
-                                                item.id
-                                            );
-
-
-                                        if (
-                                            !acumulados[
-                                                chave
-                                            ]
-                                        ) {
-
-
-                                            acumulados[
-                                                chave
-                                            ] = {
-
-                                                id:
-                                                    item.id,
-
-                                                nome:
-                                                    item.nome,
-
-                                                preco:
-                                                    Number(
-                                                        item.preco || 0
-                                                    ),
-
-                                                quantidade:
-                                                    0
-
-                                            };
-
-                                        }
-
-
-                                        acumulados[
-                                            chave
-                                        ].quantidade +=
-
-                                            Number(
-                                                item.quantidade || 0
-                                            );
-
-                                    }
-
-                                );
-
-                            }
-                        );
-
-
-                        return Object.values(
-                            acumulados
-                        );
-
-                    })(),
-
-                subtotal:
-                    Number(
-                        totalFechamentoAtual
-                            .toFixed(2)
+                        })
                     ),
 
-                desconto:
-                    Number(
-                        desconto.toFixed(2)
-                    ),
-
-                total:
-                    totalFinal,
+                referenciaMes:
+                    referenciaMes,
 
                 dataHora:
                     new Date()
                         .toLocaleString(
                             "pt-BR"
                         ),
-
-                status:
-                    "novo",
 
                 criadoEm:
                     serverTimestamp()
@@ -1766,6 +1872,9 @@ async function confirmarFechamento() {
 
         );
 
+                /* ==============================
+           FINALIZAR FECHAMENTO
+        ============================== */
 
         document.getElementById(
             "modalFechamento"
@@ -1854,3 +1963,4 @@ iniciarMesa();
 </body>
 
 </html>
+
