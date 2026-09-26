@@ -679,40 +679,32 @@ function formatarMoeda(valor) {
 
 function criarMeses() {
 
-
     const agora =
         new Date();
-
 
     seletorMes.innerHTML =
         "";
 
-
     /*
-        Mostramos os últimos
-        24 meses.
+        Mostra o mês atual
+        e os próximos 12 meses.
     */
 
     for (
         let i = 0;
-        i < 24;
+        i < 13;
         i++
     ) {
 
-
         const data =
             new Date(
-
                 agora.getFullYear(),
-                agora.getMonth() - i,
+                agora.getMonth() + i,
                 1
-
             );
-
 
         const ano =
             data.getFullYear();
-
 
         const mes =
             String(
@@ -722,10 +714,8 @@ function criarMeses() {
                 "0"
             );
 
-
         const valor =
             `${ano}-${mes}`;
-
 
         const texto =
             data.toLocaleDateString(
@@ -738,22 +728,17 @@ function criarMeses() {
                 }
             );
 
-
         const option =
             document.createElement(
                 "option"
             );
 
-
         option.value =
             valor;
 
-
         option.textContent =
-            texto.charAt(0)
-                .toUpperCase() +
+            texto.charAt(0).toUpperCase() +
             texto.slice(1);
-
 
         seletorMes.appendChild(
             option
@@ -762,7 +747,6 @@ function criarMeses() {
     }
 
 }
-
 
 /* =========================================
    CARREGAR SAÍDAS
