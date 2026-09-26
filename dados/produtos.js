@@ -1101,7 +1101,7 @@ const produtos = [
         id: 148,
         nome: "Coice de mula",
         categoria: "Drinks",
-        preco: 34.00
+        preco: 37.00
     },
 
     {
