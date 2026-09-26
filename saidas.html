@@ -124,14 +124,13 @@
 
 
      .tabela-saidas-container {
-
-    width: 100%;
+  width: 100%;
 
     max-width: none;
 
     margin: 20px auto;
 
-    overflow-x: hidden;
+    overflow-x: auto;
 
     background: white;
 
@@ -145,33 +144,30 @@
 
 
 .tabela-saidas {
-
     width: 100%;
-
+    min-width: 100%;
     border-collapse: collapse;
-
     table-layout: fixed;
-
 }
 
-      .tabela-saidas th:nth-child(1),
+   .tabela-saidas th:nth-child(1),
 .tabela-saidas td:nth-child(1) {
     width: 6%;
 }
 
 .tabela-saidas th:nth-child(2),
 .tabela-saidas td:nth-child(2) {
-    width: 32%;
+    width: 30%;
 }
 
 .tabela-saidas th:nth-child(3),
 .tabela-saidas td:nth-child(3) {
-    width: 18%;
+    width: 17%;
 }
 
 .tabela-saidas th:nth-child(4),
 .tabela-saidas td:nth-child(4) {
-    width: 11%;
+    width: 12%;
 }
 
 .tabela-saidas th:nth-child(5),
@@ -181,14 +177,13 @@
 
 .tabela-saidas th:nth-child(6),
 .tabela-saidas td:nth-child(6) {
-    width: 15%;
+    width: 17%;
 }
 
 .tabela-saidas th:nth-child(7),
 .tabela-saidas td:nth-child(7) {
     width: 10%;
 }
-
 
         .tabela-saidas th {
 
@@ -295,10 +290,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
     white-space: nowrap;
 }
-
 .btn-ajuste {
     width: 32px;
     height: 32px;
@@ -317,7 +311,7 @@
 }
 
 .btn-excluir {
-    margin-left: 6px;
+    margin-left: 2px;
     padding: 7px 10px;
     border: none;
     border-radius: 6px;
