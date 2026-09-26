@@ -165,7 +165,24 @@
             text-align: center;
             color: #777;
         }
+.btn-voltar-pedidos {
+    display: block;
+    width: fit-content;
+    margin: 25px auto;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #555;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
 
+.btn-voltar-pedidos:hover {
+    opacity: 0.85;
+}
         .consumo-acumulado {
             background: #eef7ff;
             border-left: 4px solid #245d88;
@@ -247,7 +264,7 @@
     </section>
 
 
-    <section
+       <section
         id="listaPedidos"
         class="lista-pedidos">
 
@@ -258,6 +275,16 @@
         </div>
 
     </section>
+
+
+    <button
+        class="btn-voltar-pedidos"
+        onclick="window.location.href='index.html'"
+    >
+
+        ← Voltar
+
+    </button>
 
 </main>
 
