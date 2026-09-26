@@ -154,34 +154,39 @@
 
 }
 
-        .tabela-saidas th:nth-child(1),
+      .tabela-saidas th:nth-child(1),
 .tabela-saidas td:nth-child(1) {
-    width: 7%;
+    width: 6%;
 }
 
 .tabela-saidas th:nth-child(2),
 .tabela-saidas td:nth-child(2) {
-    width: 35%;
+    width: 32%;
 }
 
 .tabela-saidas th:nth-child(3),
 .tabela-saidas td:nth-child(3) {
-    width: 20%;
+    width: 18%;
 }
 
 .tabela-saidas th:nth-child(4),
 .tabela-saidas td:nth-child(4) {
-    width: 13%;
+    width: 11%;
 }
 
 .tabela-saidas th:nth-child(5),
 .tabela-saidas td:nth-child(5) {
-    width: 10%;
+    width: 8%;
 }
 
 .tabela-saidas th:nth-child(6),
 .tabela-saidas td:nth-child(6) {
     width: 15%;
+}
+
+.tabela-saidas th:nth-child(7),
+.tabela-saidas td:nth-child(7) {
+    width: 10%;
 }
 
 
@@ -286,7 +291,45 @@
 
         }
 
+.controles-produto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+}
 
+.btn-ajuste {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 6px;
+    background: #245d88;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.btn-ajuste:hover {
+    opacity: 0.85;
+}
+
+.btn-excluir {
+    margin-left: 6px;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 6px;
+    background: #b3261e;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-excluir:hover {
+    opacity: 0.85;
+}
         @media (max-width: 600px) {
 
             .tabela-saidas {
@@ -338,22 +381,43 @@
     <!-- FILTRO -->
     <!-- ========================================= -->
 
-    <section class="filtro-saidas">
+   <section class="filtro-saidas">
 
-        <label for="mesSelecionado">
-            Mês
-        </label>
+    <label for="mesSelecionado">
+        Mês
+    </label>
+
+    <select id="mesSelecionado">
+
+        <option value="">
+            Carregando...
+        </option>
+
+    </select>
 
 
-        <select id="mesSelecionado">
+    <label
+        for="buscarProduto"
+        style="margin-top: 18px;"
+    >
+        Buscar produto
+    </label>
 
-            <option value="">
-                Carregando...
-            </option>
+    <input
+        type="text"
+        id="buscarProduto"
+        placeholder="Digite o nome do produto..."
+        style="
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+        "
+    >
 
-        </select>
-
-    </section>
+</section>
 
 
     <!-- ========================================= -->
@@ -431,10 +495,13 @@
                         Valor unit.
                     </th>
 
-                    <th class="numero">
-                        Qtd.
-                    </th>
+                   <th class="numero">
+    Qtd.
+</th>
 
+<th class="numero">
+    Ajustar
+</th>
                     <th class="valor">
                         Total
                     </th>
@@ -449,7 +516,7 @@
                 <tr>
 
                     <td
-                        colspan="6"
+                        colspan="7"
                         class="mensagem-saidas"
                     >
 
@@ -534,7 +601,10 @@ const seletorMes =
     document.getElementById(
         "mesSelecionado"
     );
-
+const buscarProduto =
+    document.getElementById(
+        "buscarProduto"
+    );
 
 const corpoTabela =
     document.getElementById(
@@ -691,7 +761,7 @@ async function carregarSaidas() {
             <tr>
 
                 <td
-                    colspan="6"
+                    colspan="7"
                     class="mensagem-saidas"
                 >
 
@@ -771,7 +841,7 @@ async function carregarSaidas() {
             <tr>
 
                 <td
-                    colspan="6"
+                    colspan="7"
                     class="mensagem-saidas"
                 >
 
@@ -795,9 +865,13 @@ async function carregarSaidas() {
 
 function mostrarSaidas() {
 
-
     const mes =
         seletorMes.value;
+
+    const busca =
+        buscarProduto.value
+            .trim()
+            .toLowerCase();
 
 
     /*
@@ -810,14 +884,11 @@ function mostrarSaidas() {
     saidasFirebase.forEach(
         saida => {
 
-
             if (
                 saida.referenciaMes !==
                 mes
             ) {
-
                 return;
-
             }
 
 
@@ -831,7 +902,6 @@ function mostrarSaidas() {
 
             itens.forEach(
                 item => {
-
 
                     const id =
                         String(
@@ -875,7 +945,6 @@ function mostrarSaidas() {
                         );
 
                 }
-
             );
 
         }
@@ -906,11 +975,28 @@ function mostrarSaidas() {
     produtos.forEach(
         produto => {
 
-
             const id =
                 String(
                     produto.id
                 );
+
+
+            /*
+                Filtro pelo nome.
+            */
+
+            if (
+                busca &&
+                !String(
+                    produto.nome || ""
+                )
+                    .toLowerCase()
+                    .includes(busca)
+            ) {
+
+                return;
+
+            }
 
 
             const venda =
@@ -928,16 +1014,6 @@ function mostrarSaidas() {
                     ? venda.total
                     : 0;
 
-
-            /*
-                Se houve venda,
-                usamos o valor registrado
-                na saída.
-
-                Se não houve,
-                usamos o preço atual
-                do produtos.js.
-            */
 
             const valorUnitario =
                 venda
@@ -1008,6 +1084,38 @@ function mostrarSaidas() {
 
                 </td>
 
+                <td>
+
+                    <div class="controles-produto">
+
+                        <button
+                            class="btn-ajuste"
+                            onclick="alterarQuantidadeProduto(${produto.id}, -1)"
+                            title="Diminuir 1"
+                        >
+                            −
+                        </button>
+
+                        <button
+                            class="btn-ajuste"
+                            onclick="alterarQuantidadeProduto(${produto.id}, 1)"
+                            title="Aumentar 1"
+                        >
+                            +
+                        </button>
+
+                        <button
+                            class="btn-excluir"
+                            onclick="excluirProdutoMes(${produto.id})"
+                            title="Excluir produto deste mês"
+                        >
+                            Excluir
+                        </button>
+
+                    </div>
+
+                </td>
+
                 <td class="valor">
 
                     ${formatarMoeda(
@@ -1028,6 +1136,34 @@ function mostrarSaidas() {
 
 
     /*
+        Se nenhum produto foi encontrado.
+    */
+
+    if (
+        corpoTabela.children.length === 0
+    ) {
+
+        corpoTabela.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="7"
+                    class="mensagem-saidas"
+                >
+
+                    Nenhum produto encontrado.
+
+                </td>
+
+            </tr>
+
+        `;
+
+    }
+
+
+    /*
         Linha final.
     */
 
@@ -1043,9 +1179,7 @@ function mostrarSaidas() {
 
     trTotal.innerHTML = `
 
-        <td
-            colspan="4"
-        >
+        <td colspan="4">
 
             TOTAL DO MÊS
 
@@ -1054,6 +1188,10 @@ function mostrarSaidas() {
         <td class="numero">
 
             ${unidadesVendidas}
+
+        </td>
+
+        <td>
 
         </td>
 
@@ -1088,7 +1226,362 @@ function mostrarSaidas() {
 
 }
 
+    /* =========================================
+   ALTERAR QUANTIDADE DO PRODUTO
+========================================= */
 
+async function alterarQuantidadeProduto(
+    idProduto,
+    variacao
+) {
+
+    const mes =
+        seletorMes.value;
+
+
+    /*
+        Procura os registros do mês
+        que possuem esse produto.
+    */
+
+    const registros =
+        saidasFirebase
+            .filter(
+                saida =>
+                    saida.referenciaMes ===
+                        mes &&
+                    Array.isArray(
+                        saida.itens
+                    ) &&
+                    saida.itens.some(
+                        item =>
+                            String(
+                                item.id
+                            ) ===
+                            String(
+                                idProduto
+                            )
+                    )
+            );
+
+
+    if (
+        registros.length === 0
+    ) {
+
+        alert(
+            "Esse produto não possui venda registrada neste mês."
+        );
+
+        return;
+
+    }
+
+
+    /*
+        Para diminuir, começamos
+        pelo registro mais recente.
+
+        Para aumentar, também usamos
+        o registro mais recente.
+    */
+
+    const registro =
+        registros[
+            registros.length - 1
+        ];
+
+
+    const itens =
+        Array.isArray(
+            registro.itens
+        )
+            ? [...registro.itens]
+            : [];
+
+
+    const indice =
+        itens.findIndex(
+            item =>
+                String(
+                    item.id
+                ) ===
+                String(
+                    idProduto
+                )
+        );
+
+
+    if (
+        indice === -1
+    ) {
+
+        return;
+
+    }
+
+
+    const item =
+        {
+            ...itens[indice]
+        };
+
+
+    const quantidadeAtual =
+        Number(
+            item.quantidade || 0
+        );
+
+
+    const novaQuantidade =
+        quantidadeAtual +
+        variacao;
+
+
+    /*
+        Nunca permite quantidade negativa.
+    */
+
+    if (
+        novaQuantidade < 0
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+        Se zerou, remove o item
+        daquele fechamento.
+    */
+
+    if (
+        novaQuantidade === 0
+    ) {
+
+        itens.splice(
+            indice,
+            1
+        );
+
+    }
+    else {
+
+        item.quantidade =
+            novaQuantidade;
+
+
+        item.total =
+            Number(
+                (
+                    Number(
+                        item.valorUnitario || 0
+                    ) *
+                    novaQuantidade
+                ).toFixed(2)
+            );
+
+
+        itens[indice] =
+            item;
+
+    }
+
+
+    try {
+
+        const {
+
+            db,
+            doc,
+            updateDoc
+
+        } = window.firebaseHotel;
+
+
+        await updateDoc(
+            doc(
+                db,
+                "saidas",
+                registro.id
+            ),
+            {
+                itens:
+                    itens
+            }
+        );
+
+
+        /*
+            Atualiza os dados locais.
+        */
+
+        registro.itens =
+            itens;
+
+
+        mostrarSaidas();
+
+
+    }
+    catch (erro) {
+
+        console.error(
+            "Erro ao alterar quantidade:",
+            erro
+        );
+
+
+        alert(
+            "Não foi possível alterar a quantidade."
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   EXCLUIR PRODUTO DO MÊS
+========================================= */
+
+async function excluirProdutoMes(
+    idProduto
+) {
+
+    const mes =
+        seletorMes.value;
+
+
+    const produto =
+        produtos.find(
+            item =>
+                String(
+                    item.id
+                ) ===
+                String(
+                    idProduto
+                )
+        );
+
+
+    if (!produto) {
+
+        return;
+
+    }
+
+
+    const confirmar =
+        confirm(
+            `Excluir todas as vendas de "${produto.nome}" deste mês?\n\nEssa ação não poderá ser desfeita.`
+        );
+
+
+    if (!confirmar) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const {
+
+            db,
+            doc,
+            updateDoc
+
+        } = window.firebaseHotel;
+
+
+        /*
+            Localiza todos os fechamentos
+            do mês que possuem o produto.
+        */
+
+        const registros =
+            saidasFirebase.filter(
+                saida =>
+                    saida.referenciaMes ===
+                        mes &&
+                    Array.isArray(
+                        saida.itens
+                    ) &&
+                    saida.itens.some(
+                        item =>
+                            String(
+                                item.id
+                            ) ===
+                            String(
+                                idProduto
+                            )
+                    )
+            );
+
+
+        /*
+            Remove somente esse produto
+            de cada fechamento.
+        */
+
+        for (
+            const registro
+            of registros
+        ) {
+
+            const novosItens =
+                registro.itens.filter(
+                    item =>
+                        String(
+                            item.id
+                        ) !==
+                        String(
+                            idProduto
+                        )
+                );
+
+
+            await updateDoc(
+                doc(
+                    db,
+                    "saidas",
+                    registro.id
+                ),
+                {
+                    itens:
+                        novosItens
+                }
+            );
+
+
+            registro.itens =
+                novosItens;
+
+        }
+
+
+        mostrarSaidas();
+
+
+    }
+    catch (erro) {
+
+        console.error(
+            "Erro ao excluir produto:",
+            erro
+        );
+
+
+        alert(
+            "Não foi possível excluir o produto."
+        );
+
+    }
+
+}
 /* =========================================
    TROCAR MÊS
 ========================================= */
