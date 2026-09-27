@@ -1,6 +1,8 @@
 const produtos = [
 
     // ☕ CAFETERIA
+
+    
  {
         id: 151,
         nome: "Pão com manteiga - 1UND",
@@ -16,6 +18,15 @@ const produtos = [
               imagem: "img/pão-manteiga.webp",
         preco: 6.00
     },
+
+     {
+        id: 3,
+        nome: "Café coado",
+        categoria: "Cafeteria",
+              imagem: "img/coado.webp",
+        preco: 8.00
+    },
+
 
 
     {
@@ -34,13 +45,6 @@ const produtos = [
         preco: 9.00
     },
 
-    {
-        id: 3,
-        nome: "Café coado",
-        categoria: "Cafeteria",
-              imagem: "img/coado.webp",
-        preco: 8.00
-    },
 
     {
         id: 4,
