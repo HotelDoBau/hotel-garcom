@@ -38,7 +38,7 @@ const produtos = [
         id: 3,
         nome: "Café coado",
         categoria: "Cafeteria",
-              imagem: "img/cafe-expresso.webp",
+              imagem: "img/coado.webp",
         preco: 8.00
     },
 
