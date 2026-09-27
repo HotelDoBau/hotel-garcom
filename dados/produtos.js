@@ -1189,7 +1189,7 @@ const produtos = [
         id: 150,
         nome: "Café Kopenhagen DolceGusto 50ml",
         categoria: "Cafeteria",
-              imagem: "img/cafe-expresso.webp"
+              imagem: "img/kopen.webp"
         preco: 9.00
     }
 ];
