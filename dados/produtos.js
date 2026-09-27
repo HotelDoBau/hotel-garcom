@@ -1035,7 +1035,7 @@ const produtos = [
         id: 131,
         nome: "Adicional de granola",
         categoria: "Doces",
-              imagem: "img/adcgranola.webo.webp",
+              imagem: "img/adcgranola.webp",
         preco: 3.45
     },
 
@@ -1134,7 +1134,7 @@ const produtos = [
         id: 143,
         nome: "Calabresa fatiada",
         categoria: "Petiscos",
-              imagem: "img/batatarustica.webp",
+              imagem: "img/calabresa.webp",
         preco: 35.00
     },
 
