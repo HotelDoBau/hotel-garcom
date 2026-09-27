@@ -5,7 +5,7 @@ const produtos = [
         id: 151,
         nome: "Pão com manteiga - 1UND",
         categoria: "Cafeteria",
-       imagem: "img/pão-manteiga.webp"
+       imagem: "img/pão-manteiga.webp",
         preco: 3.00
     },
 
@@ -13,7 +13,7 @@ const produtos = [
         id: 152,
         nome: "Pão com manteiga- 2UND",
         categoria: "Cafeteria",
-              imagem: "img/pão-manteiga.webp"
+              imagem: "img/pão-manteiga.webp",
         preco: 6.00
     },
 
@@ -22,7 +22,7 @@ const produtos = [
         id: 1,
         nome: "Café expresso DolceGusto 50ml",
         categoria: "Cafeteria",
-              imagem: "img/espresso.webp"
+              imagem: "img/espresso.webp",
         preco: 9.00
     },
 
@@ -30,7 +30,7 @@ const produtos = [
         id: 2,
         nome: "Café barista DolceGusto 50ml",
         categoria: "Cafeteria",
-              imagem: "img/barista.webp"
+              imagem: "img/barista.webp",
         preco: 9.00
     },
 
@@ -38,7 +38,7 @@ const produtos = [
         id: 3,
         nome: "Café coado",
         categoria: "Cafeteria",
-              imagem: "img/cafe-expresso.webp"
+              imagem: "img/cafe-expresso.webp",
         preco: 8.00
     },
 
@@ -46,7 +46,7 @@ const produtos = [
         id: 4,
         nome: "Café expresso DolceGusto Lungo",
         categoria: "Cafeteria",
-              imagem: "img/lungo.webp"
+              imagem: "img/lungo.webp",
         preco: 9.00
     },
 
@@ -54,7 +54,7 @@ const produtos = [
         id: 5,
         nome: "Café expresso DolceGusto Matinal",
         categoria: "Cafeteria",
-              imagem: "img/matinal.webp"
+              imagem: "img/matinal.webp",
         preco: 9.00
     },
 
@@ -62,7 +62,7 @@ const produtos = [
         id: 6,
         nome: "Café expresso DolceGusto Doppio",
         categoria: "Cafeteria",
-              imagem: "img/doppio.webp"
+              imagem: "img/doppio.webp",
         preco: 9.00
     },
 
@@ -70,7 +70,7 @@ const produtos = [
         id: 7,
         nome: "Expresso Latte Nesquik",
         categoria: "Cafeteria",
-          imagem: "img/nesquik.webp"
+          imagem: "img/nesquik.webp",
         preco: 11.00
     },
 
@@ -78,7 +78,7 @@ const produtos = [
         id: 8,
         nome: "Expresso Latte KitKat",
         categoria: "Cafeteria",
-              imagem: "img/kitkat.webp"
+              imagem: "img/kitkat.webp",
         preco: 11.00
     },
 
@@ -86,7 +86,7 @@ const produtos = [
         id: 9,
         nome: "Expresso Au Lait",
         categoria: "Cafeteria",
-              imagem: "img/au-lait.webp"
+              imagem: "img/au-lait.webp",
         preco: 11.00
     },
 
@@ -94,7 +94,7 @@ const produtos = [
         id: 10,
         nome: "Expresso Latte Tea Chai",
         categoria: "Cafeteria",
-              imagem: "img/tea-chai.webp"
+              imagem: "img/tea-chai.webp",
         preco: 11.00
     },
 
@@ -102,7 +102,7 @@ const produtos = [
         id: 11,
         nome: "Expresso Latte Língua de Gato",
         categoria: "Cafeteria",
-              imagem: "img/lingua-de-gato.webp"
+              imagem: "img/lingua-de-gato.webp",
         preco: 11.00
     },
 
@@ -110,7 +110,7 @@ const produtos = [
         id: 12,
         nome: "Cappuccino Tradicional",
         categoria: "Cafeteria",
-              imagem: "img/cappuccino.webp"
+              imagem: "img/cappuccino.webp",
         preco: 11.00
     },
 
@@ -118,7 +118,7 @@ const produtos = [
         id: 13,
         nome: "Cappuccino Caramelo Salgado",
         categoria: "Cafeteria",
-              imagem: "img/caramelo-salgado.webp"
+              imagem: "img/caramelo-salgado.webp",
         preco: 11.00
     },
 
@@ -126,7 +126,7 @@ const produtos = [
         id: 14,
         nome: "Mochacccino de Canela",
         categoria: "Cafeteria",
-              imagem: "img/mochaccino.webp"
+              imagem: "img/mochaccino.webp",
         preco: 11.00
     },
 
@@ -134,7 +134,7 @@ const produtos = [
         id: 15,
         nome: "Cappuccino Borda de Creme de Avelã",
         categoria: "Cafeteria",
-              imagem: "img/cappuccino-avela.webp"
+              imagem: "img/cappuccino-avela.webp",
         preco: 14.00
     },
 
@@ -142,7 +142,7 @@ const produtos = [
         id: 16,
         nome: "Frappé",
         categoria: "Cafeteria",
-              imagem: "img/frappe.webp"
+              imagem: "img/frappe.webp",
         preco: 14.00
     },
 
@@ -150,7 +150,7 @@ const produtos = [
         id: 17,
         nome: "Affogato",
         categoria: "Cafeteria",
-              imagem: "img/afoggato.webp"
+              imagem: "img/afoggato.webp",
         preco: 12.00
     },
 
@@ -158,7 +158,7 @@ const produtos = [
         id: 18,
         nome: "Café da Manhã - Seg a Sex",
         categoria: "Cafeteria",
-              imagem: "img/cafemanha.webp"
+              imagem: "img/cafemanha.webp",
         preco: 35.00
     },
 
@@ -166,7 +166,7 @@ const produtos = [
         id: 19,
         nome: "Café da Manhã - Sáb, Dom e feriado",
         categoria: "Cafeteria",
-              imagem: "img/cafemanha.webp"
+              imagem: "img/cafemanha.webp",
         preco: 44.00
     },
 
@@ -177,7 +177,7 @@ const produtos = [
         id: 21,
         nome: "Salgado assado pão de batata de frango",
         categoria: "Salgados",
-              imagem: "img/paobatatafrango.webp"
+              imagem: "img/paobatatafrango.webp",
         preco: 7.50
     },
 
@@ -185,7 +185,7 @@ const produtos = [
         id: 22,
         nome: "Salgado assado pão de batata presunto e queijo",
         categoria: "Salgados",
-              imagem: "img/paobatatapresunto.webp"
+              imagem: "img/paobatatapresunto.webp",
         preco: 7.50
     },
 
@@ -193,7 +193,7 @@ const produtos = [
         id: 23,
         nome: "Salgado assado kibe recheado com queijo",
         categoria: "Salgados",
-              imagem: "img/kibe.webp"
+              imagem: "img/kibe.webp",
         preco: 7.50
     },
     
@@ -203,14 +203,14 @@ const produtos = [
     id: 25,
     nome: "Salgado de Pernil com muçarela",
     categoria: "Salgados",
-          imagem: "img/baurupernil.webp"
+          imagem: "img/baurupernil.webp",
     preco: 7.50
 },
     {
         id: 26,
         nome: "Salgado assado esfiha de carne",
         categoria: "Salgados",
-              imagem: "img/esfirracarne.webp"
+              imagem: "img/esfirracarne.webp",
         preco: 7.50
     },
 
@@ -218,7 +218,7 @@ const produtos = [
         id: 27,
         nome: "Salgado assado esfiha de frango",
         categoria: "Salgados",
-              imagem: "img/esfirrafrango.webp"
+              imagem: "img/esfirrafrango.webp",
         preco: 7.50
     },
 
@@ -226,7 +226,7 @@ const produtos = [
         id: 29,
         nome: "Salgado assado presunto e queijo",
         categoria: "Salgados",
-              imagem: "img/mistinho.webp"
+              imagem: "img/mistinho.webp",
         preco: 7.50
     },
 
@@ -234,7 +234,7 @@ const produtos = [
         id: 30,
         nome: "Salgado assado X-Burguer com bacon",
         categoria: "Salgados",
-              imagem: "img/hamburguer.webp"
+              imagem: "img/hamburguer.webp",
         preco: 10.00
     },
 
@@ -243,7 +243,7 @@ const produtos = [
         id: 33,
         nome: "Croissant de chocolate",
         categoria: "Salgados",
-              imagem: "img/croissantchocolate.webp"
+              imagem: "img/croissantchocolate.webp",
         preco: 7.50
     },
 
@@ -251,7 +251,7 @@ const produtos = [
         id: 34,
         nome: "Croissant de doce de leite",
         categoria: "Salgados",
-              imagem: "img/croissantdocedeleite.webp"
+              imagem: "img/croissantdocedeleite.webp",
         preco: 7.50
     },
 
@@ -262,7 +262,7 @@ const produtos = [
         id: 35,
         nome: "Lanche de carne louca",
         categoria: "Lanches",
-              imagem: "img/carnelouca.webp"
+              imagem: "img/carnelouca.webp",
         preco: 23.00
     },
 
@@ -270,7 +270,7 @@ const produtos = [
         id: 36,
         nome: "Lanche de ragu",
         categoria: "Lanches",
-              imagem: "img/ragu.webp"
+              imagem: "img/ragu.webp",
         preco: 25.00
     },
 
@@ -278,7 +278,7 @@ const produtos = [
         id: 37,
         nome: "Lanche de frango empanado",
         categoria: "Lanches",
-              imagem: "img/lanchefrango.webp"
+              imagem: "img/lanchefrango.webp",
         preco: 22.00
     },
 
@@ -286,7 +286,7 @@ const produtos = [
         id: 38,
         nome: "Lanche natural",
         categoria: "Lanches",
-              imagem: "img/lanchenatural.webp"
+              imagem: "img/lanchenatural.webp",
         preco: 14.00
     },
 
@@ -294,7 +294,7 @@ const produtos = [
         id: 39,
         nome: "Misto quente de queijo",
         categoria: "Lanches",
-              imagem: "img/misto.webp"
+              imagem: "img/misto.webp",
         preco: 15.00
     },
 
@@ -302,7 +302,7 @@ const produtos = [
         id: 40,
         nome: "Misto quente presunto e queijo",
         categoria: "Lanches",
-              imagem: "img/misto.webp"
+              imagem: "img/misto.webp",
         preco: 15.00
     },
 
@@ -310,7 +310,7 @@ const produtos = [
         id: 41,
         nome: "Misto quente salame e queijo",
         categoria: "Lanches",
-              imagem: "img/misto.webp"
+              imagem: "img/misto.webp",
         preco: 15.00
     },
 
@@ -321,7 +321,7 @@ const produtos = [
         id: 42,
         nome: "Nhoque com molho vermelho",
         categoria: "Pratos feitos",
-              imagem: "img/nhoquevermelho.webp"
+              imagem: "img/nhoquevermelho.webp",
         preco: 19.90
     },
 
@@ -329,7 +329,7 @@ const produtos = [
         id: 43,
         nome: "Nhoque com molho bechamel",
         categoria: "Pratos feitos",
-              imagem: "img/nhoquebranco.webp"
+              imagem: "img/nhoquebranco.webp",
         preco: 19.90
     },
 
@@ -337,7 +337,7 @@ const produtos = [
         id: 44,
         nome: "Salada Grande",
         categoria: "Pratos feitos",
-              imagem: "img/salada.webp"
+              imagem: "img/salada.webp",
         preco: 10.00
     },
 
@@ -345,7 +345,7 @@ const produtos = [
         id: 45,
         nome: "Arroz biro-biro",
         categoria: "Pratos feitos",
-              imagem: "img/birobiro.webp"
+              imagem: "img/birobiro.webp",
         preco: 21.90
     },
 
@@ -353,7 +353,7 @@ const produtos = [
         id: 46,
         nome: "Arroz carreteiro light",
         categoria: "Pratos feitos",
-              imagem: "img/carreteiro.webp"
+              imagem: "img/carreteiro.webp",
         preco: 29.90
     },
 
@@ -361,7 +361,7 @@ const produtos = [
         id: 47,
         nome: "Estrogonofe de frango",
         categoria: "Pratos feitos",
-              imagem: "img/estrogonofedefrango.webp"
+              imagem: "img/estrogonofedefrango.webp",
         preco: 27.90
     },
 
@@ -369,7 +369,7 @@ const produtos = [
         id: 48,
         nome: "Estrogonofe de carne",
         categoria: "Pratos feitos",
-              imagem: "img/estrogonofedecarne.webp"
+              imagem: "img/estrogonofedecarne.webp",
         preco: 29.90
     },
 
@@ -377,21 +377,21 @@ const produtos = [
         id: 49,
         nome: "Arroz com feijão e frango empanado",
         categoria: "Pratos feitos",
-              imagem: "img/pffrango.webp"
+              imagem: "img/pffrango.webp",
         preco: 21.90
     },
 {
     id: 50,
     nome: "Prato de cupim",
     categoria: "Pratos feitos",
-          imagem: "img/cupim.webp"
+          imagem: "img/cupim.webp",
     preco: 29.90
 },
     {
     id: 51,
     nome: "Arroz com feijão e ragú",
     categoria: "Pratos feitos",
-          imagem: "img/pfragu.webp"
+          imagem: "img/pfragu.webp",
     preco: 22.90
 },
 
@@ -399,7 +399,7 @@ const produtos = [
     id: 52,
     nome: "Arroz com feijão e lagarto",
     categoria: "Pratos feitos",
-          imagem: "img/pflagarto.webp"
+          imagem: "img/pflagarto.webp",
     preco: 22.90
 },
 
@@ -407,14 +407,14 @@ const produtos = [
         id: 53,
         nome: "Arroz com feijão e ovo",
         categoria: "Pratos feitos",
-              imagem: "img/arrozovo.webp"
+              imagem: "img/arrozovo.webp",
         preco: 19.90
     },
 {
     id: 54,
     nome: "Omelete simples",
     categoria: "Pratos feitos",
-          imagem: "img/omelete.webp"
+          imagem: "img/omelete.webp",
     preco: 10.00
 },
 
@@ -422,7 +422,7 @@ const produtos = [
     id: 55,
     nome: "Omelete super presunto e queijo",
     categoria: "Pratos feitos",
-          imagem: "img/omeletepresunto.webp"
+          imagem: "img/omeletepresunto.webp",
     preco: 22.00
 },
 
@@ -430,7 +430,7 @@ const produtos = [
     id: 56,
     nome: "Omelete super salame e queijo",
     categoria: "Pratos feitos",
-          imagem: "img/salame.webp"
+          imagem: "img/salame.webp",
     preco: 22.00
 },
 
@@ -438,7 +438,7 @@ const produtos = [
     id: 57,
     nome: "Omelete super com queijo",
     categoria: "Pratos feitos",
-          imagem: "img/omeletequeijo.webp"
+          imagem: "img/omeletequeijo.webp",
     preco: 22.00
 },
 
@@ -446,7 +446,7 @@ const produtos = [
     id: 58,
     nome: "Caldo de carne",
     categoria: "Pratos feitos",
-          imagem: "img/caldocarne.webp"
+          imagem: "img/caldocarne.webp",
     preco: 21.90
 },
 
@@ -454,7 +454,7 @@ const produtos = [
     id: 59,
     nome: "Canja",
     categoria: "Pratos feitos",
-          imagem: "img/canja.webp"
+          imagem: "img/canja.webp",
     preco: 19.90
 },
 
@@ -513,7 +513,7 @@ const produtos = [
     id: 66,
     nome: "Suco de Polpa 1L - Frutas vermelhas",
     categoria: "Bebidas",
-          imagem: "img/frutasvermelhas.webp"
+          imagem: "img/frutasvermelhas.webp",
     preco: 21.00
 },
 
@@ -521,7 +521,7 @@ const produtos = [
     id: 67,
     nome: "Suco de Polpa 1L - Acerola",
     categoria: "Bebidas",
-          imagem: "img/acerola.webp"
+          imagem: "img/acerola.webp",
     preco: 21.00
 },
 
@@ -529,7 +529,7 @@ const produtos = [
     id: 68,
     nome: "Suco de Polpa 1L - Abacaxi",
     categoria: "Bebidas",
-          imagem: "img/abacaxi.webp"
+          imagem: "img/abacaxi.webp",
     preco: 21.00
 },
 
@@ -537,7 +537,7 @@ const produtos = [
     id: 69,
     nome: "Suco de Polpa 1L - Amora",
     categoria: "Bebidas",
-          imagem: "img/amora.webp"
+          imagem: "img/amora.webp",
     preco: 21.00
 },
 
@@ -545,7 +545,7 @@ const produtos = [
     id: 70,
     nome: "Suco de Polpa 1L - Maracujá",
     categoria: "Bebidas",
-          imagem: "img/maracuja.webp"
+          imagem: "img/maracuja.webp",
     preco: 21.00
 },
 
@@ -553,7 +553,7 @@ const produtos = [
     id: 71,
     nome: "Suco de Polpa 1L - Graviola",
     categoria: "Bebidas",
-          imagem: "img/graviola.webp"
+          imagem: "img/graviola.webp",
     preco: 21.00
 },
     
@@ -561,7 +561,7 @@ const produtos = [
     id: 72,
     nome: "Suco de Polpa 500ml - Frutas Vermelhas",
     categoria: "Bebidas",
-          imagem: "img/frutasvermelhas.webp"
+          imagem: "img/frutasvermelhas.webp",
     preco: 12.00
 },
 
@@ -569,7 +569,7 @@ const produtos = [
     id: 73,
     nome: "Suco de Polpa 500ml - Acerola",
     categoria: "Bebidas",
-          imagem: "img/acerola.webp"
+          imagem: "img/acerola.webp",
     preco: 12.00
 },
 
@@ -577,7 +577,7 @@ const produtos = [
     id: 74,
     nome: "Suco de Polpa 500ml - Abacaxi",
     categoria: "Bebidas",
-          imagem: "img/abacaxi.webp"
+          imagem: "img/abacaxi.webp",
     preco: 12.00
 },
 
@@ -585,7 +585,7 @@ const produtos = [
     id: 75,
     nome: "Suco de Polpa 500ml - Amora",
     categoria: "Bebidas",
-          imagem: "img/amora.webp"
+          imagem: "img/amora.webp",
     preco: 12.00
 },
 
@@ -593,7 +593,7 @@ const produtos = [
     id: 76,
     nome: "Suco de Polpa 500ml - Maracujá",
     categoria: "Bebidas",
-          imagem: "img/maracuja.webp"
+          imagem: "img/maracuja.webp",
     preco: 12.00
 },
 
@@ -601,7 +601,7 @@ const produtos = [
     id: 77,
     nome: "Suco de Polpa 500ml - Graviola",
     categoria: "Bebidas",
-          imagem: "img/graviola.webp"
+          imagem: "img/graviola.webp",
     preco: 12.00
 },
     
@@ -837,63 +837,63 @@ const produtos = [
     id: 106,
     nome: "Cachaça (dose 50ml)",
     categoria: "Cervejas e Vinhos",
-          imagem: "img/dose.webp"
+          imagem: "img/dose.webp",
     preco: 17.00
 },
 {
     id: 107,
     nome: "Cachaça Premium (dose 50ml)",
     categoria: "Cervejas e Vinhos",
-          imagem: "img/dose.webp"
+          imagem: "img/dose.webp",
     preco: 22.00
 },
 {
     id: 108,
     nome: "Licores (dose 50ml)",
     categoria: "Cervejas e Vinhos",
-          imagem: "img/dose.webp"
+          imagem: "img/dose.webp",
     preco: 32.00
 },
 {
     id: 109,
     nome: "Whisky (dose 50ml)",
     categoria: "Cervejas e Vinhos",
-          imagem: "img/dose.webp"
+          imagem: "img/dose.webp",
     preco: 35.00
 },
 {
     id: 110,
     nome: "Gin (dose 50ml)",
     categoria: "Cervejas e Vinhos",
-          imagem: "img/dose.webp"
+          imagem: "img/dose.webp",
     preco: 23.00
 },
 {
     id: 111,
     nome: "Tequila (dose 50ml)",
     categoria: "Cervejas e Vinhos",
-          imagem: "img/dose.webp"
+          imagem: "img/dose.webp",
     preco: 18.00
 },
 {
     id: 112,
     nome: "Vermute (dose 50ml)",
     categoria: "Cervejas e Vinhos",
-          imagem: "img/dose.webp"
+          imagem: "img/dose.webp",
     preco: 19.00
 },
 {
     id: 113,
     nome: "Vodca (dose 50ml)",
     categoria: "Cervejas e Vinhos",
-          imagem: "img/dose.webp"
+          imagem: "img/dose.webp",
     preco: 23.00
 },
 {
     id: 114,
     nome: "Vinho (dose 50ml)",
     categoria: "Cervejas e Vinhos",
-          imagem: "img/dose.webp"
+          imagem: "img/dose.webp",
     preco: 19.00
 },
 
@@ -940,7 +940,7 @@ const produtos = [
     id: 120,
     nome: "Marmita para Viagem",
     categoria: "Adicionais",
-          imagem: "img/marmita.webp"
+          imagem: "img/marmita.webp",
     preco: 1.50
 },
     
@@ -948,7 +948,7 @@ const produtos = [
         id: 121,
         nome: "Porção de arroz",
         categoria: "Adicionais",
-              imagem: "img/adcarroz.webp"
+              imagem: "img/adcarroz.webp",
         preco: 8.00
     },
 
@@ -956,7 +956,7 @@ const produtos = [
         id: 122,
         nome: "Porção de feijão",
         categoria: "Adicionais",
-              imagem: "img/adcfeijao.webp"
+              imagem: "img/adcfeijao.webp",
         preco: 8.00
     },
 
@@ -964,7 +964,7 @@ const produtos = [
         id: 123,
         nome: "Porçã de lagarto",
         categoria: "Adicionais",
-              imagem: "img/adclagarto.webp"
+              imagem: "img/adclagarto.webp",
         preco: 13.00
     },
 
@@ -972,7 +972,7 @@ const produtos = [
         id: 124,
         nome: "Porção de ragú",
         categoria: "Adicionais",
-              imagem: "img/adcragu.webp"
+              imagem: "img/adcragu.webp",
         preco: 13.00
     },
 
@@ -980,7 +980,7 @@ const produtos = [
         id: 125,
         nome: "Adicional de cupim",
         categoria: "Adicionais",
-              imagem: "img/adccupim.webp"
+              imagem: "img/adccupim.webp",
         preco: 16.00
     },
 
@@ -988,7 +988,7 @@ const produtos = [
         id: 126,
         nome: "Adicional de ovo frito",
         categoria: "Adicionais",
-              imagem: "img/adcovo.webp"
+              imagem: "img/adcovo.webp",
         preco: 1.70
     },
 
@@ -996,7 +996,7 @@ const produtos = [
         id: 127,
         nome: "Adicional de tomate",
         categoria: "Adicionais",
-              imagem: "img/adctomate.webp"
+              imagem: "img/adctomate.webp",
         preco: 0.80
     },
 
@@ -1004,7 +1004,7 @@ const produtos = [
         id: 128,
         nome: "Adicional de cebola",
         categoria: "Adicionais",
-              imagem: "img/adccebola.webp"
+              imagem: "img/adccebola.webp",
         preco: 0.90
     },
 
@@ -1012,7 +1012,7 @@ const produtos = [
         id: 129,
         nome: "Adicional de mussarela",
         categoria: "Adicionais",
-              imagem: "img/adcmussarela.webp"
+              imagem: "img/adcmussarela.webp",
         preco: 1.50
     },
 
@@ -1023,7 +1023,7 @@ const produtos = [
         id: 130,
         nome: "Salada de frutas",
         categoria: "Doces",
-              imagem: "img/saladadefrutas.webp"
+              imagem: "img/saladadefrutas.webp",
         preco: 10.00
     },
 
@@ -1031,7 +1031,7 @@ const produtos = [
         id: 131,
         nome: "Adicional de granola",
         categoria: "Doces",
-              imagem: "img/adcgranola.webo.webp"
+              imagem: "img/adcgranola.webo.webp",
         preco: 3.45
     },
 
@@ -1039,7 +1039,7 @@ const produtos = [
         id: 132,
         nome: "Adicional de iogurte",
         categoria: "Doces",
-              imagem: "img/adciogurte.webp"
+              imagem: "img/adciogurte.webp",
         preco: 1.70
     },
 
@@ -1047,7 +1047,7 @@ const produtos = [
         id: 133,
         nome: "Adicional de leite condensado",
         categoria: "Doces",
-              imagem: "img/adcleitecond.webp"
+              imagem: "img/adcleitecond.webp",
         preco: 2.00
     },
 
@@ -1055,7 +1055,7 @@ const produtos = [
         id: 134,
         nome: "Adicional de mel",
         categoria: "Doces",
-              imagem: "img/adcmel.webp"
+              imagem: "img/adcmel.webp",
         preco: 2.20
     },
 
@@ -1063,7 +1063,7 @@ const produtos = [
         id: 135,
         nome: "Adicional de geleia",
         categoria: "Doces",
-              imagem: "img/adcgeleia.webp"
+              imagem: "img/adcgeleia.webp",
         preco: 1.50
     },
 
@@ -1071,7 +1071,7 @@ const produtos = [
         id: 136,
         nome: "Bolo do dia",
         categoria: "Doces",
-              imagem: "img/bolododia.webp"
+              imagem: "img/bolododia.webp",
         preco: 5.00
     },
 
@@ -1079,7 +1079,7 @@ const produtos = [
         id: 137,
         nome: "Pudim de leite",
         categoria: "Doces",
-              imagem: "img/pudim.webp"
+              imagem: "img/pudim.webp",
         preco: 7.00
     },
 
@@ -1087,7 +1087,7 @@ const produtos = [
         id: 138,
         nome: "Banoffe",
         categoria: "Doces",
-              imagem: "img/banoffe.webp"
+              imagem: "img/banoffe.webp",
         preco: 9.00
     },
 
@@ -1095,7 +1095,7 @@ const produtos = [
         id: 139,
         nome: "Bolo gelado de coco",
         categoria: "Doces",
-              imagem: "img/bologelado.webp"
+              imagem: "img/bologelado.webp",
         preco: 10.00
     },
 
@@ -1103,7 +1103,7 @@ const produtos = [
         id: 140,
         nome: "Bolo gelado com sorvete",
         categoria: "Doces",
-              imagem: "img/bologelado.webp"
+              imagem: "img/bologelado.webp",
         preco: 14.00
     },
 
@@ -1111,7 +1111,7 @@ const produtos = [
         id: 141,
         nome: "Bolo gelado completo",
         categoria: "Doces",
-              imagem: "img/bologelado.webp"
+              imagem: "img/bologelado.webp",
         preco: 17.00
     },
 
@@ -1122,7 +1122,7 @@ const produtos = [
         id: 142,
         nome: "Batata rústica",
         categoria: "Petiscos",
-              imagem: "img/batatarustica.webp"
+              imagem: "img/batatarustica.webp",
         preco: 33.00
     },
 
@@ -1130,7 +1130,7 @@ const produtos = [
         id: 143,
         nome: "Calabresa fatiada",
         categoria: "Petiscos",
-              imagem: "img/batatarustica.webp"
+              imagem: "img/batatarustica.webp",
         preco: 35.00
     },
 
@@ -1138,7 +1138,7 @@ const produtos = [
         id: 144,
         nome: "Pote de salgadinho",
         categoria: "Petiscos",
-              imagem: "img/salgadinho.webp"
+              imagem: "img/salgadinho.webp",
         preco: 4.00
     },
 
@@ -1149,7 +1149,7 @@ const produtos = [
         id: 145,
         nome: "Laranjinha",
         categoria: "Drinks",
-              imagem: "img/laranjinha.webp"
+              imagem: "img/laranjinha.webp",
         preco: 33.00
     },
 
@@ -1157,7 +1157,7 @@ const produtos = [
         id: 146,
         nome: "Mayra Amou",
         categoria: "Drinks",
-              imagem: "img/mayraamou.webp"
+              imagem: "img/mayraamou.webp",
         preco: 35.00
     },
 
@@ -1165,7 +1165,7 @@ const produtos = [
         id: 147,
         nome: "Gente Fina",
         categoria: "Drinks",
-              imagem: "img/gentefina.webp"
+              imagem: "img/gentefina.webp",
         preco: 31.00
     },
 
@@ -1173,7 +1173,7 @@ const produtos = [
         id: 148,
         nome: "Coice de mula",
         categoria: "Drinks",
-              imagem: "img/moscowmule.webp"
+              imagem: "img/moscowmule.webp",
         preco: 37.00
     },
 
@@ -1181,7 +1181,7 @@ const produtos = [
         id: 149,
         nome: "Seu Geraldo",
         categoria: "Drinks",
-              imagem: "img/fitzgerald.webp"
+              imagem: "img/fitzgerald.webp",
         preco: 32.00
     },
 
@@ -1189,7 +1189,7 @@ const produtos = [
         id: 150,
         nome: "Café Kopenhagen DolceGusto 50ml",
         categoria: "Cafeteria",
-              imagem: "img/kopen.webp"
+              imagem: "img/kopen.webp",
         preco: 9.00
     }
 ];
