@@ -620,10 +620,10 @@ const produtos = [
 
    {
     id: 79,
-    nome: "Suco Nativo Frutas Cítricas",
+    nome: "Suco Nativo Uva",
     categoria: "Bebidas",
     preco: 4.00,
-    imagem: "img/nativocitricas.webp"
+    imagem: "img/suco-nativo-uva.webp"
 },
 
     {
