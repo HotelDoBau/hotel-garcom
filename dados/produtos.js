@@ -345,6 +345,15 @@ const produtos = [
         preco: 10.00
     },
 
+     {
+        id: 153,
+        nome: "Salada Pequena",
+        categoria: "Pratos feitos",
+              imagem: "img/salada.webp",
+        preco: 5.00
+    },
+
+
     {
         id: 45,
         nome: "Arroz biro-biro",
