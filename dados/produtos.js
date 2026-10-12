@@ -175,23 +175,23 @@ const produtos = [
     },
 
     {
-        id: 1800,
+        id: 154,
         nome: "Café da Manhã Infantil - Seg a Sex",
         categoria: "Cafeteria",
               imagem: "img/cafemanha.webp",
-        preco: 00.00
+        preco: 0.00
     },
 
         {
-        id: 1900,
+        id: 153,
         nome: "Café da Manhã Infantil - Sáb, Dom e feriado",
         categoria: "Cafeteria",
               imagem: "img/cafemanha.webp",
-        preco: 00.00
+        preco: 0.00
     },
 
     {
-        id: 1801,
+        id: 155,
         nome: "Café da Manhã Criança - Seg a Sex",
         categoria: "Cafeteria",
               imagem: "img/cafemanha.webp",
@@ -199,7 +199,7 @@ const produtos = [
     },
 
         {
-        id: 1901,
+        id: 156,
         nome: "Café da Manhã - Sáb, Dom e feriado",
         categoria: "Cafeteria",
               imagem: "img/cafemanha.webp",
