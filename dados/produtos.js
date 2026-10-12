@@ -174,6 +174,37 @@ const produtos = [
         preco: 44.00
     },
 
+    {
+        id: 1800,
+        nome: "Café da Manhã Infantil - Seg a Sex",
+        categoria: "Cafeteria",
+              imagem: "img/cafemanha.webp",
+        preco: 00.00
+    },
+
+        {
+        id: 1900,
+        nome: "Café da Manhã Infantil - Sáb, Dom e feriado",
+        categoria: "Cafeteria",
+              imagem: "img/cafemanha.webp",
+        preco: 00.00
+    },
+
+    {
+        id: 1801,
+        nome: "Café da Manhã Criança - Seg a Sex",
+        categoria: "Cafeteria",
+              imagem: "img/cafemanha.webp",
+        preco: 17.50
+    },
+
+        {
+        id: 1901,
+        nome: "Café da Manhã - Sáb, Dom e feriado",
+        categoria: "Cafeteria",
+              imagem: "img/cafemanha.webp",
+        preco: 22.00
+    },
 
     // 🥐 SALGADOS
 
