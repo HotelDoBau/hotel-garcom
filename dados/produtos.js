@@ -200,7 +200,7 @@ const produtos = [
 
         {
         id: 156,
-        nome: "Café da Manhã - Sáb, Dom e feriado",
+        nome: "Café da Manhã Criança - Sáb, Dom e feriado",
         categoria: "Cafeteria",
               imagem: "img/cafemanha.webp",
         preco: 22.00
